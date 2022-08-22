@@ -1,0 +1,41 @@
+﻿/Distancia Manhattan
+/ |x1 - x2| + |y1 - y2|
+/Guardamos x1, y1, x2 y y2 respectivamente
+Input
+Store x1
+Input
+Store y1
+Input
+Store x2
+Input
+Store y2
+	
+ /|X1-X2|
+Load x1
+Subt x2 		/X1-X2
+Store tempX
+Skipcond 000	/Si la resta da negativo
+Jump @next
+Load x2			/Cambiamos el orden de los operandos para obtener un valor positivo
+Subt x1			/X2-X1
+Store tempX
+
+@next, Load y1
+Subt y2			/Y1-Y2
+Skipcond 000	/Si la resta da negativo
+Jump @end
+Load y2			/Cambiamos el orden de los operandos para obtener un valor positivo 
+Subt y1			/Y2-Y1
+@end, Store tempY	
+Add tempX		/Sumamos ambos resultados (Rx+Ry)
+Store distance	
+Output
+Halt
+
+distance, 	DEC 0
+tempX, 		DEC 0
+tempY, 		DEC 0
+x1, 		DEC 0
+x2, 		DEC 0
+y1, 		DEC 0
+y2, 		DEC 0

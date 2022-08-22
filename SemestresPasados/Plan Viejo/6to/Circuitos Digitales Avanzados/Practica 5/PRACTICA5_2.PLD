@@ -1,0 +1,73 @@
+Name practica5_2;
+Partno 1253171;
+Date 12/11/20;
+Revision 01;
+Designer CDA;
+Company UABC;
+Assembly None;
+Location None;
+Device g22v10;
+
+/**INPUT**/
+PIN 1 = CLK;
+PIN 2 = X;
+
+/**OUTPUT**/
+PIN 20 = QC;
+PIN 21 = QB;
+PIN 22 = QA;
+
+PIN 19 = Z1;
+PIN 18 = Z2;
+
+Z1 = QC&!QB&!QA;
+Z2 = QC&QB&QA; 
+
+/**ESTADOS**/
+$DEFINE s0 0 
+$DEFINE s1 1
+$DEFINE s2 2
+$DEFINE s3 3
+$DEFINE s4 4
+$DEFINE s5 5
+$DEFINE s6 6
+$DEFINE s7 7
+
+
+/**MAQUINA DE ESTADOS**/
+
+FIELD input = [QC,QB,QA];
+
+SEQUENCE input
+{
+PRESENT s0
+    IF X NEXT s1; 
+    DEFAULT NEXT s0;
+PRESENT s1
+    IF X NEXT s5; 
+    DEFAULT NEXT s2;
+PRESENT s2
+    IF X NEXT s3; 
+    DEFAULT NEXT s0;
+PRESENT s3
+    IF X NEXT s4;
+    DEFAULT NEXT s2;
+PRESENT s4
+    IF X NEXT s5;
+    DEFAULT NEXT s6;
+PRESENT s5
+    IF X NEXT s5;
+    DEFAULT NEXT s6;
+PRESENT s6
+    IF X NEXT s7;
+    DEFAULT NEXT s0;
+PRESENT s7
+    IF X NEXT s5;
+    DEFAULT NEXT s2;
+}
+
+
+
+
+
+

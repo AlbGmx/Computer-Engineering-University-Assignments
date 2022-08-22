@@ -1,0 +1,45 @@
+﻿/ShLN Rutina que recorre AC a la izquierda N veces
+/Variables limit8 y limit4 son para poder comprobar los bits mas significativos (8000h y 4000h)
+Input
+Store x		/Valor a modificar
+Input
+Store n		/En "N" ponemos el numero de corrimientos en este caso el valor introducido por el usuario
+Load x
+JnS ShLN	/ Hacer N corrimientos a la izquierda al acumulador
+Output
+Halt
+
+/Subrutina N corrimientos a la izquierda que equivale a multiplicar por 2, N veces
+ShLN, 	HEX 000
+		Store x 	/Utilizamos a "X" para guardar el registro acumulador
+Loop, 	Load x
+		Skipcond 000 	/Revisamos el bit mas significativo para evitar problemas de overflow
+		Jump test4		/Tambien revisamos el segundo bit mas significativo ya que al recorrerlo a la izq, tambien mandaria error de overflow
+		Subt limit8		/Eliminamos el MSB
+		Store x			/Guardamos el valor x modificado
+test4, 	Load x			/Cargamos el valor x para revisar el segundo MSB
+		Subt limit4		/Si x >= 4000(HEX), activamos el MSB, ya que al hacer el desplazazmiento se activaria y mandaria error
+		Skipcond 000	/Si x-4000h es negativo
+        Jump continue	
+		Jump normal		/El numero no causa error y puede ser desplazado con normalidad
+continue,	Store x 	
+		Add x
+        Add limit8		/Activamos el MSB manualmente
+		Jump end
+normal,	Load x			/Desplazamos con normalidad
+		Add x
+end,	Store x 		/Guardamos el valor modificado
+	 	Load n			/Decrementamos el contador
+		Subt ONE
+		Store n
+       	Skipcond 800	/Si y es mayor a 0 saltamos la instruccion
+       	Jump Return2AC	/  Terminar ciclo
+       	Jump Loop		/  Repetir el ciclo
+Return2AC,	Load x		/Regresamos el valor modificado al acumulador
+		JumpI ShLN		/Terminar subrutina
+            
+limit4, HEX 4000
+limit8,	HEX 8000
+ONE, dec 1
+x, dec 0
+n, dec 0

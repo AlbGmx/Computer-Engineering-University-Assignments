@@ -1,0 +1,26 @@
+Name     Name;
+PartNo   1253171;
+Date     28/05/2021;
+Revision 01;
+Designer Engineer;
+Company  UABC;
+Assembly None;
+Location None;
+Device   g22v10;
+
+
+ORDER: A, B, C, CLK, D, DIR, STEP, input; 
+
+
+VECTORS:
+*H*1*11****
+***0*11****
+***1*11****
+***0*11****
+***1*01****
+***0*10****
+***1*10****
+***0*10****
+***1*00****
+***0*01****
+***1*00****

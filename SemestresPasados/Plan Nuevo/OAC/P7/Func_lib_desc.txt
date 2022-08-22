@@ -1,0 +1,59 @@
+;**********************************************************************
+; Rutina: clrscr
+; Descripcion: borra pantalla haciendo uso de la secuencia de escape
+;              ESC[H ESC[2J soportada por las terminales.
+;
+;              ESC[H  --> home
+;              ESC[2J --> clear entire screen
+;
+; Parametros:
+;    Entrada:  ninguno
+;    Salida:   ninguno
+;**********************************************************************
+; Rutina: gotoxy
+; Descripcion: posiciona el cursor en la posicion X,Y dada por BH,BL
+;              haciendo uso de la secuencia de escape correspondiente
+;
+;             ESC[{line};{column}f  donde line es Y (BL) y column es X(BH)
+;
+; Parametros:
+;    Entrada:  BH posicion  x (columna)
+;              BL posicion  y (renglon)
+;    Salida:   ninguno
+;**********************************************************************
+; Rutina: putchar
+; Descripcion: procedimiento que desplegar un caracter en pantalla
+;              en la posición actual del cursor haciendo uso de la
+;              int 80h del S.O. con servicio de 4 (escritura a standard out).
+;        Nota: el cursos es actualizado a la siguiente posicion
+;
+; Parametros:
+;    Entrada:  AL contiene el caracter a desplegar
+;    Salida:
+;**********************************************************************
+; Rutina: puts
+; Descripcion: Despliega una cadena  terminada en 0 (null) haciendo
+;              uso del procedimiento putchar
+;
+;  Parametros:
+;     Entrada:  edx  contiene el aputador a la cadena a imprimir
+;      Salida:  ninguno
+;**********************************************************************
+; Rutina: getche
+; Descripcion: procedimiento que leer un caracter del teclado haciendo
+;              uso del servio 3 (lectura) del S.O.
+;        Nota: 1) La ejecución del programa se queda en espera de la tecla
+;              2) Se muestra el caracter tecleado en pantalla
+; Parametros:
+;    Entrada:
+;    Salida:   AL contiene el caracter tecleado
+;**********************************************************************
+; Rutina: getch
+; Descripcion: procedimiento que leer un caracter del teclado haciendo
+;              uso del servio 3 (lectura) del S.O.
+;        Nota: 1) La ejecución del programa se queda en espera de la tecla
+;              2) No se muestra el caracter tecleado en pantalla
+; Parametros:
+;    Entrada:
+;    Salida:   AL contiene el caracter tecleado
+;**********************************************************************
