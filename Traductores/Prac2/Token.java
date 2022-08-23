@@ -1,3 +1,5 @@
+package Prac2;
+
 
 public class Token {
    public int type;

@@ -1,3 +1,5 @@
+package Prac2;
+
 public class Test {
    public static void main(String[] args) {
       Listlexer lexer = new Listlexer("[a,b,c,d]");

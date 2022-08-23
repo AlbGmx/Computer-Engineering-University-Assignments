@@ -1,3 +1,4 @@
+package Prac2;
 
 public class Listlexer extends Lexer {
    public static int NAME = 2;   

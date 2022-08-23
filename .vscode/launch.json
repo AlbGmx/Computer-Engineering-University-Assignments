@@ -5,6 +5,20 @@
          "type": "java",
          "name": "Launch Test",
          "request": "launch",
+         "mainClass": "Prac2.Test",
+         "projectName": "uabc-1_9e251277"
+      },
+      {
+         "type": "java",
+         "name": "Launch Main",
+         "request": "launch",
+         "mainClass": "Main",
+         "projectName": "uabc-1_9e251277"
+      },
+      {
+         "type": "java",
+         "name": "Launch Test",
+         "request": "launch",
          "mainClass": "Test",
          "projectName": "UABC_e6080aaf"
       },
