@@ -3,6 +3,13 @@
    "configurations": [
       {
          "type": "java",
+         "name": "Launch PseudoCompiler",
+         "request": "launch",
+         "mainClass": "PseudoCompiler",
+         "projectName": "UABC_e6080aaf"
+      },
+      {
+         "type": "java",
          "name": "Launch Test",
          "request": "launch",
          "mainClass": "Prac2.Test",
