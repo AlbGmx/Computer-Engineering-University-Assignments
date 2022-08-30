@@ -1,6 +1,3 @@
-from re import I
-
-
 odd= lambda x:3*x+1
 even= lambda x:x/2
 def collatz(n):
