@@ -27,5 +27,10 @@
     "**/.*/**",
     "**/.vscode",
     "**/.vscode/**"
+  ],
+  "java.project.sourcePaths": [
+    "Traductores/Prac5",
+    "Traductores/Prac3",
+    "Traductores/Prac4"
   ]
 }
