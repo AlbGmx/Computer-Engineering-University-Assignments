@@ -8,7 +8,7 @@ public class Token {
     }
 
     public String toString() {
-        String tname = LookaheadLexer.tokenNames[type];
+        String tname = ListLexer.tokenNames[type];
         return "<'" + text + "'," + tname + ">";
     }
 }
