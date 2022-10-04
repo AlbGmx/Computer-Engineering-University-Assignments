@@ -63,8 +63,8 @@ print("PROBLEM")
 show(state)
 tree = Tree(state)
 #result = tree.IDDFS(check_goal, expand_node, max_depth=10)
-#result = tree.BFS(check_goal, expand_node)
-result = tree.DFS(check_goal, expand_node)
+result = tree.BFS(check_goal, expand_node)
+#result = tree.DFS(check_goal, expand_node)
 #result = tree.A_star(check_goal, expand_node)
 
 if result:

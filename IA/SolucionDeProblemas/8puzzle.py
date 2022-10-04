@@ -100,10 +100,10 @@ def heuristic_function(state):
     return cityblock(actual, goal)
     #return np.sum(actual != goal)
 
-#result = tree.IDDFS(check_goal, expand_node, max_depth=10)
 #result = tree.BFS(check_goal, expand_node)
-#result = tree.DFS(check_goal, expand_node)
-result = tree.A_star(check_goal, expand_node, h=heuristic_function)
+result = tree.DFS(check_goal, expand_node)
+#result = tree.IDDFS(check_goal, expand_node, max_depth=10)
+#result = tree.A_star(check_goal, expand_node, h=heuristic_function)
 
 if result:
     print("\nSOLUTION")
