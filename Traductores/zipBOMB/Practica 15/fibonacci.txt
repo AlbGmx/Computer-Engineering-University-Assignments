@@ -1,0 +1,36 @@
+inicio-programa
+
+    entero numeros
+    entero temp
+    entero n1 = 0
+    entero n2 = 1
+    entero count = 0
+
+    escribir "Generador Secuencia Fibonacci"
+    leer "Ingresa numero tope: ", numeros
+
+    si (numeros <= 0)
+        escribir "Ingresar un numero positivo"
+    fin-si
+
+    si (numeros == 1)
+        escribir "Secuencia Fibonacci hasta: ", numeros
+        escribir "",n1
+    fin-si
+    
+    si (numeros > 1)
+        escribir "Secuencia Fibonnaci hasta: ", numeros
+
+        mientras (count < numeros) 
+            escribir "",n1
+            temp = n1 + n2
+            
+            n1 = n2
+            n2 = temp
+
+            count = count + 1
+        fin-mientras
+
+    fin-si
+
+fin-programa
