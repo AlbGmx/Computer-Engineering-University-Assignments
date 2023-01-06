@@ -1,5 +1,4 @@
 inicio-programa
-
     entero numeros
     entero n1 = 0
     entero n2 = 1

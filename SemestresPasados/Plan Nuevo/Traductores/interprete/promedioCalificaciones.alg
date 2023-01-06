@@ -1,5 +1,4 @@
 inicio-programa
-
     entero materias
     entero calificacion
     entero promedio

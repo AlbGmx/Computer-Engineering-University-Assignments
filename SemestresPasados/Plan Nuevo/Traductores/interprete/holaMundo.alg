@@ -1,3 +1,3 @@
 inicio-programa
-  escribir "Hola, mundo!"
+   escribir "Hola, mundo!"
 fin-programa

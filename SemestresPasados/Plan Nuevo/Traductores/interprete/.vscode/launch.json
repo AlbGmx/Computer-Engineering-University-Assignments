@@ -6,6 +6,13 @@
    "configurations": [
       {
          "type": "java",
+         "name": "Launch PseudoCompiler",
+         "request": "launch",
+         "mainClass": "PseudoCompiler",
+         "projectName": "interprete_c565f45d"
+      },
+      {
+         "type": "java",
          "name": "Launch Current File",
          "request": "launch",
          "mainClass": "${file}"

@@ -1,6 +1,7 @@
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class PseudoCompiler {
     PseudoLexer pLexer;
@@ -45,13 +46,11 @@ public class PseudoCompiler {
     }
 
     public static void main(String[] args) {
-        if (args.length < 0) {
-            System.out.println("Por favor pasar el archivo por argumento");
-        } else {
-            // new PseudoCompiler(args[0]);
-            new PseudoCompiler("test.alg");
-        }
-        // new PseudoCompiler();
+        Scanner sc = new Scanner(System.in); // Creamos un nuevo objeto Scanner
+        System.out.println("Por favor, ingresa el nombre del archivo:"); // Mostramos un mensaje al usuario
+        String nombreArchivo = sc.nextLine(); // Leemos el nombre del archivo ingresado por el usuario
+        new PseudoCompiler(nombreArchivo);
+        sc.close();
     }
 
 }
