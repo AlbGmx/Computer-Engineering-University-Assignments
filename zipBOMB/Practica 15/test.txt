@@ -1,0 +1,15 @@
+inicio-programa
+
+        entero a = 1
+        entero b = 2
+        entero c = 3
+
+        escribir a
+        escribir b
+        escribir c
+
+        si (a >= b)
+                escribir "A es mayor que B"
+        fin-si
+fin-programa
+
