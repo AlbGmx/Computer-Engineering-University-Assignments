@@ -1,0 +1,410 @@
+#include<conio.h>
+#include<stdio.h>
+#include<graphics.h>
+#include<string.h>
+#include<stdlib.h>
+#include<ctype.h>
+void inicializa()
+{ int gm, gd=DETECT;
+  initgraph(&gd,&gm, "C:\\turboc3\\bgi");
+}
+void box( int x1, int y1, int x2, int y2, int relleno, int color)
+{ int poly[8];
+	  poly[0] = x1;  poly[1] = y1;
+	  poly[2] = x2;  poly[3] = y1;
+	  poly[4] = x2;  poly[5] = y2;
+	  poly[6] = x1;  poly[7] = y2;
+	  setfillstyle( relleno, color);
+	  fillpoly(4,poly);
+}
+
+void matrizR(int M[10][10])
+{
+M[0][0] = -1;
+M[0][1] = -1;
+M[0][2] = 7;
+M[0][3] = 2;
+M[0][4] = 9;
+M[0][5] = -1;
+M[0][6] = -1;
+M[0][7] = -1;
+M[0][8] = -1;
+M[0][9] = -1;
+M[1][0] = -1;
+M[1][1] = -1;
+M[1][2] = -1;
+M[1][3] = -1;
+M[1][4] = 8;
+M[1][5] = -1;
+M[1][6] = -1;
+M[1][7] = -1;
+M[1][8] = -1;
+M[1][9] = -1;
+M[2][0] = -1;
+M[2][1] = -1;
+M[2][2] = 2;
+M[2][3] = 5;
+M[2][4] = 0;
+M[2][5] = -1;
+M[2][6] = -1;
+M[2][7] = -1;
+M[2][8] = -1;
+M[2][9] = 9;
+M[3][0] = -1;
+M[3][1] = -1;
+M[3][2] = 4;
+M[3][3] = -1;
+M[3][4] = 1;
+M[3][5] = 7;
+M[3][6] = 7;
+M[3][7] = -1;
+M[3][8] = -1;
+M[3][9] = 3;
+M[4][0] = 2;
+M[4][1] = -1;
+M[4][2] = 3;
+M[4][3] = -1;
+M[4][4] = -1;
+M[4][5] = -1;
+M[4][6] = 2;
+M[4][7] = -1;
+M[4][8] = -1;
+M[4][9] = 1;
+M[5][0] = 5;
+M[5][1] = -1;
+M[5][2] = 8;
+M[5][3] = -1;
+M[5][4] = -1;
+M[5][5] = -1;
+M[5][6] = 9;
+M[5][7] = 2;
+M[5][8] = 1;
+M[5][9] = 6;
+M[6][0] = 1;
+M[6][1] = 9;
+M[6][2] = 9;
+M[6][3] = -1;
+M[6][4] = -1;
+M[6][5] = -1;
+M[6][6] = -1;
+M[6][7] = -1;
+M[6][8] = 7;
+M[6][9] = -1;
+M[7][0] = 3;
+M[7][1] = -1;
+M[7][2] = -1;
+M[7][3] = -1;
+M[7][4] = -1;
+M[7][5] = 1;
+M[7][6] = 6;
+M[7][7] = 6;
+M[7][8] = 7;
+M[7][9] = 7;
+M[8][0] = 6;
+M[8][1] = 2;
+M[8][2] = 5;
+M[8][3] = -1;
+M[8][4] = -1;
+M[8][5] = -1;
+M[8][6] = -1;
+M[8][7] = -1;
+M[8][8] = 6;
+M[8][9] = -1;
+M[9][0] = -1;
+M[9][1] = -1;
+M[9][2] = 0;
+M[9][3] = -1;
+M[9][4] = -1;
+M[9][5] = -1;
+M[9][6] = -1;
+M[9][7] = -1;
+M[9][8] = 0;
+M[9][9] = -1;
+}
+
+void matrizG(int G[10][10])
+{
+G[0][0] = -1;
+G[0][1] = -1;
+G[0][2] = -1;
+G[0][3] = -1;
+G[0][4] = -1;
+G[0][5] = -1;
+G[0][6] = -1;
+G[0][7] = -1;
+G[0][8] = -1;
+G[0][9] = -1;
+G[1][0] = -1;
+G[1][1] = -1;
+G[1][2] = -1;
+G[1][3] = -1;
+G[1][4] = -1;
+G[1][5] = -1;
+G[1][6] = -1;
+G[1][7] = -1;
+G[1][8] = -1;
+G[1][9] = -1;
+G[2][0] = -1;
+G[2][1] = -1;
+G[2][2] = -1;
+G[2][3] = -1;
+G[2][4] = -1;
+G[2][5] = -1;
+G[2][6] = -1;
+G[2][7] = -1;
+G[2][8] = -1;
+G[2][9] = -1;
+G[3][0] = -1;
+G[3][1] = -1;
+G[3][2] = -1;
+G[3][3] = -1;
+G[3][4] = -1;
+G[3][5] = -1;
+G[3][6] = -1;
+G[3][7] = -1;
+G[3][8] = -1;
+G[3][9] = -1;
+G[4][0] = -1;
+G[4][1] = -1;
+G[4][2] = -1;
+G[4][3] = -1;
+G[4][4] = -1;
+G[4][5] = -1;
+G[4][6] = -1;
+G[4][7] = -1;
+G[4][8] = -1;
+G[4][9] = -1;
+G[5][0] = -1;
+G[5][1] = -1;
+G[5][2] = -1;
+G[5][3] = -1;
+G[5][4] = -1;
+G[5][5] = -1;
+G[5][6] = -1;
+G[5][7] = -1;
+G[5][8] = -1;
+G[5][9] = -1;
+G[6][0] = -1;
+G[6][1] = -1;
+G[6][2] = -1;
+G[6][3] = -1;
+G[6][4] = -1;
+G[6][5] = -1;
+G[6][6] = -1;
+G[6][7] = -1;
+G[6][8] = -1;
+G[6][9] = -1;
+G[7][0] = -1;
+G[7][1] = -1;
+G[7][2] = -1;
+G[7][3] = -1;
+G[7][4] = -1;
+G[7][5] = -1;
+G[7][6] = -1;
+G[7][7] = -1;
+G[7][8] = -1;
+G[7][9] = -1;
+G[8][0] = -1;
+G[8][1] = -1;
+G[8][2] = -1;
+G[8][3] = -1;
+G[8][4] = -1;
+G[8][5] = -1;
+G[8][6] = -1;
+G[8][7] = -1;
+G[8][8] = -1;
+G[8][9] = -1;
+G[9][0] = -1;
+G[9][1] = -1;
+G[9][2] = -1;
+G[9][3] = -1;
+G[9][4] = -1;
+G[9][5] = -1;
+G[9][6] = -1;
+G[9][7] = -1;
+G[9][8] = -1;
+G[9][9] = -1;
+}
+
+
+
+
+
+void tablero()
+{ outtextxy( 235, 10, "CRUCIGRAMA DE NUMEROS");
+  outtextxy( 225, 460, "PRESIONE ESC PARA TERMINAR");
+  outtextxy( 0, 70, "HORIZONTALES");
+  outtextxy( 560, 70, "VERTICALES");
+  outtextxy( 0, 10, "SCORE MAX: 3900");
+  outtextxy(0,35,"MI SCORE:");
+  setcolor(BLUE);
+  outtextxy( 0,  90, "9^3 ");
+  setcolor(YELLOW);
+  outtextxy( 0, 110, "50 x 5  ");
+  setcolor(RED);
+  outtextxy( 0, 130, "3^3 + 150 ");
+  setcolor(LIGHTMAGENTA);
+  outtextxy( 0, 150, "96 x 96  ");
+  setcolor(WHITE);
+  outtextxy( 0, 170, "99 + 99 + 1 ");
+  setcolor(BROWN);
+  outtextxy( 0, 190, "5559 x 9  ");
+  setcolor(LIGHTBLUE);
+  outtextxy( 0, 210, "25^2  ");
+
+  setcolor(GREEN);
+  outtextxy( 530,  90, "99 x 99  ");
+  setcolor(MAGENTA);
+  outtextxy( 530, 110, "97 x 96 + 4  ");
+  setcolor(LIGHTRED);
+  outtextxy( 530, 130, "88 x 9  ");
+  setcolor(LIGHTGREEN);
+  outtextxy( 530, 150, "25000+100+6^2 ");
+  setcolor(LIGHTGRAY);
+  outtextxy( 530, 170, "37 x 96 x 5  ");
+  setcolor(DARKGRAY);
+  outtextxy( 530, 190, "25 x 2  ");
+  setcolor(YELLOW);
+  outtextxy( 530, 210, "29^3  ");
+}
+
+void pintamatriz( int M[10][10])
+{ int i, j;
+  for( i = 0; i < 10; i++ )
+  for( j = 0; j < 10; j++ ) { if( M[i][j]  != -1  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, CYAN);
+				  if( i== 0 && j== 2  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, BLUE);
+				  if( i== 0 && j== 4  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, GREEN);
+				  if( i== 2 && j== 2  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, YELLOW);
+				  if( i== 2 && j== 9  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, MAGENTA);
+				  if( i== 3 && j== 4  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, RED);
+				  if( i== 3 && j== 6  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, LIGHTRED);
+				  if( i== 4 && j== 0  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, LIGHTGREEN);
+				  if( i== 5 && j== 6  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, LIGHTMAGENTA);
+				  if( i== 5 && j== 8  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, LIGHTGRAY);
+				  if( i== 6 && j== 0  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, WHITE);
+				  if( i== 7 && j== 5  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, BROWN);
+				  if( i== 8 && j== 0  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, LIGHTBLUE);
+				  if( i== 8 && j== 2  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, DARKGRAY);
+				}
+
+
+
+
+
+}
+
+
+void juega()
+{ int i,j, M[10][10], G[10][10], ia, ja, x , y, punt = 0;
+  char tecla, cad[200], p[200];
+  matrizR(M);
+  matrizG(G);
+  pintamatriz(M);
+  tablero();
+  i=0; j=2; ia=0; ja=2;
+  do{
+
+	  setcolor(RED);
+	  rectangle( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40 );
+	  tecla = getch();
+	  setcolor(WHITE);
+	  rectangle( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40 );
+
+	  switch(tecla)
+		{ case 0: tecla = getch();
+			  switch(tecla)
+			{
+			  case 75: j--; break;
+			  case 77: j++; break;
+			  case 72: i--; break;
+			  case 80: i++; break;
+			}
+
+			if(i<0) i=0; if(i>9) i=9;
+			if(j<0) j=0; if(j>9) j=9;
+
+			if(M[i][j]==-1) { i=ia; j=ja; }
+			else { ia=i; ja=j;}
+			break;
+
+		  default: if(tecla>=47 && tecla<=57) 	{
+														if( M[i][j]  != -1  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, CYAN);
+														if( i== 0 && j== 2  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, BLUE);
+														if( i== 0 && j== 4  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, GREEN);
+														if( i== 2 && j== 2  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, YELLOW);
+														if( i== 2 && j== 9  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, MAGENTA);
+														if( i== 3 && j== 4  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, RED);
+														if( i== 3 && j== 6  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, LIGHTRED);
+														if( i== 4 && j== 0  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, LIGHTGREEN);
+														if( i== 5 && j== 6  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, LIGHTMAGENTA);
+														if( i== 5 && j== 8  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, LIGHTGRAY);
+														if( i== 6 && j== 0  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, WHITE);
+														if( i== 7 && j== 5  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, BROWN);
+														if( i== 8 && j== 0  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, LIGHTBLUE);
+														if( i== 8 && j== 2  ) box( 120 + j*40, 40 + i*40, 160 + j*40, 80 + i*40, 1, DARKGRAY);
+
+														cad[0] = tecla;
+														cad[1] = '\x0';
+														setcolor(BLACK);
+														outtextxy(138 +j*40, 65 + i*40,cad);
+
+														switch(tecla)
+															{
+																case 48: G[i][j] = 0; break;
+																case 49: G[i][j] = 1; break;
+																case 50: G[i][j] = 2; break;
+																case 51: G[i][j] = 3; break;
+																case 52: G[i][j] = 4; break;
+																case 53: G[i][j] = 5; break;
+																case 54: G[i][j] = 6; break;
+																case 55: G[i][j] = 7; break;
+																case 56: G[i][j] = 8; break;
+																case 57: G[i][j] = 9; break;
+															}
+
+
+												}
+				  break;
+
+		  case 32:  punt = 0;
+					for(x=0; x<10; x++)
+					for(y=0; y<10; y++) { if(M[x][y] == G[x][y] && M[x][y] != -1)punt = punt+100;
+										  if(M[x][y] == G[x][y] && M[x][y] != -1) { setcolor(MAGENTA);
+																					rectangle( 120 + y*40, 40 + x*40, 160 + y*40, 80 + x*40 );
+																				  }
+										}
+
+
+					gcvt(punt,200,p);
+					setcolor(0);
+					box( 75, 30, 120,45,1,BLACK);
+					setcolor(WHITE);
+					outtextxy(80,35, p);
+					break;
+
+
+		  case 13: matrizR(M);
+				   matrizG(G);
+				   pintamatriz(M);
+				   tablero();
+				   break;
+
+
+
+
+		}
+
+
+	}while(tecla != 27);
+
+
+}
+
+
+
+void main()
+{
+  inicializa();
+  juega();
+  getch();
+}

@@ -1,0 +1,1264 @@
+#include <conio.h>
+#include <stdio.h>
+#include <dos.h>
+
+//Este es un comentario
+
+//Practica #2 manejo de modo texto
+
+void main()
+{
+ textbackground(BLACK);
+ clrscr();
+
+ textbackground(RED);
+ textcolor(RED);
+ gotoxy(5,3); cprintf("²²²²²²²²");
+ gotoxy(4,4); cprintf("²²²²²²²²²²");
+ gotoxy(3,5); cprintf("²²²²²²²²²²²²");
+ gotoxy(3,6); cprintf("²²²²²²²²²²²²");
+ gotoxy(4,7); cprintf("²²²²²²²²²²");
+ gotoxy(5,8); cprintf("²²²²²²²²");
+
+ textbackground(CYAN);
+ textcolor(CYAN);
+ gotoxy(70,15); cprintf("²²    ²²");
+ gotoxy(69,16); cprintf("²²²    ²²²");
+ gotoxy(68,17); cprintf("²²²²²   ²²²²");
+ gotoxy(68,18); cprintf("²²²²²²  ²²²²");
+ gotoxy(69,19); cprintf("²²²²   ²²²");
+ gotoxy(70,20); cprintf("²      ²");
+
+ textbackground(GREEN);
+ textcolor(GREEN);
+ gotoxy(72,15); cprintf("²²²²");
+ gotoxy(72,16); cprintf("²²²²");
+ gotoxy(73,17); cprintf("²²²");
+ gotoxy(74,18); cprintf("²²");
+ gotoxy(73,19); cprintf("²²²");
+ gotoxy(71,20); cprintf("²²²²²²");
+
+ textbackground(BLACK);
+ textcolor(WHITE);
+ gotoxy(1,2); cprintf("°");
+ gotoxy(30,5); cprintf("°");
+ gotoxy(24,15); cprintf("°");
+ gotoxy(15,20); cprintf("°");
+ gotoxy(5,22); cprintf("°");
+ gotoxy(50,16); cprintf("°");
+ gotoxy(48,12); cprintf("°");
+ gotoxy(32,10); cprintf("°");
+ gotoxy(76,3); cprintf("°");
+ gotoxy(42,21); cprintf("°");
+ gotoxy(65,8); cprintf("°");
+ gotoxy(60,6); cprintf("°");
+ gotoxy(54,7); cprintf("°");
+ gotoxy(42,4); cprintf("°");
+ gotoxy(15,15); cprintf("°");
+ gotoxy(16,4); cprintf("°");
+ gotoxy(10,10); cprintf("°");
+ gotoxy(20,12); cprintf("°");
+ gotoxy(30,11); cprintf("°");
+ gotoxy(33,20); cprintf("°");
+ gotoxy(3,15); cprintf("°");
+ gotoxy(60,20); cprintf("°");
+ gotoxy(70,10); cprintf("°");
+ gotoxy(9,16); cprintf("°");
+ gotoxy(40,23); cprintf("°");
+
+ delay(1000);
+
+ textcolor(BLUE);
+ gotoxy(49,15); cprintf("            ²²");
+ gotoxy(49,16); cprintf("           ²²²");
+ gotoxy(49,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(49,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(49,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(49,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(49,21); cprintf("           ²²²");
+ gotoxy(49,22); cprintf("            ²²");
+ delay(3000);
+
+ textcolor(BLACK);
+ gotoxy(49,15); cprintf("            ²²");
+ gotoxy(49,16); cprintf("           ²²²");
+ gotoxy(49,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(49,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(49,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(49,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(49,21); cprintf("           ²²²");
+ gotoxy(49,22); cprintf("            ²²");
+ delay(50);sound(250);
+
+ textcolor(BLUE);
+ gotoxy(48,15); cprintf("            ²²");
+ gotoxy(48,16); cprintf("           ²²²");
+ gotoxy(48,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(48,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(48,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(48,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(48,21); cprintf("           ²²²");
+ gotoxy(48,22); cprintf("            ²²");
+ delay(100);sound(750);
+
+ textcolor(BLACK);
+ gotoxy(48,15); cprintf("            ²²");
+ gotoxy(48,16); cprintf("           ²²²");
+ gotoxy(48,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(48,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(48,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(48,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(48,21); cprintf("           ²²²");
+ gotoxy(48,22); cprintf("            ²²");
+ delay(100);sound(250);
+
+ textcolor(BLUE);
+ gotoxy(47,15); cprintf("            ²²");
+ gotoxy(47,16); cprintf("           ²²²");
+ gotoxy(47,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(47,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(47,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(47,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(47,21); cprintf("           ²²²");
+ gotoxy(47,22); cprintf("            ²²");
+ delay(100);sound(750);
+
+ textcolor(BLACK);
+ gotoxy(47,15); cprintf("            ²²");
+ gotoxy(47,16); cprintf("           ²²²");
+ gotoxy(47,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(47,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(47,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(47,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(47,21); cprintf("           ²²²");
+ gotoxy(47,22); cprintf("            ²²");
+ delay(100);sound(250);
+
+
+ textcolor(BLUE);
+ gotoxy(46,15); cprintf("            ²²");
+ gotoxy(46,16); cprintf("           ²²²");
+ gotoxy(46,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(46,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(46,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(46,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(46,21); cprintf("           ²²²");
+ gotoxy(46,22); cprintf("            ²²");
+ delay(100);sound(750);
+
+ textcolor(BLACK);
+ gotoxy(46,15); cprintf("            ²²");
+ gotoxy(46,16); cprintf("           ²²²");
+ gotoxy(46,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(46,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(46,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(46,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(46,21); cprintf("           ²²²");
+ gotoxy(46,22); cprintf("            ²²");
+ delay(100);sound(250);
+
+ textcolor(BLUE);
+ gotoxy(45,15); cprintf("            ²²");
+ gotoxy(45,16); cprintf("           ²²²");
+ gotoxy(45,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(45,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(45,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(45,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(45,21); cprintf("           ²²²");
+ gotoxy(45,22); cprintf("            ²²");
+ delay(100);sound(750);
+
+ textcolor(BLACK);
+ gotoxy(45,15); cprintf("            ²²");
+ gotoxy(45,16); cprintf("           ²²²");
+ gotoxy(45,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(45,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(45,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(45,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(45,21); cprintf("           ²²²");
+ gotoxy(45,22); cprintf("            ²²");
+ delay(100);sound(250);
+
+ textcolor(BLUE);
+ gotoxy(44,15); cprintf("            ²²");
+ gotoxy(44,16); cprintf("           ²²²");
+ gotoxy(44,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(44,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(44,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(44,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(44,21); cprintf("           ²²²");
+ gotoxy(44,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(44,15); cprintf("            ²²");
+ gotoxy(44,16); cprintf("           ²²²");
+ gotoxy(44,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(44,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(44,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(44,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(44,21); cprintf("           ²²²");
+ gotoxy(44,22); cprintf("            ²²");
+ delay(100);  sound(250);
+
+ textcolor(BLUE);
+ gotoxy(43,15); cprintf("            ²²");
+ gotoxy(43,16); cprintf("           ²²²");
+ gotoxy(43,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(43,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(43,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(43,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(43,21); cprintf("           ²²²");
+ gotoxy(43,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+
+ textcolor(BLACK);
+ gotoxy(43,15); cprintf("            ²²");
+ gotoxy(43,16); cprintf("           ²²²");
+ gotoxy(43,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(43,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(43,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(43,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(43,21); cprintf("           ²²²");
+ gotoxy(43,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(42,15); cprintf("            ²²");
+ gotoxy(42,16); cprintf("           ²²²");
+ gotoxy(42,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(42,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(42,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(42,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(42,21); cprintf("           ²²²");
+ gotoxy(42,22); cprintf("            ²²");
+ delay(100);  sound(750);
+
+ textcolor(BLACK);
+ gotoxy(42,15); cprintf("            ²²");
+ gotoxy(42,16); cprintf("           ²²²");
+ gotoxy(42,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(42,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(42,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(42,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(42,21); cprintf("           ²²²");
+ gotoxy(42,22); cprintf("            ²²");
+ delay(100);  sound(250);
+
+ textcolor(BLUE);
+ gotoxy(41,15); cprintf("            ²²");
+ gotoxy(41,16); cprintf("           ²²²");
+ gotoxy(41,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(41,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(41,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(41,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(41,21); cprintf("           ²²²");
+ gotoxy(41,22); cprintf("            ²²");
+ delay(100);sound(750);
+
+ textcolor(BLACK);
+ gotoxy(41,15); cprintf("            ²²");
+ gotoxy(41,16); cprintf("           ²²²");
+ gotoxy(41,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(41,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(41,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(41,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(41,21); cprintf("           ²²²");
+ gotoxy(41,22); cprintf("            ²²");
+ delay(100);sound(250);
+
+ textcolor(BLUE);
+ gotoxy(40,15); cprintf("            ²²");
+ gotoxy(40,16); cprintf("           ²²²");
+ gotoxy(40,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(40,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(40,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(40,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(40,21); cprintf("           ²²²");
+ gotoxy(40,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+
+ textcolor(BLACK);
+ gotoxy(40,15); cprintf("            ²²");
+ gotoxy(40,16); cprintf("           ²²²");
+ gotoxy(40,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(40,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(40,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(40,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(40,21); cprintf("           ²²²");
+ gotoxy(40,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(39,15); cprintf("            ²²");
+ gotoxy(39,16); cprintf("           ²²²");
+ gotoxy(39,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(39,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(39,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(39,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(39,21); cprintf("           ²²²");
+ gotoxy(39,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+
+ textcolor(BLACK);
+ gotoxy(39,15); cprintf("            ²²");
+ gotoxy(39,16); cprintf("           ²²²");
+ gotoxy(39,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(39,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(39,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(39,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(39,21); cprintf("           ²²²");
+ gotoxy(39,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+
+ textcolor(BLUE);
+ gotoxy(38,15); cprintf("            ²²");
+ gotoxy(38,16); cprintf("           ²²²");
+ gotoxy(38,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(38,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(38,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(38,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(38,21); cprintf("           ²²²");
+ gotoxy(38,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(38,15); cprintf("            ²²");
+ gotoxy(38,16); cprintf("           ²²²");
+ gotoxy(38,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(38,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(38,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(38,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(38,21); cprintf("           ²²²");
+ gotoxy(38,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(37,15); cprintf("            ²²");
+ gotoxy(37,16); cprintf("           ²²²");
+ gotoxy(37,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(37,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(37,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(37,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(37,21); cprintf("           ²²²");
+ gotoxy(37,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(37,15); cprintf("            ²²");
+ gotoxy(37,16); cprintf("           ²²²");
+ gotoxy(37,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(37,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(37,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(37,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(37,21); cprintf("           ²²²");
+ gotoxy(37,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(36,15); cprintf("            ²²");
+ gotoxy(36,16); cprintf("           ²²²");
+ gotoxy(36,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(36,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(36,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(36,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(36,21); cprintf("           ²²²");
+ gotoxy(36,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(36,15); cprintf("            ²²");
+ gotoxy(36,16); cprintf("           ²²²");
+ gotoxy(36,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(36,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(36,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(36,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(36,21); cprintf("           ²²²");
+ gotoxy(36,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(35,15); cprintf("            ²²");
+ gotoxy(35,16); cprintf("           ²²²");
+ gotoxy(35,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(35,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(35,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(35,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(35,21); cprintf("           ²²²");
+ gotoxy(35,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(35,15); cprintf("            ²²");
+ gotoxy(35,16); cprintf("           ²²²");
+ gotoxy(35,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(35,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(35,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(35,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(35,21); cprintf("           ²²²");
+ gotoxy(35,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(34,15); cprintf("            ²²");
+ gotoxy(34,16); cprintf("           ²²²");
+ gotoxy(34,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(34,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(34,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(34,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(34,21); cprintf("           ²²²");
+ gotoxy(34,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(34,15); cprintf("            ²²");
+ gotoxy(34,16); cprintf("           ²²²");
+ gotoxy(34,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(34,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(34,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(34,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(34,21); cprintf("           ²²²");
+ gotoxy(34,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(33,15); cprintf("            ²²");
+ gotoxy(33,16); cprintf("           ²²²");
+ gotoxy(33,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(33,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(33,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(33,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(33,21); cprintf("           ²²²");
+ gotoxy(33,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(33,15); cprintf("            ²²");
+ gotoxy(33,16); cprintf("           ²²²");
+ gotoxy(33,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(33,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(33,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(33,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(33,21); cprintf("           ²²²");
+ gotoxy(33,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(32,15); cprintf("            ²²");
+ gotoxy(32,16); cprintf("           ²²²");
+ gotoxy(32,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(32,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(32,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(32,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(32,21); cprintf("           ²²²");
+ gotoxy(32,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(32,15); cprintf("            ²²");
+ gotoxy(32,16); cprintf("           ²²²");
+ gotoxy(32,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(32,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(32,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(32,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(32,21); cprintf("           ²²²");
+ gotoxy(32,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(31,15); cprintf("            ²²");
+ gotoxy(31,16); cprintf("           ²²²");
+ gotoxy(31,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(31,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(31,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(31,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(31,21); cprintf("           ²²²");
+ gotoxy(31,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(31,15); cprintf("            ²²");
+ gotoxy(31,16); cprintf("           ²²²");
+ gotoxy(31,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(31,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(31,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(31,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(31,21); cprintf("           ²²²");
+ gotoxy(31,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(30,15); cprintf("            ²²");
+ gotoxy(30,16); cprintf("           ²²²");
+ gotoxy(30,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(30,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(30,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(30,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(30,21); cprintf("           ²²²");
+ gotoxy(30,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(30,15); cprintf("            ²²");
+ gotoxy(30,16); cprintf("           ²²²");
+ gotoxy(30,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(30,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(30,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(30,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(30,21); cprintf("           ²²²");
+ gotoxy(30,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(29,15); cprintf("            ²²");
+ gotoxy(29,16); cprintf("           ²²²");
+ gotoxy(29,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(29,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(29,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(29,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(29,21); cprintf("           ²²²");
+ gotoxy(29,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(29,15); cprintf("            ²²");
+ gotoxy(29,16); cprintf("           ²²²");
+ gotoxy(29,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(29,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(29,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(29,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(29,21); cprintf("           ²²²");
+ gotoxy(29,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(28,15); cprintf("            ²²");
+ gotoxy(28,16); cprintf("           ²²²");
+ gotoxy(28,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(28,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(28,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(28,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(28,21); cprintf("           ²²²");
+ gotoxy(28,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(28,15); cprintf("            ²²");
+ gotoxy(28,16); cprintf("           ²²²");
+ gotoxy(28,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(28,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(28,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(28,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(28,21); cprintf("           ²²²");
+ gotoxy(28,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(27,15); cprintf("            ²²");
+ gotoxy(27,16); cprintf("           ²²²");
+ gotoxy(27,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(27,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(27,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(27,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(27,21); cprintf("           ²²²");
+ gotoxy(27,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(27,15); cprintf("            ²²");
+ gotoxy(27,16); cprintf("           ²²²");
+ gotoxy(27,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(27,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(27,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(27,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(27,21); cprintf("           ²²²");
+ gotoxy(27,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(26,15); cprintf("            ²²");
+ gotoxy(26,16); cprintf("           ²²²");
+ gotoxy(26,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(26,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(26,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(26,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(26,21); cprintf("           ²²²");
+ gotoxy(26,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(26,15); cprintf("            ²²");
+ gotoxy(26,16); cprintf("           ²²²");
+ gotoxy(26,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(26,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(26,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(26,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(26,21); cprintf("           ²²²");
+ gotoxy(26,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(25,15); cprintf("            ²²");
+ gotoxy(25,16); cprintf("           ²²²");
+ gotoxy(25,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(25,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(25,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(25,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(25,21); cprintf("           ²²²");
+ gotoxy(25,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(25,15); cprintf("            ²²");
+ gotoxy(25,16); cprintf("           ²²²");
+ gotoxy(25,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(25,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(25,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(25,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(25,21); cprintf("           ²²²");
+ gotoxy(25,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(24,15); cprintf("            ²²");
+ gotoxy(24,16); cprintf("           ²²²");
+ gotoxy(24,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(24,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(24,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(24,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(24,21); cprintf("           ²²²");
+ gotoxy(24,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(24,15); cprintf("            ²²");
+ gotoxy(24,16); cprintf("           ²²²");
+ gotoxy(24,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(24,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(24,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(24,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(24,21); cprintf("           ²²²");
+ gotoxy(24,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(23,15); cprintf("            ²²");
+ gotoxy(23,16); cprintf("           ²²²");
+ gotoxy(23,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(23,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(23,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(23,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(23,21); cprintf("           ²²²");
+ gotoxy(23,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(23,15); cprintf("            ²²");
+ gotoxy(23,16); cprintf("           ²²²");
+ gotoxy(23,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(23,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(23,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(23,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(23,21); cprintf("           ²²²");
+ gotoxy(23,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(22,15); cprintf("            ²²");
+ gotoxy(22,16); cprintf("           ²²²");
+ gotoxy(22,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(22,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(22,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(22,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(22,21); cprintf("           ²²²");
+ gotoxy(22,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(22,15); cprintf("            ²²");
+ gotoxy(22,16); cprintf("           ²²²");
+ gotoxy(22,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(22,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(22,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(22,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(22,21); cprintf("           ²²²");
+ gotoxy(22,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(21,15); cprintf("            ²²");
+ gotoxy(21,16); cprintf("           ²²²");
+ gotoxy(21,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(21,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(21,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(21,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(21,21); cprintf("           ²²²");
+ gotoxy(21,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(21,15); cprintf("            ²²");
+ gotoxy(21,16); cprintf("           ²²²");
+ gotoxy(21,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(21,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(21,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(21,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(21,21); cprintf("           ²²²");
+ gotoxy(21,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(20,15); cprintf("            ²²");
+ gotoxy(20,16); cprintf("           ²²²");
+ gotoxy(20,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(20,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(20,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(20,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(20,21); cprintf("           ²²²");
+ gotoxy(20,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(20,15); cprintf("            ²²");
+ gotoxy(20,16); cprintf("           ²²²");
+ gotoxy(20,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(20,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(20,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(20,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(20,21); cprintf("           ²²²");
+ gotoxy(20,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(19,15); cprintf("            ²²");
+ gotoxy(19,16); cprintf("           ²²²");
+ gotoxy(19,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(19,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(19,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(19,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(19,21); cprintf("           ²²²");
+ gotoxy(19,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(19,15); cprintf("            ²²");
+ gotoxy(19,16); cprintf("           ²²²");
+ gotoxy(19,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(19,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(19,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(19,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(19,21); cprintf("           ²²²");
+ gotoxy(19,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(18,15); cprintf("            ²²");
+ gotoxy(18,16); cprintf("           ²²²");
+ gotoxy(18,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(18,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(18,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(18,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(18,21); cprintf("           ²²²");
+ gotoxy(18,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(18,15); cprintf("            ²²");
+ gotoxy(18,16); cprintf("           ²²²");
+ gotoxy(18,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(18,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(18,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(18,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(18,21); cprintf("           ²²²");
+ gotoxy(18,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(17,15); cprintf("            ²²");
+ gotoxy(17,16); cprintf("           ²²²");
+ gotoxy(17,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(17,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(17,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(17,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(17,21); cprintf("           ²²²");
+ gotoxy(17,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(17,15); cprintf("            ²²");
+ gotoxy(17,16); cprintf("           ²²²");
+ gotoxy(17,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(17,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(17,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(17,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(17,21); cprintf("           ²²²");
+ gotoxy(17,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(16,15); cprintf("            ²²");
+ gotoxy(16,16); cprintf("           ²²²");
+ gotoxy(16,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(16,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(16,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(16,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(16,21); cprintf("           ²²²");
+ gotoxy(16,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(16,15); cprintf("            ²²");
+ gotoxy(16,16); cprintf("           ²²²");
+ gotoxy(16,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(16,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(16,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(16,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(16,21); cprintf("           ²²²");
+ gotoxy(16,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(15,15); cprintf("            ²²");
+ gotoxy(15,16); cprintf("           ²²²");
+ gotoxy(15,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(15,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(15,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(15,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(15,21); cprintf("           ²²²");
+ gotoxy(15,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(15,15); cprintf("            ²²");
+ gotoxy(15,16); cprintf("           ²²²");
+ gotoxy(15,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(15,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(15,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(15,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(15,21); cprintf("           ²²²");
+ gotoxy(15,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(14,15); cprintf("            ²²");
+ gotoxy(14,16); cprintf("           ²²²");
+ gotoxy(14,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(14,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(14,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(14,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(14,21); cprintf("           ²²²");
+ gotoxy(14,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(14,15); cprintf("            ²²");
+ gotoxy(14,16); cprintf("           ²²²");
+ gotoxy(14,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(14,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(14,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(14,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(14,21); cprintf("           ²²²");
+ gotoxy(14,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(13,15); cprintf("            ²²");
+ gotoxy(13,16); cprintf("           ²²²");
+ gotoxy(13,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(13,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(13,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(13,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(13,21); cprintf("           ²²²");
+ gotoxy(13,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(13,15); cprintf("            ²²");
+ gotoxy(13,16); cprintf("           ²²²");
+ gotoxy(13,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(13,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(13,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(13,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(13,21); cprintf("           ²²²");
+ gotoxy(13,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(12,15); cprintf("            ²²");
+ gotoxy(12,16); cprintf("           ²²²");
+ gotoxy(12,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(12,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(12,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(12,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(12,21); cprintf("           ²²²");
+ gotoxy(12,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(12,15); cprintf("            ²²");
+ gotoxy(12,16); cprintf("           ²²²");
+ gotoxy(12,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(12,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(12,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(12,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(12,21); cprintf("           ²²²");
+ gotoxy(12,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(11,15); cprintf("            ²²");
+ gotoxy(11,16); cprintf("           ²²²");
+ gotoxy(11,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(11,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(11,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(11,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(11,21); cprintf("           ²²²");
+ gotoxy(11,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(11,15); cprintf("            ²²");
+ gotoxy(11,16); cprintf("           ²²²");
+ gotoxy(11,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(11,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(11,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(11,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(11,21); cprintf("           ²²²");
+ gotoxy(11,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(10,15); cprintf("            ²²");
+ gotoxy(10,16); cprintf("           ²²²");
+ gotoxy(10,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(10,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(10,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(10,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(10,21); cprintf("           ²²²");
+ gotoxy(10,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(10,15); cprintf("            ²²");
+ gotoxy(10,16); cprintf("           ²²²");
+ gotoxy(10,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(10,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(10,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(10,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(10,21); cprintf("           ²²²");
+ gotoxy(10,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(9,15); cprintf("            ²²");
+ gotoxy(9,16); cprintf("           ²²²");
+ gotoxy(9,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(9,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(9,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(9,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(9,21); cprintf("           ²²²");
+ gotoxy(9,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(9,15); cprintf("            ²²");
+ gotoxy(9,16); cprintf("           ²²²");
+ gotoxy(9,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(9,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(9,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(9,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(9,21); cprintf("           ²²²");
+ gotoxy(9,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(8,15); cprintf("            ²²");
+ gotoxy(8,16); cprintf("           ²²²");
+ gotoxy(8,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(8,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(8,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(8,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(8,21); cprintf("           ²²²");
+ gotoxy(8,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(8,15); cprintf("            ²²");
+ gotoxy(8,16); cprintf("           ²²²");
+ gotoxy(8,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(8,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(8,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(8,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(8,21); cprintf("           ²²²");
+ gotoxy(8,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(7,15); cprintf("            ²²");
+ gotoxy(7,16); cprintf("           ²²²");
+ gotoxy(7,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(7,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(7,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(7,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(7,21); cprintf("           ²²²");
+ gotoxy(7,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(7,15); cprintf("            ²²");
+ gotoxy(7,16); cprintf("           ²²²");
+ gotoxy(7,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(7,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(7,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(7,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(7,21); cprintf("           ²²²");
+ gotoxy(7,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(6,15); cprintf("            ²²");
+ gotoxy(6,16); cprintf("           ²²²");
+ gotoxy(6,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(6,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(6,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(6,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(6,21); cprintf("           ²²²");
+ gotoxy(6,22); cprintf("            ²²");
+ delay(100); sound(750);
+
+ textcolor(BLACK);
+ gotoxy(6,15); cprintf("            ²²");
+ gotoxy(6,16); cprintf("           ²²²");
+ gotoxy(6,17); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(6,18); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(6,19); cprintf("²²²²²²²²²²²²²²²²±°°");
+ gotoxy(6,20); cprintf("  ²²²²²²²²²²²²²²");
+ gotoxy(6,21); cprintf("           ²²²");
+ gotoxy(6,22); cprintf("            ²²");
+ delay(100); sound(250);
+
+ textcolor(BLUE);
+ gotoxy(6,16); cprintf("      ²²²²");
+ gotoxy(6,17); cprintf("    ²²²²²²²²");
+ gotoxy(6,18); cprintf("    ²²²²²²²²");
+ gotoxy(6,19); cprintf("    ²²²²²²²²");
+ gotoxy(6,20); cprintf("  ²²²²²²²²²²²²");
+ gotoxy(6,21); cprintf("²²²²²²²²²²²²²²²²");
+ gotoxy(6,22); cprintf("    ²²²²²²²²");
+ gotoxy(6,23); cprintf("      ±±±±");
+ gotoxy(6,24); cprintf("      °°°°");
+ gotoxy(6,25); cprintf("      °°°°");
+ delay(100);
+
+ textcolor(BLACK);
+ gotoxy(6,16); cprintf("      ²²²²");
+ gotoxy(6,17); cprintf("    ²²²²²²²²");
+ gotoxy(6,18); cprintf("    ²²²²²²²²");
+ gotoxy(6,19); cprintf("    ²²²²²²²²");
+ gotoxy(6,20); cprintf("  ²²²²²²²²²²²²");
+ gotoxy(6,21); cprintf("²²²²²²²²²²²²²²²²");
+ gotoxy(6,22); cprintf("    ²²²²²²²²");
+ gotoxy(6,23); cprintf("      ±±±±");
+ gotoxy(6,24); cprintf("      °°°°");
+ gotoxy(6,25); cprintf("      °°°°");
+ delay(100);
+
+ textcolor(BLUE);
+ gotoxy(6,15); cprintf("      ²²²²");
+ gotoxy(6,16); cprintf("    ²²²²²²²²");
+ gotoxy(6,17); cprintf("    ²²²²²²²²");
+ gotoxy(6,18); cprintf("    ²²²²²²²²");
+ gotoxy(6,19); cprintf("  ²²²²²²²²²²²²");
+ gotoxy(6,20); cprintf("²²²²²²²²²²²²²²²²");
+ gotoxy(6,21); cprintf("    ²²²²²²²²");
+ gotoxy(6,22); cprintf("      ±±±±");
+ gotoxy(6,23); cprintf("      °°°°");
+ gotoxy(6,24); cprintf("      °°°°");
+ delay(100);
+
+ textcolor(BLACK);
+ gotoxy(6,15); cprintf("      ²²²²");
+ gotoxy(6,16); cprintf("    ²²²²²²²²");
+ gotoxy(6,17); cprintf("    ²²²²²²²²");
+ gotoxy(6,18); cprintf("    ²²²²²²²²");
+ gotoxy(6,19); cprintf("  ²²²²²²²²²²²²");
+ gotoxy(6,20); cprintf("²²²²²²²²²²²²²²²²");
+ gotoxy(6,21); cprintf("    ²²²²²²²²");
+ gotoxy(6,22); cprintf("      ±±±±");
+ gotoxy(6,23); cprintf("      °°°°");
+ gotoxy(6,24); cprintf("      °°°°");
+ delay(100);
+
+ textcolor(BLUE);
+ gotoxy(6,14); cprintf("      ²²²²");
+ gotoxy(6,15); cprintf("    ²²²²²²²²");
+ gotoxy(6,16); cprintf("    ²²²²²²²²");
+ gotoxy(6,17); cprintf("    ²²²²²²²²");
+ gotoxy(6,18); cprintf("  ²²²²²²²²²²²²");
+ gotoxy(6,19); cprintf("²²²²²²²²²²²²²²²²");
+ gotoxy(6,20); cprintf("    ²²²²²²²²");
+ gotoxy(6,21); cprintf("      ±±±±");
+ gotoxy(6,22); cprintf("      °°°°");
+ gotoxy(6,23); cprintf("      °°°°");
+ delay(100);
+
+ textcolor(BLACK);
+ gotoxy(6,14); cprintf("      ²²²²");
+ gotoxy(6,15); cprintf("    ²²²²²²²²");
+ gotoxy(6,16); cprintf("    ²²²²²²²²");
+ gotoxy(6,17); cprintf("    ²²²²²²²²");
+ gotoxy(6,18); cprintf("  ²²²²²²²²²²²²");
+ gotoxy(6,19); cprintf("²²²²²²²²²²²²²²²²");
+ gotoxy(6,20); cprintf("    ²²²²²²²²");
+ gotoxy(6,21); cprintf("      ±±±±");
+ gotoxy(6,22); cprintf("      °°°°");
+ gotoxy(6,23); cprintf("      °°°°");
+ delay(100);
+
+ textcolor(BLUE);
+ gotoxy(6,13); cprintf("      ²²²²");
+ gotoxy(6,14); cprintf("    ²²²²²²²²");
+ gotoxy(6,15); cprintf("    ²²²²²²²²");
+ gotoxy(6,16); cprintf("    ²²²²²²²²");
+ gotoxy(6,17); cprintf("  ²²²²²²²²²²²²");
+ gotoxy(6,18); cprintf("²²²²²²²²²²²²²²²²");
+ gotoxy(6,19); cprintf("    ²²²²²²²²");
+ gotoxy(6,20); cprintf("      ±±±±");
+ gotoxy(6,21); cprintf("      °°°°");
+ gotoxy(6,22); cprintf("      °°°°");
+ delay(100);
+
+ textcolor(BLACK);
+ gotoxy(6,13); cprintf("      ²²²²");
+ gotoxy(6,14); cprintf("    ²²²²²²²²");
+ gotoxy(6,15); cprintf("    ²²²²²²²²");
+ gotoxy(6,16); cprintf("    ²²²²²²²²");
+ gotoxy(6,17); cprintf("  ²²²²²²²²²²²²");
+ gotoxy(6,18); cprintf("²²²²²²²²²²²²²²²²");
+ gotoxy(6,19); cprintf("    ²²²²²²²²");
+ gotoxy(6,20); cprintf("      ±±±±");
+ gotoxy(6,21); cprintf("      °°°°");
+ gotoxy(6,22); cprintf("      °°°°");
+ delay(100);
+
+ textcolor(BLUE);
+ gotoxy(6,12); cprintf("      ²²²²");
+ gotoxy(6,13); cprintf("    ²²²²²²²²");
+ gotoxy(6,14); cprintf("    ²²²²²²²²");
+ gotoxy(6,15); cprintf("    ²²²²²²²²");
+ gotoxy(6,16); cprintf("  ²²²²²²²²²²²²");
+ gotoxy(6,17); cprintf("²²²²²²²²²²²²²²²²");
+ gotoxy(6,18); cprintf("    ²²²²²²²²");
+ gotoxy(6,19); cprintf("      ±±±±");
+ gotoxy(6,20); cprintf("      °°°°");
+ gotoxy(6,21); cprintf("      °°°°");
+ delay(100);
+
+ textcolor(BLACK);
+ gotoxy(6,12); cprintf("      ²²²²");
+ gotoxy(6,13); cprintf("    ²²²²²²²²");
+ gotoxy(6,14); cprintf("    ²²²²²²²²");
+ gotoxy(6,15); cprintf("    ²²²²²²²²");
+ gotoxy(6,16); cprintf("  ²²²²²²²²²²²²");
+ gotoxy(6,17); cprintf("²²²²²²²²²²²²²²²²");
+ gotoxy(6,18); cprintf("    ²²²²²²²²");
+ gotoxy(6,19); cprintf("      ±±±±");
+ gotoxy(6,20); cprintf("      °°°°");
+ gotoxy(6,21); cprintf("      °°°°");
+ delay(100);
+
+ textcolor(BLUE);
+ gotoxy(6,11); cprintf("      ²²²²");
+ gotoxy(6,12); cprintf("    ²²²²²²²²");
+ gotoxy(6,13); cprintf("    ²²²²²²²²");
+ gotoxy(6,14); cprintf("    ²²²²²²²²");
+ gotoxy(6,15); cprintf("  ²²²²²²²²²²²²");
+ gotoxy(6,16); cprintf("²²²²²²²²²²²²²²²²");
+ gotoxy(6,17); cprintf("    ²²²²²²²²");
+ gotoxy(6,18); cprintf("      ±±±±");
+ gotoxy(6,19); cprintf("      °°°°");
+ gotoxy(6,20); cprintf("      °°°°");
+ delay(100);
+
+ textcolor(BLACK);
+ gotoxy(6,11); cprintf("      ²²²²");
+ gotoxy(6,12); cprintf("    ²²²²²²²²");
+ gotoxy(6,13); cprintf("    ²²²²²²²²");
+ gotoxy(6,14); cprintf("    ²²²²²²²²");
+ gotoxy(6,15); cprintf("  ²²²²²²²²²²²²");
+ gotoxy(6,16); cprintf("²²²²²²²²²²²²²²²²");
+ gotoxy(6,17); cprintf("    ²²²²²²²²");
+ gotoxy(6,18); cprintf("      ±±±±");
+ gotoxy(6,19); cprintf("      °°°°");
+ gotoxy(6,20); cprintf("      °°°°");
+ delay(100);
+
+ textcolor(BLUE);
+ gotoxy(6,10); cprintf("      ²²²²");
+ gotoxy(6,11); cprintf("    ²²²²²²²²");
+ gotoxy(6,12); cprintf("    ²²²²²²²²");
+ gotoxy(6,13); cprintf("    ²²²²²²²²");
+ gotoxy(6,14); cprintf("  ²²²²²²²²²²²²");
+ gotoxy(6,15); cprintf("²²²²²²²²²²²²²²²²");
+ gotoxy(6,16); cprintf("    ²²²²²²²²");
+ gotoxy(6,17); cprintf("      ±±±±");
+ gotoxy(6,18); cprintf("      °°°°");
+ gotoxy(6,19); cprintf("      °°°°");
+ delay(100);
+
+ textcolor(BLACK);
+ gotoxy(6,10); cprintf("      ²²²²");
+ gotoxy(6,11); cprintf("    ²²²²²²²²");
+ gotoxy(6,12); cprintf("    ²²²²²²²²");
+ gotoxy(6,13); cprintf("    ²²²²²²²²");
+ gotoxy(6,14); cprintf("  ²²²²²²²²²²²²");
+ gotoxy(6,15); cprintf("²²²²²²²²²²²²²²²²");
+ gotoxy(6,16); cprintf("    ²²²²²²²²");
+ gotoxy(6,17); cprintf("      ±±±±");
+ gotoxy(6,18); cprintf("      °°°°");
+ gotoxy(6,19); cprintf("      °°°°");
+ delay(100);
+
+ textcolor(BLUE);
+ gotoxy(6,9); cprintf("      ²²²²");
+ gotoxy(6,10); cprintf("    ²²²²²²²²");
+ gotoxy(6,11); cprintf("    ²²²²²²²²");
+ gotoxy(6,12); cprintf("    ²²²²²²²²");
+ gotoxy(6,13); cprintf("  ²²²²²²²²²²²²");
+ gotoxy(6,14); cprintf("²²²²²²²²²²²²²²²²");
+ gotoxy(6,15); cprintf("    ²²²²²²²²");
+ gotoxy(6,16); cprintf("      ±±±±");
+ gotoxy(6,17); cprintf("      °°°°");
+ gotoxy(6,18); cprintf("      °°°°");
+ delay(100);
+
+ textbackground(RED);
+ textcolor(BLACK);
+ gotoxy(8,6); cprintf("™");
+ gotoxy(8,7); cprintf("Y");
+ gotoxy(8,8); cprintf("^");
+
+ textbackground(GREEN);
+ textcolor(BLACK);
+ gotoxy(69,17); cprintf("  ²²  ²²");
+ gotoxy(69,18); cprintf("²        ²");
+ gotoxy(69,19); cprintf(" ²²²²²²²²");
+
+ gotoxy(10,5);
+
+ delay(100); sound(250);
+ delay(100); sound(750);
+ delay(100); sound(250);
+ delay(100); sound(750);
+ delay(100); sound(250);
+ delay(100); sound(750);
+ delay(100); sound(250);
+ delay(100); sound(750);
+
+ nosound();
+ getch();
+}

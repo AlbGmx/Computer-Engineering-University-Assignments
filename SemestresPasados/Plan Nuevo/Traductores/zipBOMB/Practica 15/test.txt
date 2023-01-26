@@ -1,6 +1,6 @@
 inicio-programa
 
-        entero a = 10
+        entero a = 1
         entero b = 2
         entero c = 3
 

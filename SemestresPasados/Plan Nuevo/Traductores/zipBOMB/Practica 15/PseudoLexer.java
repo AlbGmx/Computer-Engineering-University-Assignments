@@ -29,7 +29,6 @@ public class PseudoLexer {
         FLOTANTE("flotante"),
         VARIABLE("[a-zA-Z][a-zA-Z0-9]*"),
         ERROR(".+");
-        
 
         public final String pattern;
 
@@ -81,3 +80,5 @@ public class PseudoLexer {
         return tokens;
     }
 }
+
+

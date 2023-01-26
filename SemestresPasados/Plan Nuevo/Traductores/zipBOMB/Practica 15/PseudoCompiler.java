@@ -29,13 +29,26 @@ public class PseudoCompiler {
             e.printStackTrace();
         }
 
+        // System.out.println("********    PROGRAMA FUENTE    ********\n");
+        // System.out.println(input);
+
         ArrayList<PseudoLexer.Token> tokens = pLexer.getTokens(input);
 
+        // System.out.println("\n\n********    TOKENS    ********\n");
+
+        // for (PseudoLexer.Token token : tokens)
+        //     System.out.println(token);
+
         pParser = new PseudoParser();
+        //System.out.println("\nSintaxis Correcta: " + pParser.parse(tokens));
        
         pParser.parse(tokens);
+        //System.out.println("********    Tuplas    ********\n");
         
         tuple = pParser.getTuple();
+        // for(Tuple t : tuple) {
+        //     System.err.println(t);
+        // } 
 
         table = pParser.getSymbolTable();
 
@@ -50,7 +63,7 @@ public class PseudoCompiler {
             System.out.println("Por favor pasar el archivo por argumento");
         } else {
             //new PseudoCompiler(args[0]);
-            new PseudoCompiler("fibonacci.txt");
+            new PseudoCompiler("promedioCalificaciones.txt");
         }
         //new PseudoCompiler();
     }

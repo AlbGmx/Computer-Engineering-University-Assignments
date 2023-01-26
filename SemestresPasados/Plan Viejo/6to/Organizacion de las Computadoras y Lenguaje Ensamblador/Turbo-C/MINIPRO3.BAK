@@ -1,0 +1,1431 @@
+#include <conio.h>
+#include <stdio.h>
+#include <graphics.h>
+#include <string.h>
+
+void inicializa(){
+	int gm, gd=DETECT;
+	initgraph(&gd, &gm,"c:\\turboc3\\bgi");
+}
+
+void pbk(int relleno, int color){
+	int bk[8];
+	bk[0]=0;			bk[1]=0;
+	bk[2]=getmaxx();	bk[3]=0;
+	bk[4]=getmaxx();	bk[5]=getmaxy();
+	bk[6]=0;			bk[7]=getmaxy();
+	setfillstyle(relleno,color);
+	fillpoly(4,bk);
+
+}
+
+void box(int x1, int y1, int x2, int y2, int color){
+	int bx[8];
+	bx[0]=x1;	bx[1]=y1;
+	bx[2]=x2;	bx[3]=y1;
+	bx[4]=x2;	bx[5]=y2;
+	bx[6]=x1;	bx[7]=y2;
+	setfillstyle(1,color);
+	fillpoly(4,bx);
+
+}
+
+void textbox(int x, int y,int tx, int ty,  char far *textstring, int relleno, int color){
+	int box[8];
+	box[0]=x;		box[1]=y;
+	box[2]=x+100;	box[3]=y;
+	box[4]=x+100;	box[5]=y+50;
+	box[6]=x;		box[7]=y+50;
+	setfillstyle(relleno,color);
+	fillpoly(4,box);
+	outtextxy(x+tx,y+ty,textstring);
+
+}
+
+void textboxxy(int x, int y, int r, int relleno, int color){
+	int box[8];
+	box[0]=x;		box[1]=y;
+	box[2]=x+597;	box[3]=y;
+	box[4]=x+597;	box[5]=y+27+15*r;
+	box[6]=x;		box[7]=y+27+15*r;
+	setfillstyle(relleno,color);
+	fillpoly(4,box);
+}
+
+//OPCIONES
+//OPCION1
+void c1_si(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(230,40,"c1_si");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,2,relleno, color);
+	outtextxy(300-85,170,"Haces fila para el desayuno");
+	outtextxy(300-169,185,"La señora que sirve los platos quiere hablar contigo");
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+	settextstyle(0,0,1);
+	textbox(85,370,20,22,"OPCION 1",relleno,color);
+	textbox(270,370,20,22,"OPCION 2",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//OPCION2
+void c2_si(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(230,40,"c2_si");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,2,relleno, color);
+	outtextxy(getmaxx()/2 - 69,170,"OPCION 2");
+	outtextxy(getmaxx()/2 - 75,185,"PRIMER DILEMA");
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+	settextstyle(0,0,1);
+	textbox(85,370,20,22,"OPCION 1",relleno,color);
+	textbox(270,370,20,22,"OPCION 2",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+void c2_no(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(230,40,"c2_no");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,2,relleno, color);
+	outtextxy(getmaxx()/2 - 69,170,"OPCION 2");
+	outtextxy(getmaxx()/2 - 75,185,"PRIMER DILEMA");
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+	settextstyle(0,0,1);
+	textbox(85,370,20,22,"OPCION 1",relleno,color);
+	textbox(270,370,20,22,"OPCION 2",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//OPCION3
+void c3_si(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(230,40,"c3_si");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,2,relleno, color);
+	outtextxy(getmaxx()/2 - 69,170,"OPCION 3");
+	outtextxy(getmaxx()/2 - 75,185,"PRIMER DILEMA");
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+	settextstyle(0,0,1);
+	textbox(85,370,20,22,"OPCION 1",relleno,color);
+	textbox(270,370,20,22,"OPCION 2",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//OPCION3
+void c3_no(int relleno, int color){
+
+	pbk(relleno, color);
+
+	settextstyle(10,0,2);
+	outtextxy(230,getmaxy()/2,"ENDGAME op3");
+
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+}
+//OPCION4
+void c4_si(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(230,40,"c4_si");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,2,relleno, color);
+	outtextxy(getmaxx()/2 - 69,170,"OPCION 4");
+	outtextxy(getmaxx()/2 - 75,185,"PRIMER DILEMA");
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+	settextstyle(0,0,1);
+	textbox(85,370,20,22,"OPCION 1",relleno,color);
+	textbox(270,370,20,22,"OPCION 2",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+void c4_no(int relleno, int color){
+	pbk(relleno, color);
+
+	settextstyle(10,0,2);
+	outtextxy(230,getmaxy()/2,"ENDGAME op4");
+
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+}//OPCION5
+//OPCION6
+void c5_si(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(230,40,"c5_si");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,2,relleno, color);
+	outtextxy(getmaxx()/2 - 69,170," OPCION 5");
+	outtextxy(getmaxx()/2 - 75,185,"PRIMER DILEMA");
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+	settextstyle(0,0,1);
+	textbox(85,370,20,22,"OPCION 1",relleno,color);
+	textbox(270,370,20,22,"OPCION 2",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+void c5_no(int relleno, int color){
+	pbk(relleno, color);
+
+	settextstyle(10,0,2);
+	outtextxy(230,getmaxy()/2,"ENDGAME op5");
+
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+}
+//OPCION6
+void c6_si(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(230,40,"c6_si");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,2,relleno, color);
+	outtextxy(getmaxx()/2 - 69,170," OPCION 6");
+	outtextxy(getmaxx()/2 - 75,185,"PRIMER DILEMA");
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+	settextstyle(0,0,1);
+	textbox(85,370,20,22,"OPCION 1",relleno,color);
+	textbox(270,370,20,22,"OPCION 2",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+void c6_no(int relleno, int color){
+	pbk(relleno, color);
+
+	settextstyle(10,0,2);
+	outtextxy(230,getmaxy()/2,"ENDGAME op6");
+
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+}
+//OPCION7
+void c7_si(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(230,40,"c7_si");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,2,relleno, color);
+	outtextxy(getmaxx()/2 - 69,170," OPCION 7");
+	outtextxy(getmaxx()/2 - 75,185,"PRIMER DILEMA");
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+	settextstyle(0,0,1);
+	textbox(85,370,20,22,"OPCION 1",relleno,color);
+	textbox(270,370,20,22,"OPCION 2",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+void c7_no(int relleno, int color){
+	pbk(relleno, color);
+
+	settextstyle(10,0,2);
+	outtextxy(230,getmaxy()/2,"ENDGAME op7");
+
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+}
+//OPCION8
+void c8_si(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(230,40,"c8_si");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,2,relleno, color);
+	outtextxy(getmaxx()/2 - 69,170,"OPCION 8");
+	outtextxy(getmaxx()/2 - 75,185,"PRIMER DILEMA");
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+	settextstyle(0,0,1);
+	textbox(85,370,20,22,"OPCION 1",relleno,color);
+	textbox(270,370,20,22,"OPCION 2",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//OPCION9
+void c9_si(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(230,40,"c9_si");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,2,relleno, color);
+	outtextxy(getmaxx()/2 - 69,170,"OPCION 9");
+	outtextxy(getmaxx()/2 - 75,185,"PRIMER DILEMA");
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+	settextstyle(0,0,1);
+	textbox(85,370,20,22,"OPCION 1",relleno,color);
+	textbox(270,370,20,22,"OPCION 2",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+void c9_no(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(230,40,"c9_no");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,2,relleno, color);
+	outtextxy(getmaxx()/2 - 69,170,"OPCION 9");
+	outtextxy(getmaxx()/2 - 75,185,"PRIMER DILEMA");
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+	settextstyle(0,0,1);
+	textbox(85,370,20,22,"OPCION 1",relleno,color);
+	textbox(270,370,20,22,"OPCION 2",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//OPCION10
+void c10_si(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(230,40,"c10_si");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,2,relleno, color);
+	outtextxy(getmaxx()/2 - 69,170,"OPCION 10");
+	outtextxy(getmaxx()/2 - 75,185,"PRIMER DILEMA");
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+	settextstyle(0,0,1);
+	textbox(85,370,20,22,"OPCION 1",relleno,color);
+	textbox(270,370,20,22,"OPCION 2",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+void c10_no(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(230,40,"c10_no");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,2,relleno, color);
+	outtextxy(getmaxx()/2 - 69,170,"OPCION 10");
+	outtextxy(getmaxx()/2 - 75,185,"PRIMER DILEMA");
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+	settextstyle(0,0,1);
+	textbox(85,370,20,22,"OPCION 1",relleno,color);
+	textbox(270,370,20,22,"OPCION 2",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//OPCION10
+void c11_si(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(230,40,"c11_si");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,2,relleno, color);
+	outtextxy(getmaxx()/2 - 69,170,"OPCION 11");
+	outtextxy(getmaxx()/2 - 75,185,"PRIMER DILEMA");
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+	settextstyle(0,0,1);
+	textbox(85,370,20,22,"OPCION 1",relleno,color);
+	textbox(270,370,20,22,"OPCION 2",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+void c11_no(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(230,40,"c11_no");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,2,relleno, color);
+	outtextxy(getmaxx()/2 - 69,170,"OPCION 11");
+	outtextxy(getmaxx()/2 - 75,185,"PRIMER DILEMA");
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+	settextstyle(0,0,1);
+	textbox(85,370,20,22,"OPCION 1",relleno,color);
+	textbox(270,370,20,22,"OPCION 2",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//OPCION10
+void c12_si(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(230,40,"c9_si");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,2,relleno, color);
+	outtextxy(getmaxx()/2 - 69,170,"OPCION 9");
+	outtextxy(getmaxx()/2 - 75,185,"PRIMER DILEMA");
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+	settextstyle(0,0,1);
+	textbox(85,370,20,22,"OPCION 1",relleno,color);
+	textbox(270,370,20,22,"OPCION 2",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+void c12_no(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(230,40,"c10_no");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,2,relleno, color);
+	outtextxy(getmaxx()/2 - 69,170,"OPCION 10");
+	outtextxy(getmaxx()/2 - 75,185,"PRIMER DILEMA");
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+	settextstyle(0,0,1);
+	textbox(85,370,20,22,"OPCION 1",relleno,color);
+	textbox(270,370,20,22,"OPCION 2",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//MUEVE OPCION10
+void m_c11_si(int relleno, int color, int relleno1 , int color1){
+	char tecla;
+	int i=1;
+	c11_si(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno1,color);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1://	m_c3_si(5,2,3,4);
+				break;
+				case 2://	m_c3_no(5,2,3,4);
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			if(i!=3) c11_si(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+void m_c11_no(int relleno, int color, int relleno1 , int color1){
+	char tecla;
+	int i=1;
+	c11_no(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno1,color);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13: 
+			switch(i)
+			{
+				case 1:
+				break;
+				case 2:
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			if(i!=3) c11_no(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//MUEVE OPCION10
+void m_c10_si(int relleno, int color, int relleno1 , int color1){
+	char tecla;
+	int i=1;
+	c10_si(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno1,color);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1://	m_c3_si(5,2,3,4);
+				break;
+				case 2://	m_c3_no(5,2,3,4);
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			if(i!=3) c10_si(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+void m_c10_no(int relleno, int color, int relleno1 , int color1){
+	char tecla;
+	int i=1;
+	c10_no(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno1,color);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13: 
+			switch(i)
+			{
+				case 1:	m_c11_si(8,9,5,6;
+				break;
+				case 2:	m_c11_no(4,5,2,4);
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			if(i!=3) c10_no(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//MUEVE OPCION9
+void m_c9_si(int relleno, int color, int relleno1 , int color1){
+	char tecla;
+	int i=1;
+	c9_si(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno1,color);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1://	m_c3_si(5,2,3,4);
+				break;
+				case 2://	m_c3_no(5,2,3,4);
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			if(i!=3) c9_si(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+void m_c9_no(int relleno, int color, int relleno1 , int color1){
+	char tecla;
+	int i=1;
+	c9_no(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno1,color);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	m_c10_si(5,4,3,4);
+				break;
+				case 2:	m_c10_no(5,4,3,4);
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			if(i!=3) c9_no(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//MUEVE OPCION8
+void m_c8_si(int relleno, int color, int relleno1 , int color1){
+	char tecla;
+	int i=1;
+	c8_si(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno1,color);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	m_c9_si(1,2,3,4);
+				break;
+				case 2:	m_c10_si(3,7,3,4);
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			if(i!=3) c8_si(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//MUEVE OPCION7
+void m_c7_si(int relleno, int color, int relleno1 , int color1){
+	char tecla;
+	int i=1;
+	c7_si(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno1,color);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	m_c8_si(6,4,9,11); i=3;
+				break;
+				case 2: c5_no(6,2); i=3;
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			c7_si(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//MUEVE OPCION6
+void m_c6_si(int relleno, int color, int relleno1 , int color1){
+	char tecla;
+	int i=1;
+	c6_si(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno1,color);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	m_c7_si(5,4,6,8); i=3;
+				break;
+				case 2: c5_no(4,4); getch(); 
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			c6_si(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//MUEVE OPCION5
+void m_c5_si(int relleno, int color, int relleno1 , int color1){
+	char tecla;
+	int i=1;
+	c5_si(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno1,color);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	m_c6_si(5,4,6,8);	i=3;
+				break;
+				case 2: c6_no(4,4); getch();	
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			c5_si(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//MUEVE OPCION4
+void m_c4_si(int relleno, int color, int relleno1 , int color1){
+	char tecla;
+	int i=1;
+	c4_si(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno1,color);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	m_c5_si(1,3,6,2);	i=3;
+				break;
+				case 2: c5_no(4,4); getch();
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			c4_si(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//MUEVE OPCION3
+void m_c3_si(int relleno, int color, int relleno1 , int color1){
+	char tecla;
+	int i=1;
+	c3_si(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno1,color);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	m_c4_si(3,6,2,9);		i=3;
+				break;
+				case 2: c4_no(2,4); getch();	
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			c3_si(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//MUEVE OPCION2
+void m_c2_si(int relleno, int color, int relleno1 , int color1){
+	char tecla;
+	int i=1;
+	c2_si(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno1,color);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	m_c3_si(3,4,11,7); 		i=3;
+				break;
+				case 2: c3_no(3,7); getch();	
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			c2_si(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+
+/*void m_c2_no(int relleno, int color, int relleno1 , int color1)
+{
+	char tecla;
+	int i=2;
+	c2_no(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno1,color);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	m_c3_si(5,2,3,4);
+				break;
+				case 2:	m_c3_no(5,2,3,4);
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			if(i!=3) c2_no(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}*/
+//MUEVE OPCION1
+void m_c1_si(int relleno, int color, int relleno1 , int color1){
+	char tecla;
+	int i=1;
+	c1_si(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno1,color);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3: textbox(85,370,20,22,"OPCION 1",relleno,0);
+					textbox(270,370,20,22,"OPCION 2",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+	
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	m_c2_si(3,4,11,7); i=3;
+				break;
+				case 2: //m_c2_no(3,4,11,7); i=3;
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			c1_si(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+
+
+
+void main (){
+	inicializa();
+	m_c1_si(11,7,8,6);
+}

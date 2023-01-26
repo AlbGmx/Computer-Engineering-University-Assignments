@@ -1,0 +1,91 @@
+#include <stdio.h>
+#include <conio.h>
+#include <graphics.h>
+#include <ctype.h>
+#include <string.h>
+void inicializa()
+{ int gm, gd=DETECT;
+  initgraph (&gd, &gm,"C:\\turboc3\\bgi");
+}
+void box(int x1, int y1, int x2, int y2, int relleno, int color)
+{int poly [8];
+	poly[0]=x1; poly [1]=y1;
+	poly[2]=x2; poly [3]=y1;
+	poly[4]=x2; poly [5]=y2;
+	poly[6]=x1; poly [7]=y2;
+setfillstyle (relleno, color);
+fillpoly (4,poly);
+}
+void asigna (int M[5][5] )
+{int i,j;
+int A[5][5] = { 0,0,0,1,0,
+		1,0,0,0,0,
+		0,0,0,1,0,
+		0,0,0,0,0,
+		0,1,0,0,0 };
+for ( i = 0 ; i < 5 ; i++ )
+for ( j = 0 ; j < 5 ; j++ ) M[i][j] = A[i][j];
+}
+void pintatablero( int M [5][5])
+{ int i,j;
+	for ( i = 0 ; i < 5 ; i++ )
+	for ( j = 0 ; j < 5 ; j++ )
+	{ box (100 + j*50, 100 + i*50, 150 + j*50, 150 + i*50, 1, RED);
+ if ( M[i][j] == 1 ) { setfillstyle (1, CYAN);
+	fillellipse (125 + j*50, 125 + i*50, 10,10);
+		}
+}
+}
+void juega ( int M[5][5] )
+{ int i,j,x,y, puntos=0;
+char tecla, cad [10];
+i=0; j=0; x=0; y=0;
+asigna ( M );
+pintatablero ( M );
+
+do {
+     box (100 + j*50, 100 + i*50, 150 + j*50, 150 + i*50, 1, BLUE);
+     tecla= getch();
+     box (100 + j*50, 100 + i*50, 150 + j*50, 150 + i*50, 1, RED);
+     switch ( tecla )
+     { case 0 : tecla = getch ();
+	       switch ( tecla )
+		 {case 72 : i-- ; break;
+		 case 80 : i++ ; break;
+		  case 75 : j-- ; break;
+		  case 77 : j++ ; break;
+		}
+		if ( i < 0  ) i = 0 ;
+		if ( i > 4  ) i = 4 ;
+		if ( j < 0  ) j = 0 ;
+		if ( j > 4  ) j = 4;
+
+		gcvt ( puntos, 4   , cad );
+		setcolor (BLACK);
+		outtextxy ( 400, 50, cad );
+
+
+		if ( M [i][j] == 1 ) { i = y ; j = x; }
+					puntos = puntos - 50 ;
+					}
+				else { x = j ; y = i ;
+					puntos = puntos + 10 ;
+					}
+
+		gcvt ( puntos, 4    , cad );
+		setcolor (WHITE);
+		outtextxy ( 400, 50, cad );
+
+
+
+	break; // fin cero
+		}// fin tecla
+		} while ( tecla !=27 );
+		}
+void main ()
+{ int M[5][5];
+inicializa ();
+asigna (M);
+pintatablero (M);
+juega (M);
+}
