@@ -10,3 +10,6 @@
 [submodule "SemestresPasados/PlanNuevo/Python/P1"]
 	path = SemestresPasados/PlanNuevo/Python/P1
 	url = https://github.com/AlbGmx/PythonP1
+[submodule "SemestresPasados/PlanNuevo/IHC/P3_IHC"]
+	path = SemestresPasados/PlanNuevo/IHC/P3_IHC
+	url = https://github.com/AlbGmx/P3_IHC
