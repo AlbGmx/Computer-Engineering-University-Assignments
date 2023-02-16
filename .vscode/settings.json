@@ -32,5 +32,6 @@
     "Traductores/Prac5",
     "Traductores/Prac3",
     "Traductores/Prac4"
-  ]
+  ],
+  "C_Cpp.errorSquiggles": "disabled"
 }
