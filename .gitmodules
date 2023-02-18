@@ -4,9 +4,6 @@
 [submodule "AsignaturasActuales/Micros/uc-p2-AlbGmx"]
 	path = AsignaturasActuales/Micros/uc-p2-AlbGmx
 	url = https://github.com/uPuC/uc-p2-AlbGmx.git
-[submodule "SemestresPasados/PlanNuevo/Python/AlbGmx"]
-	path = SemestresPasados/PlanNuevo/Python/AlbGmx
-	url = https://github.com/LPP-FCQI-UABC/lpp-2022-2-532-portafolio-AlbGmx
 [submodule "SemestresPasados/PlanNuevo/Python/P1"]
 	path = SemestresPasados/PlanNuevo/Python/P1
 	url = https://github.com/AlbGmx/PythonP1
