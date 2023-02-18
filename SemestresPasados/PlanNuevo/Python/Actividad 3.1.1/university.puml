@@ -1,0 +1,60 @@
+@startuml
+
+class University {
+  - name: String
+  - faculties: List<Faculty>
+  - students: List<Student>
+}
+
+class Faculty {
+  - name: String
+  - courses: List<Course>
+  - professors: List<Professor>
+}
+
+class Course {
+  - name: String
+  - semester: Semester
+  - professors: List<Professor>
+  - students: List<Student>
+  - exams: List<Exam>
+  - grades: List<Grade>
+}
+
+class Professor {
+  - name: String
+  - courses: List<Course>
+}
+
+class Student {
+  - name: String
+  - courses: List<Course>
+  - grades: List<Grade>
+}
+
+class Semester {
+  - name: String
+}
+
+class Exam {
+  - date: Date
+  - course: Course
+  - students: List<Student>
+  - grades: List<Grade>
+}
+
+class Grade {
+  - student: Student
+  - exam: Exam
+  - grade: Float
+}
+
+University "1" -- "*" Faculty
+Faculty "1" -- "*" Course
+Course "1" -- "*" Professor
+Course "1" -- "*" Student
+Course "1" -- "*" Exam
+Exam "1" -- "*" Grade
+Student "1" -- "*" Grade
+
+@enduml
