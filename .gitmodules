@@ -1,0 +1,6 @@
+[submodule "AsignaturasActuales/Micros/Practicas/P1"]
+	path = AsignaturasActuales/Micros/Practicas/P1
+	url = https://github.com/uPuC/uc-p1-AlbGmx.git
+[submodule "AsignaturasActuales/Micros/Practicas/P2"]
+	path = AsignaturasActuales/Micros/Practicas/P2
+	url = https://github.com/uPuC/uc-p2-AlbGmx.git
