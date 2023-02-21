@@ -1,80 +1,80 @@
 {
-   "version": "0.2.0",
-   "configurations": [
-      {
-         "type": "java",
-         "name": "Launch Main",
-         "request": "launch",
-         "mainClass": "Main",
-         "projectName": "UABC_e6080aaf"
-      },
-      {
-         "type": "java",
-         "name": "Launch PseudoCompiler",
-         "request": "launch",
-         "mainClass": "PseudoCompiler",
-         "projectName": "UABC_e6080aaf"
-      },
-      {
-         "type": "java",
-         "name": "Launch Test",
-         "request": "launch",
-         "mainClass": "Prac2.Test",
-         "projectName": "uabc-1_9e251277"
-      },
-      {
-         "type": "java",
-         "name": "Launch Main",
-         "request": "launch",
-         "mainClass": "Main",
-         "projectName": "uabc-1_9e251277"
-      },
-      {
-         "type": "java",
-         "name": "Launch Test",
-         "request": "launch",
-         "mainClass": "Test",
-         "projectName": "UABC_e6080aaf"
-      },
-      {
-         "type": "lldb",
-         "request": "launch",
-         "name": "Debug",
-         "program": "${workspaceFolder}/<your program>",
-         "args": [],
-         "cwd": "${workspaceFolder}"
-      },
-      {
-         "name": "C/C++ Runner: Debug Session",
-         "type": "cppdbg",
-         "request": "launch",
-         "args": [],
-         "stopAtEntry": false,
-         "externalConsole": false,
-         "cwd": "c:/Users/Alberto/Desktop/UABC",
-         "program": "c:/Users/Alberto/Desktop/UABC/build/Debug/outDebug",
-         "MIMode": "gdb",
-         "miDebuggerPath": "gdb",
-         "setupCommands": [
-            {
-               "description": "Enable pretty-printing for gdb",
-               "text": "-enable-pretty-printing",
-               "ignoreFailures": true
-            }
-         ]
-      },
-      {
-         "name": "C/C++: gcc build and debug active file",
-         "type": "cppdbg",
-         "request": "launch",
-         "program": "${fileDirname}/${fileBasenameNoExtension}",
-         "args": [],
-         "stopAtEntry": false,
-         "cwd": "${fileDirname}",
-         "environment": [],
-         "externalConsole": false,
-         "MIMode": "lldb",
-         "preLaunchTask": "C/C++: gcc build active file"
-      }
-   ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch Main",
+      "request": "launch",
+      "mainClass": "Main",
+      "projectName": "UABC_e6080aaf"
+    },
+    {
+      "type": "java",
+      "name": "Launch PseudoCompiler",
+      "request": "launch",
+      "mainClass": "PseudoCompiler",
+      "projectName": "UABC_e6080aaf"
+    },
+    {
+      "type": "java",
+      "name": "Launch Test",
+      "request": "launch",
+      "mainClass": "Prac2.Test",
+      "projectName": "uabc-1_9e251277"
+    },
+    {
+      "type": "java",
+      "name": "Launch Main",
+      "request": "launch",
+      "mainClass": "Main",
+      "projectName": "uabc-1_9e251277"
+    },
+    {
+      "type": "java",
+      "name": "Launch Test",
+      "request": "launch",
+      "mainClass": "Test",
+      "projectName": "UABC_e6080aaf"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug",
+      "program": "${workspaceFolder}/<your program>",
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/gomez/OneDrive/Documents/UABC",
+      "program": "c:/Users/gomez/OneDrive/Documents/UABC/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "C/C++: gcc build and debug active file",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb",
+      "preLaunchTask": "C/C++: gcc build active file"
+    }
+  ]
 }

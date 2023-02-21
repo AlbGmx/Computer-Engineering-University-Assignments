@@ -28,10 +28,6 @@
     "**/.vscode",
     "**/.vscode/**"
   ],
-  "java.project.sourcePaths": [
-    "Traductores/Prac5",
-    "Traductores/Prac3",
-    "Traductores/Prac4"
-  ],
-  "C_Cpp.errorSquiggles": "disabled"
+  "C_Cpp.errorSquiggles": "enabled",
+  "C_Cpp_Runner.useAddressSanitizer": false
 }
