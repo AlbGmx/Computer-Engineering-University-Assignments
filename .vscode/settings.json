@@ -28,6 +28,6 @@
     "**/.vscode",
     "**/.vscode/**"
   ],
-  "C_Cpp.errorSquiggles": "enabled",
+  "C_Cpp.errorSquiggles": "disabled",
   "C_Cpp_Runner.useAddressSanitizer": false
 }
