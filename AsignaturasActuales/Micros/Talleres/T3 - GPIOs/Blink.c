@@ -1,6 +1,12 @@
+/*
+ * Autor: Emmanuel Alberto Gómez Cárdenas
+ * Fecha: 12/03/2023
+ * Descripcion: Taller 3 - GPIOs
+ * Taller de la clase Microcontroladores
+ */
+
 /* Blink Example */
 #include <stdio.h>
-
 #include "driver/gpio.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -25,7 +31,7 @@ void app_main() {
       printf("Value of GPIO Output Register at address %p when OFF: 0x%08xh\n",
              GPIO_OUT, *GPIO_OUT);
       printf("Bit 2 = %d\n\n", (*GPIO_OUT & (1 << 2)) ? 1 : 0);
-      vTaskDelay(3000 / portTICK_PERIOD_MS);
+      vTaskDelay(50 / portTICK_PERIOD_MS);
 
       gpio_set_level(LED_GPIO, 1);
       printf("Value of GPIO Input  Register at address %p when ON:  0x%08xh\n",
@@ -33,7 +39,10 @@ void app_main() {
       printf("Bit 2 = %d\n", (*GPIO_IN & (1 << 2)) ? 1 : 0);
       printf("Value of GPIO Output Register at address %p when ON:  0x%08xh\n",
              GPIO_OUT, *GPIO_OUT);
-      printf("Bit 2 = %d\n\n", (*GPIO_OUT & (1 << 2)) ? 1 : 0);
+      printf("Bit 2 = %d\n", (*GPIO_OUT & (1 << 2)) ? 1 : 0);
+      printf(
+          "\n------------------------------------------------------------------"
+          "---------\n\n");
       vTaskDelay(3000 / portTICK_PERIOD_MS);
    }
 }
