@@ -8,3 +8,9 @@
 [submodule "AsignaturasActuales/Micros/Practicas/P3"]
 	path = AsignaturasActuales/Micros/Practicas/P3
 	url = https://github.com/uPuC/uc-p3-AlbGmx.git
+[submodule "AsignaturasActuales/Micros/Practicas/P4"]
+	path = AsignaturasActuales/Micros/Practicas/P4
+	url = https://github.com/uPuC/uc-p4-AlbGmx.git
+[submodule "AsignaturasActuales/Micros/Practicas/P5"]
+	path = AsignaturasActuales/Micros/Practicas/P5
+	url = https://github.com/uPuC/uc-p5-AlbGmx.git
