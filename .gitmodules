@@ -4,7 +4,6 @@
 [submodule "AsignaturasActuales/Micros/Practicas/P2"]
 	path = AsignaturasActuales/Micros/Practicas/P2
 	url = https://github.com/uPuC/uc-p2-AlbGmx.git
-
 [submodule "AsignaturasActuales/Micros/Practicas/P3"]
 	path = AsignaturasActuales/Micros/Practicas/P3
 	url = https://github.com/uPuC/uc-p3-AlbGmx.git
@@ -14,3 +13,6 @@
 [submodule "AsignaturasActuales/Micros/Practicas/P5"]
 	path = AsignaturasActuales/Micros/Practicas/P5
 	url = https://github.com/uPuC/uc-p5-AlbGmx.git
+[submodule "AsignaturasActuales/Micros/Practicas/P6"]
+	path = AsignaturasActuales/Micros/Practicas/P6
+	url = https://github.com/uPuC/uc-p6-AlbGmx.git
