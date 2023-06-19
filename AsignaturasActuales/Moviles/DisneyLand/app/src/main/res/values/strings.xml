@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">DisneyLand</string>
+    <string name="disneyland_logo">DisneyLand logo</string>
+    <string name="parkImageDescription">DisneyLand Park Image</string>
+    <string name="intro">DisneyLand Parks</string>
+    <string name="start">Start</string>
+    <string name="random">Random Park</string>
+    <string name="map">Where to Visit</string>
+    <string name="selectRegion">Select Region</string>
+    <string name="selectPark">Select a Park</string>
+    <string name="visited">Visited?</string>
+    <string name="share_button">Share via WhatsApp</string>
+    <string name="map_button">Where to Visit?</string>
+
+    <!-- Disneyland Park, California -->
+    <string name="na_california_name">Disneyland Park</string>
+    <string name="na_california_desc">Located in Anaheim, California, Disneyland Park is the original and flagship theme park of Disney. Opening on July 17, 1955, it has become an iconic symbol of imagination and enchantment. With its charming Main Street, U.S.A., enchanting Sleeping Beauty Castle, and themed lands like Adventureland, Tomorrowland, Fantasyland, and Frontierland, Disneyland Park offers a magical experience for all ages. Each land in the park brings unique attractions and experiences, from thrilling journeys through exotic locales to futuristic adventures. From classic rides to live shows, parades, and spectacular fireworks, Disneyland Park is a place where dreams come true—a world of fantasy and storytelling that captivates the imagination and creates lasting memories.</string>
+    <string name="na_california_date">July 17, 1955</string>
+
+    <!-- Magic Kingdom, Florida -->
+    <string name="na_florida_name">Magic Kingdom</string>
+    <string name="na_florida_desc">Located in Lake Buena Vista, Florida, Magic Kingdom is a magical theme park that is part of the Walt Disney World Resort. Opening on October 1, 1971, it has delighted visitors with its enchanting attractions, iconic Cinderella Castle, and themed lands like Adventureland, Fantasyland, Frontierland, Liberty Square, and Tomorrowland. With its classic attractions, dazzling parades, and nightly fireworks, Magic Kingdom offers a world of fantasy and imagination for guests of all ages.</string>
+    <string name="na_florida_date">October 1, 1971</string>
+
+    <!-- Disneyland Paris, France -->
+    <string name="eu_france_name">Disneyland Paris</string>
+    <string name="eu_france_desc">Located in Marne-la-Vallee, France, Disneyland Paris is a captivating resort that combines the magic of Disney with the charm of European culture. Opening on April 12, 1992, it features two theme parks: Disneyland Park and Walt Disney Studios Park. Disneyland Park offers classic Disney experiences with its fairy tale castle, themed lands like Main Street, U.S.A., Adventureland, Frontierland, Fantasyland, and Discoveryland. Walt Disney Studios Park takes guests behind the scenes of movie-making with thrilling attractions and immersive shows. Disneyland Paris is a destination where dreams come true in the heart of Europe.</string>
+    <string name="eu_france_date">April 12, 1992</string>
+
+    <!-- Tokyo Disneyland, Japan -->
+    <string name="as_japan_name">Tokyo Disneyland</string>
+    <string name="as_japan_desc">Located in Urayasu, Chiba, Japan, Tokyo Disneyland is a magical destination inspired by the original Disneyland in California. Opening on April 15, 1983, it brings Disney\'s enchanting storytelling and beloved characters to Japanese audiences. Visitors can explore themed lands such as World Bazaar, Adventureland, Westernland, Fantasyland, Tomorrowland, and Toontown. With its unique attractions, immersive experiences, and seasonal events, Tokyo Disneyland offers a memorable and magical experience for guests.</string>
+    <string name="as_japan_date">April 15, 1983</string>
+
+    <!-- Hong Kong Disneyland, China -->
+    <string name="as_hongkong_name">Hong Kong Disneyland</string>
+    <string name="as_hongkong_desc">Located on Lantau Island, Hong Kong, Hong Kong Disneyland is a magical resort that brings the beloved Disney experience to the heart of Asia. Opening on September 12, 2005, it offers a mix of classic Disney attractions and unique experiences tailored to the region.</string>
+    <string name="as_hongkong_date">September 12, 2005</string>
+
+
+    <string-array name="regions">
+        <item>North America</item>
+        <item>Europe</item>
+        <item>Asia</item>
+    </string-array>
+</resources>

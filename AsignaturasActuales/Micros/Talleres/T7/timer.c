@@ -45,15 +45,16 @@ void Delay25mS() {
    uint32_t *loadAlarmLowRegister =  (uint32_t *) TIMG0_T0ALARMLO_REG;
    uint32_t *loadAlarmHighRegister = (uint32_t *) TIMG0_T0ALARMHI_REG;
 
-   // Disable the timer (31th bit) in case it was activated
-   *configurationRegister &= ~(1 << 31);
-   // Disable the alarm (10th bit) in case it was activated
-   *configurationRegister &= ~(1 << 10);
+   // Disable the timer (31th bit) and the alarm (10th bit) in case they were activated
+   *configurationRegister &= ~((1 << 31) | (1 << 10));
+
    // Set timer to increase (30th bit)
    *configurationRegister |= 1 << 30;
+
    // Set prescaler (13th to 28th bits) to 8,000 to count one each .10 ms
    // 80 000 would give us a ms but is out of the 16 bit range
    *configurationRegister |= 8000 << 13;
+
    // Clear autoreload (29th) bit
    *configurationRegister &= ~(1 << 29);
 
