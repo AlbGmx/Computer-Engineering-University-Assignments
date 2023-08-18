@@ -1,18 +1,3 @@
-[submodule "AsignaturasActuales/Micros/Practicas/P1"]
-	path = AsignaturasActuales/Micros/Practicas/P1
-	url = https://github.com/uPuC/uc-p1-AlbGmx.git
-[submodule "AsignaturasActuales/Micros/Practicas/P2"]
-	path = AsignaturasActuales/Micros/Practicas/P2
-	url = https://github.com/uPuC/uc-p2-AlbGmx.git
-[submodule "AsignaturasActuales/Micros/Practicas/P3"]
-	path = AsignaturasActuales/Micros/Practicas/P3
-	url = https://github.com/uPuC/uc-p3-AlbGmx.git
-[submodule "AsignaturasActuales/Micros/Practicas/P4"]
-	path = AsignaturasActuales/Micros/Practicas/P4
-	url = https://github.com/uPuC/uc-p4-AlbGmx.git
-[submodule "AsignaturasActuales/Micros/Practicas/P5"]
-	path = AsignaturasActuales/Micros/Practicas/P5
-	url = https://github.com/uPuC/uc-p5-AlbGmx.git
-[submodule "AsignaturasActuales/Micros/Practicas/P6"]
-	path = AsignaturasActuales/Micros/Practicas/P6
-	url = https://github.com/uPuC/uc-p6-AlbGmx.git
+[submodule "AsignaturasActuales/Microcontroladores/uc-prac1-AlbGmx-1"]
+	path = AsignaturasActuales/Microcontroladores/uc-prac1-AlbGmx-1
+	url = https://github.com/uPuC2/uc-prac1-AlbGmx-1
