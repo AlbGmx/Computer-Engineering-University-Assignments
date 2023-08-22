@@ -33,7 +33,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Things to buy?.md",
+                "file": "Asignaturas - 46 Creditos pendientes.md",
                 "mode": "source",
                 "source": false
               }
@@ -106,7 +106,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Things to buy?.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +122,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Things to buy?.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -145,9 +143,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Things to buy?.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -167,9 +163,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "96a91d929dc9aa65",
+  "active": "874eeee29a90d0ec",
   "lastOpenFiles": [
     "Asignaturas - 46 Creditos pendientes.md",
+    "Meta 1.2 Estandar TIA-EIA 568.md",
     "Things to buy?.md"
   ]
 }
