@@ -49,4 +49,4 @@ I am excited about the work I've done / still doing during my university years, 
 
 Thank you for visiting my repository and taking the time to explore my academic journey!
 
-*Emmanueul Alberto Gomez Cardenas*
+*Emmanuel Alberto Gomez Cardenas*
