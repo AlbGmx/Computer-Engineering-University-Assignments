@@ -45,7 +45,7 @@ Throughout my academic journey, I've had the opportunity to work with a wide ran
 
 ## Contact
 
-I am excited about the work I've done / still doing during my university years, and I'm always open to discussing my projects and experiences. Please feel free to contact me at [Gomez.emmanuel@uabc,edu.mx](mailto:gomez.emmanuel@uabc.com.mx) if you have any questions or collaborations.
+I am excited about the work I've done / still doing during my university years, and I'm always open to discussing my projects and experiences. Please feel free to contact me at [Gomez.emmanuel@uabc.edu.mx](mailto:gomez.emmanuel@uabc.com.mx) if you have any questions or collaborations.
 
 Thank you for visiting my repository and taking the time to explore my academic journey!
 
