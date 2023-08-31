@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <conio.h>
+#include <dos.h>
+
+void main()
+{       textbackground(BLUE);
+	clrscr();
+	textcolor(WHITE); textbackground(BLACK);
+	gotoxy(10,9);   cprintf("ÚÄÄÄÄÄÄÄ¿");
+	gotoxy(10,10);	cprintf("³²²²²²²²³");
+	gotoxy(10,11);	cprintf("³²");	gotoxy(14,11); cprintf("²²²²³");
+	gotoxy(10,12);	cprintf("³²²²²²²²³");
+	gotoxy(10,13);	cprintf("³²²²²²²²³");
+	gotoxy(10,14);	cprintf("³²²²²²²²³");
+	gotoxy(10,15);	cprintf("³²²²²²");
+	gotoxy(10,16);	cprintf("³²²²²²²²³");gotoxy(18,15); cprintf("³");
+	textcolor(YELLOW);
+	gotoxy(16,15); 	cprintf("±°");
+	gotoxy(12,11);	cprintf("±°");
+
+
+	getch();
+}

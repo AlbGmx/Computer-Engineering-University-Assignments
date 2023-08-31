@@ -1,0 +1,30 @@
+#WAVEFORM
+#H Name     Name;
+#H PartNo   1253171;
+#H Date     28/05/2021;
+#H Revision 01;
+#H Designer Engineer;
+#H Company  UABC;
+#H Assembly None;
+#H Location None;
+#H Device   g22v10;
+#H 
+#H 
+#F input = [A,B,C,D];
+
+#H ORDER: A, B, C, CLK, D, DIR, STEP, input; 
+#H 
+#H 
+#V 0001 LLL1L11LLLL
+#E 0019 H B
+
+#V 0002 LLL0L11LLLL
+#V 0003 LLL1L11LLLL
+#V 0004 LLL0L11LLLL
+#V 0005 LLL1L01LLLL
+#V 0006 LLL0L10LLLL
+#V 0007 LLL1L10LLLL
+#V 0008 LLL0L10LLLL
+#V 0009 LLL1L00LLLL
+#V 0010 LLL0L01LLLL
+#V 0011 LLL1L00LLLL

@@ -1,0 +1,43 @@
+#include<conio.h>
+#include<stdio.h>
+#include<graphics.h>
+#include<string.h>
+#include<ctype.h>
+
+void inicializa ()
+{ int gm, gd=DETECT;
+initgraph ( &gd, &gm, "c:\\turboc3\\bgi");
+}
+void captura ( char cad [200] )
+{
+char tecla;
+int pos;
+cad[0] = '\x0' ;
+do{
+setcolor (WHITE);
+outtextxy (100, 100, cad);
+
+tecla = getch ();
+if ( isalnum ( tecla ) )
+if ( isalnum (tecla )  || tecla== ' ' )
+{
+pos = strlen ( cad );
+cad [pos] = tecla ;
+cad [pos + 1] = ' \x0' ;
+}
+if ( tecla== 8 )
+{
+setcolor (BLUE);
+outtext (100, 100, cad );
+pos = strlen (cad);
+cad [ pos - 1 ] = '\x0;
+} while (tecla!= 13 );
+}
+void main ()
+
+{
+char cad [200];
+inicializa ();
+setbkcolor (BLUE);
+captura (cad);
+}

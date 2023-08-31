@@ -1,0 +1,14 @@
+#include<conio.h>
+#include<stdio.h>
+
+void main()
+{
+     clrscr();
+     printf("HOLA CRAYOLA");
+    printf("\n같같 께께");
+    printf("\n같같 께께");
+     getch();
+}
+
+
+

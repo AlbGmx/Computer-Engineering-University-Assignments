@@ -1,0 +1,1838 @@
+#include <conio.h>
+#include <stdio.h>
+#include <graphics.h>
+#include <string.h>
+
+void inicializa(){
+	int gm, gd=DETECT;
+	initgraph(&gd, &gm,"c:\\turboc3\\bgi");
+}
+void pbk (int relleno, int color){
+	int bk[8];
+	bk[0]=0;			bk[1]=0;
+	bk[2]=getmaxx();	bk[3]=0;
+	bk[4]=getmaxx();	bk[5]=getmaxy();
+	bk[6]=0;			bk[7]=getmaxy();
+	setfillstyle(relleno,color);
+	fillpoly(4,bk);
+}
+void box (int x1, int y1, int x2, int y2, int color){
+	int bx[8];
+	bx[0]=x1;	bx[1]=y1;
+	bx[2]=x2;	bx[3]=y1;
+	bx[4]=x2;	bx[5]=y2;
+	bx[6]=x1;	bx[7]=y2;
+	setfillstyle(1,color);
+	fillpoly(4,bx);
+}
+void textbox (int x, int y, int tx, int ty, char far *textstring, int relleno, int color){
+	int box[8];
+	box[0]=x;		box[1]=y;
+	box[2]=x+100;	box[3]=y;
+	box[4]=x+100;	box[5]=y+50;
+	box[6]=x;		box[7]=y+50;
+	setfillstyle(relleno,color);
+	fillpoly(4,box);
+	outtextxy(x+tx,y+ty,textstring);
+}
+void textboxxy (int x, int y, int r, int relleno, int color){
+	int box[8];
+	box[0]=x;		box[1]=y;
+	box[2]=x+597;	box[3]=y;
+	box[4]=x+597;	box[5]=y+27+15*r;
+	box[6]=x;		box[7]=y+27+15*r;
+	setfillstyle(relleno,color);
+	fillpoly(4,box);
+}
+//opc_miniproy
+void menu (int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+	settextstyle(10,0,2);
+	outtextxy(250,30,"DANSE MACABRE");
+
+	settextstyle(10,0,1);
+	outtextxy(30,370, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+	settextstyle(0,0,1);
+	textbox(140,200,20,22,"INICIAR",relleno,color);	//textbox(x,y,tx,ty,"text",color);
+	textbox(270,200,27,22,"AYUDA"  ,relleno,color);
+	textbox(400,200,27,22,"SALIR"  ,relleno,color);
+}
+void AYUDA (){
+	pbk(1,0);
+	settextstyle(10,0,2);
+	outtextxy(230,40,"AYUDA");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,7,0, 0);
+	outtextxy(40,170,"Use las flechas del teclado para navegar entre las ditintas opciones ");
+	outtextxy(40,185,"        Presione enter para seleccionar la opci¢n subrayada");
+	outtextxy(40,200,"En cualquier momento puede presionar la tecla -ESC- para regresar a la ");
+	outtextxy(40,215,"                       pantalla anterior");
+	outtextxy(40,230,"La tercera opcion siempre se subrayar† con color rojo para diferenciarla");
+	outtextxy(40,245,"y que se de cuenta que no lo lleva delante en la historia, en cambio lo");
+	outtextxy(40,260,"                  regresa al dilema anterior");
+	settextstyle(10,0,1);
+	outtextxy(30,0, "GOMEZ CARDENAS EMMANUEL ALBERTO");
+
+}
+void introduccion(int relleno, int color, int relleno1,int color1){
+	pbk(relleno,color);
+	settextstyle(10,0,2);
+	outtextxy(200,40,"INTRODUCCION");
+
+	settextstyle(0,0,1);
+	textboxxy(22, 150, 6, relleno1, color1);
+	outtextxy(30,170,"Desde muy peque§o, este joven hab°a tenido un sue§o en el que jugaba con");
+	outtextxy(30,185,"su padre y disfrutaba la comida de su madre, este joven viv°a en un orfa-");
+	outtextxy(30,200,"nato muy triste donde pasaba una vida sin chiste, exepto por aquella vie-");
+	outtextxy(30,215,"ja se§ora, que llevaba la comida justo a la hora. Cada bocado daban ganas");
+	outtextxy(30,230,"de escupir, pero no podia hacer mas que sonreir, pues quer°a seguir escu-");
+	outtextxy(30,245,"chando esas historias de aquellas viejas memorias.");
+	settextstyle(10,0,1);
+
+	settextstyle(0,0,1);
+	textbox(85,370,20,22,"SIGUIENTE",relleno,color);
+	textbox(270,370,0,22,"SALTAR INTRO",relleno,color);
+	textbox(455,370,15,22,"REGRESAR", relleno,color);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+}
+void introduccion2(int relleno, int color){
+	pbk(relleno,color);
+	settextstyle(10,0,2);
+	outtextxy(200,40,"INTRODUCCION");
+
+	settextstyle(0,0,1);
+	textboxxy(22, 150, 14, 11,1);
+	outtextxy(30,170,"Ella le contaba como su padre era, y que fuÇ un gran hombre a su manera,");
+	outtextxy(30,185,"ayudaba a los mayores y les hac°a grandes favores, cuidaba de los ni§os");
+	outtextxy(30,200,"y a todo animal le hacia cari§os, era un esposo modelo, ser como Çl, de ");
+	outtextxy(30,215,"todo hombre era anhelo.");
+	outtextxy(30,230,"Pero un dia, mientras el joven com°a, la se§ora comenz¢ una nueva histo-");
+	outtextxy(30,245,"ria. una que no terminaba en victoria Ella comenz¢ a decir como el hombre");
+	outtextxy(30,275,"ayud¢ a la policia, pues su hero°smo a encontrar un hombre le obligar°a");
+	outtextxy(30,260,"en toda la ciudad se corrian rumoes de aquel despiadado que raptaba meno-");
+	outtextxy(30,290,"res, solo para encontrar despuÇs, los huesos sin carne de esos bebes");
+	outtextxy(30,305,"El padre del joven tem°a por su hijo, asi que el mismo tintento resolver");
+	outtextxy(30,320,"el acertijo. Termino yendo al bosque de pino, pues aseguaba que ah° encon-");
+	outtextxy(30,335,"trar°a al asesino. La se§ora cort¢ su historia diciendo: ");
+	outtextxy(30,350,"Tu padre termino pereciendo, o por lo menos eso piensa todo el pueblo");
+	outtextxy(30,365,"pues nadie ha vuelto a verlo.");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+}
+//1
+void inicio	(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(300-25,40,"INICIO");
+
+	settextstyle(0,0,1);
+	textboxxy(22, 150, 7, relleno, color);
+	outtextxy(30,170,"Te he dicho todo esto porque aquel hombre ha vuelto, -dice la se§ora");
+	outtextxy(30,185,"Todo lo malo regres¢, un policia, cerca del bosque huesos encontr¢");
+	outtextxy(30,200,"El joven estaba tan anonadado que pas¢ los siguientes minutos sin ");
+	outtextxy(30,215,"probar bocado.");
+	outtextxy(30,245,"                        ®QuÇ deber°a hacer?");
+	outtextxy(30,260,"Salir en busca del asesino         ||      Preguntar mas sobre el asesino");
+
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+	textbox(85,370,20,22,"   SALIR",relleno,color);
+	textbox(270,370,10,22,"PREGUNTAR",relleno,color);
+	textbox(455,370,15,22,"DESAYUNAR", relleno,color);
+}
+//1_1
+void salir (int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(185,40,"ELEGISTE SALIR");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,7,relleno, color);
+	outtextxy(30,170,"Enfurecido, el joven huerfano sali¢ del orfanato, sali¢ en busca de aque-");
+	outtextxy(30,185,"lla persona que habia causado tanto desbarato. Al salir de aquel lugar se");
+	outtextxy(30,200,"llev¢ una gran sorpresa, tiene que decidir entre dos caminos llenos de ");
+	outtextxy(30,215,"de maleza.");
+	outtextxy(30,245,"                     ®Hacia d¢nde deber°a dirigirse?");
+	outtextxy(30,260,"       Hacia el este               ||                Hacia el oeste     ");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+	textbox(85,370,20,22,"ESTE",relleno,color);
+	textbox(270,370,20,22,"OESTE",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//1_1_1
+void este (int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(185,40,"ELEGISTE ESTE");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,8,relleno, color);
+	outtextxy(30,170,"A ese monstruo asesinarÇ, y la historia de mi padre redimirÇ -se repet°a");
+	outtextxy(30,185,"en su cabeza, mientras miraba aquellos pinos y su grandeza.-");
+	outtextxy(30,200,"Poco a poco al bosque se iba acercando, mientras que fuertes escalofrios");
+	outtextxy(30,215,"estaban comenzando, alguien lo est† siguiendo, o al menos es lo que una");
+	outtextxy(30,230,"extra§a sensasion le esta trasnmitiendo.");
+	outtextxy(30,260,"                        Por lo que el joven: ");
+	outtextxy(30,275,"      Sale corriendo              ||                  Se esconde        ");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+	textbox(85,370,20,22,"CORRER",relleno,color);
+	textbox(270,370,20,10	,"ESCONDERSE",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//1_1_1_1
+void correr (int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(185,40,"ELEGISTE CORRER");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,12,relleno, color);
+	outtextxy(30,170,"Sali¢ corriendo, sin importar a donde, se dio cuenta que en la oscuridad");
+	outtextxy(30,185,"algo se esconde.");
+	outtextxy(30,200,"Se tropieza y se golpea la cabeza, inconsciente qued¢ hasta que un tiempo");
+	outtextxy(30,215,"despuÇs al fin despert¢, en un lugar que apenas ten°a luz, infestado por ");
+	outtextxy(30,230,"olor que causaba repel£s. De pronto escucho un voz familiar: ");
+	outtextxy(30,245,"Cada vez son m†s f†ciles de atraer, parece que nunca van a entender");
+	outtextxy(30,260,"El reconoci¢ aquella vieja anciana, era la misma que le dio sopa esta ma-");
+	outtextxy(30,275,"§ana. ®QuÇ haces tu aqu°? si en el comedor te deje a ti. -Dijo el joven  ");
+	outtextxy(30,290,"mientras se volteaba y en la oscuridad una figura alta miraba.");
+	outtextxy(30,320,"                             ®QuÇ deber°a hacer?");
+	outtextxy(30,335,"Preguntarle sobre tu padre         ||                  Atacarla          ");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+	textbox(85,370,5,22,"PREGUNTARLE",relleno,color);
+	textbox(270,370,20,10,"ATACARLA",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//1_1_1_1_1
+void preguntarle (int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(150,40,"ELEGISTE PREGUNTARLE");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,6,relleno, color);
+	outtextxy(30,170,"Antes de pensar en defenderse, el joven pens¢ en su padre. ®QuÇ sabes de");
+	outtextxy(30,185,"mi padre? -Dice el joven sin obtener respuesta alguna de la se§ora-");
+	outtextxy(30,200,"Y as° paso hablandole a la anciana durante bastante tiempo, despues de ");
+	outtextxy(30,215,"unos minutos empez¢ a sentirse somnoliento, cada vez con mas dificultad se");
+	outtextxy(30,230,"mantenia despierto. Hasta que dio un pesta§eo y no volvio a abrir los ojos");
+	outtextxy(30,245,"                               Fin...®?");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+}
+//1_1_1_1_2
+void atacarla (int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(150,40,"ELEGISTE ATACARLA");
+
+	settextstyle(0,0,1);
+	textboxxy(23,190,7,relleno, color);
+	outtextxy(30,210,"Ferozmente se inclin¢ hacia ella para atacarla, a contarle sobre el para-");
+	outtextxy(30,225,"dero de su padre iba a forzarla.");
+	outtextxy(30,240,"Al momento de dar su primer paso una nada grata sorpresa se llev¢. En su ");
+	outtextxy(30,255,"momento de incosnciencia, la vieja se§ora, en una mesa de madera lo at¢ ");
+	outtextxy(30,270,"y de sus ropas despoj¢.");
+	outtextxy(30,285,"En un r†pido movimiento, la mujer se agach¢ y un pedazo de espejo roto de ");
+	outtextxy(30,300,"su bolsillo desenfund¢ y sin dudarlo multiples veces lo apuÒalo");
+	outtextxy(30,315,"                              ®FIN?");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+
+}
+//1_1_1_2
+void esconderse(int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(150,40,"ELEGISTE ESCONDERTE");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,8,relleno, color);
+	outtextxy(30,170,"Rapidamente, el joven se escondi¢ entre unos arboles, de pronto un gran ");
+	outtextxy(30,185,"ruido lo sorprendi¢, no sabia que hacer pero r†pidamente volte¢. Era una");
+	outtextxy(30,200,"peque§a caba§a, con una ubicaci¢n muy extra§a. ®En medio del bosque? !Ya");
+	outtextxy(30,215,"es hora de que este misterio desenroqsue! -Se dijo el joven con coraje");
+	outtextxy(30,230,"mientras que se acercaba al final de su viaje.");
+	outtextxy(30,260,"                                 Deberia");
+	outtextxy(30,275,"    Entrar violentamente           ||             Entrar con cautela     ");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+	textbox(85,370,20,22,"CORRER",relleno,color);
+	textbox(270,370,20,10	,"ESCONDERSE",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//1_1_2
+void oeste (int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(185,40,"ELEGISTE OESTE");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,5,relleno, color);
+	outtextxy(30,170,"Ya es noche y no ha encontrado nada, mas que unas casi imperceptibles hue- ");
+	outtextxy(30,185,"llas que el joven ha logrado ver, no sabe si deberia seguir buscando o ");
+	outtextxy(30,200,"regresarese al orfanato. Despues de un tiempo logra decidirse.");
+	outtextxy(30,215,"El joven decidi¢:");
+	outtextxy(30,230,"     Regresar al organato             ||             Seguir bucando     ");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+	textbox(85,370,20,22,"REGRESARSE",relleno,color);
+	textbox(270,370,20,22,"SEGUIR",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//1_2
+void preguntar (int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(150,40,"ELEGISTE PREGUNTAR");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,8,relleno, color);
+	outtextxy(30,170,"Lo £nico importante que le cont¢ la s§Òora al joven fue que su padre");
+	outtextxy(30,185,"se dirigia al este cuando part°o en busca el asesino. ");
+	outtextxy(30,200,"Enfurecido, el joven huerfano sali¢ del orfanato, sali¢ en busca de aque-");
+	outtextxy(30,215,"lla persona que habia causado tanto desbarato. Al salir de aquel lugar se");
+	outtextxy(30,230,"llev¢ una gran sorpresa, tiene que decidir entre dos caminos llenos de ");
+	outtextxy(30,245,"de maleza.");
+	outtextxy(30,260,"                     ®Hacia d¢nde deber°a dirigirse?");
+	outtextxy(30,275,"       Hacia el este               ||                Hacia el oeste     ");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+	textbox(85,370,20,22,"OPCION 1",relleno,color);
+	textbox(270,370,20,22,"OPCION 2",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//1_1_2_1
+void regresarese (int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(185,40,"ELEGISTE REGRESARSE");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,4,relleno, color);
+	outtextxy(30,170,"Regres¢ al orfanato, muy noche. A primera hora se decici¢ a ir por esa");
+	outtextxy(30,185,"persona que habia causado tanto desbarato. A la ma§ana del dia siguiente");
+	outtextxy(30,200,"se volvio a encontrar con el dilema anterior");
+	outtextxy(30,215,"               ®Hacia d¢nde deber°a dirigirse?");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+	textbox(85,370,20,22,"ESTE",relleno,color);
+	textbox(270,370,20,22,"OESTE",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+
+void ninguna (int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(185,40,"ELEGISTE REGRESARSE");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,6,relleno, color);
+	outtextxy(30,170,"®PorquÇ no buscar a un asesino en aquellos caminos que tenemos prohibidos?");
+	outtextxy(30,185,"por algo est†n prohibidos, puede que ah° se esconda");
+	outtextxy(30,200,"               ®Hacia d¢nde deber°a dirigirse?");
+	outtextxy(30,215,"       Hacia el norte               ||                Hacia el sur     ");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+	textbox(85,370,20,22,"NORTE",relleno,color);
+	textbox(270,370,20,22,"SUR",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//1_1_1_2_1
+void violentamentes ( int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(30,40,"ELEGISTE ENTRAR VIOLENTAMENTE");
+
+	settextstyle(0,0,1);
+	textboxxy(23,120,16,relleno, color);
+	outtextxy(30,140,"Ya frente a la puerta, pens¢ en irse con una media vuelta, pero,");
+	outtextxy(30,155,"®QuÇ clase de cobarde se iria despues de tanto alarde?");
+	outtextxy(30,170,"Rapidamente a la puerta se acerc¢ y en lugar de tocar, de una patada la");
+	outtextxy(30,185,"abri¢. Era un lugar que apenas ten°a luz, infestado por un olor que cau-");
+	outtextxy(30,200,"saba repel£s. El joven entr¢ asustado, siguiendo las velas de cada lado.");
+	outtextxy(30,230,"≠Fuego!, era una chimenea , y justo arriba lo que parec°a una caldera.");
+	outtextxy(30,245,"Cerro los pu§os con fuerza y comenz¢ a dar pasos llenos de firmeza. De");
+	outtextxy(30,260,"pronto la puerta se cerr¢ de golpe y una voz familiar comenz¢ un alboro-");
+	outtextxy(30,275,"te: Cada vez son mas faciles de atraer, parece que nunca van a entender");
+	outtextxy(30,305,"êl reconoci¢ aquella voz anciana, era la misma que le dio sopa esta ma-");
+	outtextxy(30,320,"§ana. ®QuÇ haces tu aqu°? Si en el comedor te deje cuando part°");
+	outtextxy(30,335,"®Seguro que soy lo mismo que esa anciana? Dijo mientras caminaba a la ");
+	outtextxy(30,350,"vela mas cercana. dejando ver una mujer desfigurada. La mujer que ahora");
+	outtextxy(30,365,"esta parada, no es la misma que contigo se sentaba");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+
+	}
+void violentamente (int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(30,40,"ELEGISTE ENTRAR VIOLENTAMENTE");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,12,relleno, color);
+	outtextxy(30,170,"El joven rapidamente empez¢ a correr,dio zancadas hasta la entrada, pero");
+	outtextxy(30,185,"la puerta estaba mas que cerrada. Y la mujer cada vez mas r†pido se acer-");
+	outtextxy(30,200,"caba. El joven se dio la vuelta mientras miraba, a˙n sin salida, corri¢ ");
+	outtextxy(30,215,"al £nico pasillo que le quedaba. Corrio a la izquierda y a la derecha. ");
+	outtextxy(30,230,"Al final una gran pared, no era ninguna sorpresa. Para Çl ya no quedaba ");
+	outtextxy(30,260,"ninguna salida, asi que solo se sent¢ a esperar aquella mortal herida");
+	outtextxy(30,275,"Por fin la mujer lo alcanz¢, lo mir¢ en el suelo y solo sonri¢. Con las ");
+	outtextxy(30,290,"dos manos un cuchilllo levanto y hacia el joven se abalanz¢");
+	outtextxy(30,320,"                       La reaccion del joven es:      ");
+	outtextxy(30,335,"    Lanzarse hacia ella            ||                  Cubrirse         ");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+	textbox(85,370,20,22,"LANZARSE",relleno,color);
+	textbox(270,370,20,10	,"CUBRIRSE",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//1_1_1_2_2
+void cautela (int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(10,40,"ELEGISTE ENTRAR CON CAUTELA");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,8,relleno, color);
+	outtextxy(30,170,"El joven abri¢ la puerta intentando no hacer nada de ruido, sin embargo la");
+	outtextxy(30,185,"puerta al rechinar caus¢ un gran estallido, parece una caba§a vac°a pero,");
+	outtextxy(30,200,"al voltear hacia un lado, un cuerpo, la luz de un cuarto obstru°a. El joven");
+	outtextxy(30,215,"se dio la vuelta r†pidamente para intentar escapar, pero cuando vio que la");
+	outtextxy(30,230,"puerta de salida ahora se encontraba cerrada, no le quedaba mas que a la ");
+	outtextxy(30,245,"anciana enfrentar");
+	outtextxy(30,260,"                                El joven");
+	outtextxy(30,275,"    Se lanza hacia ella            ||                  Se cubre         ");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+	textbox(85,370,20,22,"LANZARSE",relleno,color);
+	textbox(270,370,20,10	,"CUBRIRSE",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//1_1_1_2_1_1
+//1_1_1_2_2_1
+void lanzarse (int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(40,40,"ELEGISTE LANZARSE HACIA ELLA");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,8,relleno, color);
+	outtextxy(30,170,"êl r†pidamente record¢ aquello que en su bolsillo guerd¢. Dio un gran ");
+	outtextxy(30,185,"salto que a la vieja sorprendi¢, el tenedor de su pamtalon desenfund¢ y");
+	outtextxy(30,200,"sin dudarlo multiples veces la apu§al¢.f");
+	outtextxy(30,215,"Por fin de este mal se habia deshecho. La mujer tirada no recibi¢ mas que");
+	outtextxy(30,230,"una mirada de despecho. El joven comenz¢ a caminar para poder irse, pero ");
+	outtextxy(30,245,"de pronto escuch¢ el grito de alguien a punto de morirse");
+	outtextxy(30,260,"                               El joven se:");
+	outtextxy(30,275,"         regres¢                   ||                    fue         ");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+	textbox(85,370,20,22,"REGRESARSE",relleno,color);
+	textbox(270,370,20,10	,"IRSE",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//1_1_1_2_1_1_1
+//1_1_1_2_2_1_1
+void regresarse (int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(80,40,"ELEGISTE REGRESARSE");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,9,relleno, color);
+	outtextxy(30,170,"®Padre? No lo puedo creer, en la aldea nadie nunca te volvi¢ a ver, pero");
+	outtextxy(30,185,"ahora nunca podre vivir, pensando que fui yo el que te hizo morir...");
+	outtextxy(30,200,"Nunca fui capaz de volver, la maldici¢n, mi personalidad me hizo perder... ");
+	outtextxy(30,215,"Espera... ®Tu me clavaste ese tenedor? ≠Hijo mio, has cometido un grave ");
+	outtextxy(30,230,"error! ®No te das cuenta? ≠A alguien has asesinado, ahora tu coraz¢n ");
+	outtextxy(30,245,"contiene pecado. Oh no, ya est† comenzando, la maldicion a ti ya te est† ");
+	outtextxy(30,260,"afectando. ≠La historia no se debe repetir. Tan r†pido como puedas, de ");
+	outtextxy(30,275,"aqui debes salir. El joven esta tan confundido, ®quÇ deberia hacer?");
+	outtextxy(30,290,"Preguntarle a su padre lo que esta sucediendo              ");
+	outtextxy(30,205,"                                  ||            irse        ");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+	textbox(85,370,10,22,"PREGUNTARLE",relleno,color);
+	textbox(270,370,20,22,"IRSE",relleno,color);
+	textbox(455,370,20,22,"REGRESAR",relleno,color);
+}
+//1_1_1_2_1_1_2
+//1_1_1_2_2_1_2
+void irse (int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(40,40,"ELEGISTE IRSE");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,8,relleno, color);
+	outtextxy(30,170,"Poco a poco todo dej¢ de importar, todo lo que sucedio, lo comenzaba a ");
+	outtextxy(30,185,"olvidar. Toda su vida, aquel dia, era una sola memoria que desaparecia");
+	outtextxy(30,200,"Lentamente se levant¢ y hacia el comedor camin¢. lleg¢ hasta aquel viejo ");
+	outtextxy(30,215,"caldero y levanto la tapa de acero. Una gran sopa de huesos nadando, era");
+	outtextxy(30,230,"lo que la anciana estaba cocinando. ");
+	outtextxy(30,245,"≠Pero que tarde se me ha hecho, aunque no debo tomarmelo a pecho, seguro ");
+	outtextxy(30,260,"cada huerfano quedar† satisfecho");
+	outtextxy(30,275,"                                FIN...");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+}
+//1_1_1_2_1_2
+//1_1_1_2_2_2
+void cubrirse (int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(70,40,"ELEGISTE CUBRIRSE");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,8,relleno, color);
+	outtextxy(30,170,"El joven se cubri¢, al no haber recibido da§o crey¢ que la anciana se ");
+	outtextxy(30,185,"hab°a retirado. cuando se destap¢ logr¢ ver el cuchillo que la anciana ");
+	outtextxy(30,200,"le hab°a incrustado, contaba con multiples heridas que bastante sangre ");
+	outtextxy(30,215,"extra°an, extra§amente ni una herida el joven sent°a. Poco a poco la con-");
+	outtextxy(30,230,"ciencia fue perdiendo y el agua del caldero la anciana fue hirviendo.");
+	outtextxy(30,260,"                     FIN...®?");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+
+}
+
+
+
+void preguntare (int relleno, int color, int relleno1, int color1){
+	pbk(relleno1, color1);
+
+	settextstyle(10,0,2);
+	outtextxy(40,40,"ELEGISTE PREGUNTARLE");
+
+	settextstyle(0,0,1);
+	textboxxy(23,150,8,relleno, color);
+	outtextxy(30,170,"Padre, nada de lo que dices entiendo; Maldiciones, tu dessaparicion, nada ");
+	outtextxy(30,185,"entiendo. -La maldicion de este lugar: Cualquiera que aqui se atreva a ");
+	outtextxy(30,200,"pecar en el nuevo residente se va a transformar. Al igual que tu, lo logrÇ");
+	outtextxy(30,215,"a aquella anciana tambien asesine");
+	outtextxy(30,230,"Esas fueron las ultimas palabras que dijo, pero nada de atencion presto ");
+	outtextxy(30,245,"su hijo. Ya no era mas un joven o un ni§o, era la mujer que una vez le ");
+	outtextxy(30,260,"cont¢ historias de cari§o, La misma que lo acaba de perseguir y que Çl ");
+	outtextxy(30,275,"mismo vio morir...");
+	settextstyle(0,0,1);
+	outtextxy(30,460,"PRESIONE *ESC* EN CUALQUIER MOMENTO PARA REGRESAR A LA PANTALLA ANTERIOR");
+}
+
+
+void m_regresarse1(int relleno, int color, int relleno1, int color1){
+	char tecla;
+	int i=2;
+	regresarse(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,10,22,"PREGUNTARLE",relleno1,color);
+					textbox(270,370,20,22,"IRSE",relleno,0);
+					textbox(455,370,20,22,"NINGUNA",relleno,0);
+					break;
+			case 2:	textbox(85,370,10,22,"PREGUNTARLE",relleno,0);
+					textbox(270,370,20,22,"IRSE",relleno1,color);
+					textbox(455,370,20,22,"NINGUNA",relleno,0);
+					break;
+			case 3:	textbox(85,370,10,22,"PREGUNTARLE",relleno,0);
+					textbox(270,370,20,22,"IRSE",relleno,0);
+					textbox(455,370,20,22,"NINGUNA",relleno1,color);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,10,22,"PREGUNTARLE",relleno,0);
+					break;
+			case 2: textbox(270,370,20,22,"IRSE",relleno,0);
+					break;
+			case 3: textbox(455,370,20,22,"NINGUNA",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1: preguntare(1,1,relleno,color); getch(); irse(1,1,relleno,color); getch(); i=3;
+				break;
+				case 2: irse(1,1,relleno,color); getch(); i=3;
+				break;
+				case 3: tecla =27;
+				break;
+			}
+			regresarse(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//1_1_1_2_1
+void m_lanzarse1 (int relleno,	int color, int relleno1, int color1){
+	char tecla;
+	int i=1;
+	lanzarse(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,7,22,"REGRESARSE",relleno1,color);
+					textbox(270,370,20,22,"IRSE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,7,22,"REGRESARSE",relleno,0);
+					textbox(270,370,20,22,"IRSE",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,7,22,"REGRESARSE",relleno,0);
+					textbox(270,370,20,22,"IRSE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,10,22,"REGRESARSE",relleno,0);
+					break;
+			case 2: textbox(270,370,20,22,"IRSE",relleno,0);
+					break;
+			case 3: textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1: m_regresarse1(5,5,relleno,color); i=3;
+				break;
+				case 2: irse  (5,5,relleno,color); getch(); i=3;
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			lanzarse(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//1_1_1_2_1
+void m_violentamente1  (int relleno,	int color, int relleno1, int color1){
+	char tecla;
+	int i=1;
+	violentamente(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,7,22,"LANZARSE",relleno1,color);
+					textbox(270,370,20,22,"CUBRIRSE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,7,22,"LANZARSE",relleno,0);
+					textbox(270,370,20,22,"CUBRIRSE",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,7,22,"LANZARSE",relleno,0);
+					textbox(270,370,20,22,"CUBRIRSE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,10,22,"LANZARSE",relleno,0);
+					break;
+			case 2: textbox(270,370,20,22,"CUBRIRSE",relleno,0);
+					break;
+			case 3: textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1: m_lanzarse1 (1,1,relleno,color); i=3;
+				break;
+				case 2: cubrirse (1,1,relleno,color); getch(); i=3;
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			violentamente(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//1_1_1_2_2
+void m_cautela1  (int relleno,	int color, int relleno1, int color1){
+	char tecla;
+	int i=1;
+	cautela(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,7,22,"LANZARSE",relleno1,color);
+					textbox(270,370,20,22,"CUBRIRSE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,7,22,"LANZARSE",relleno,0);
+					textbox(270,370,20,22,"CUBRIRSE",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,7,22,"LANZARSE",relleno,0);
+					textbox(270,370,20,22,"CUBRIRSE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,10,22,"LANZARSE",relleno,0);
+					break;
+			case 2: textbox(270,370,20,22,"CUBRIRSE",relleno,0);
+					break;
+			case 3: textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+	
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1: m_lanzarse1 (1,1,relleno,color); i=3;
+				break;
+				case 2: cubrirse (1,1,relleno,color); getch(); i=3;
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			cautela(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//1_1_1_1
+void m_correr1  (int relleno,	int color, int relleno1, int color1){
+	char tecla;
+	int i=1;
+	correr(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,7,22,"PREGUNTARLE",relleno1,color);
+					textbox(270,370,20,22,"ATACARLA",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,7,22,"PREGUNTARLE",relleno,0);
+					textbox(270,370,20,22,"ATACARLA",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,7,22,"PREGUNTARLE",relleno,0);
+					textbox(270,370,20,22,"ATACARLA",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,10,22,"PREGUNTARLE",relleno,0);
+					break;
+			case 2: textbox(270,370,20,22,"ATACARLA",relleno,0);
+					break;
+			case 3: textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+	
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1: preguntarle (1,1,relleno,color); getch(); i=3;
+				break;
+				case 2: atacarla (1,1,relleno,color); getch(); i=3;
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			correr(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//1_1_1_2
+void m_esconderse1  (int relleno,	int color, int relleno1, int color1){
+	char tecla;
+	int i=2;
+	esconderse(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,13,22,"!!ENTRAR°°",relleno1,color);
+					textbox(270,370,7,22,"CON CAUTELA",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,13,22,"!!ENTRAR°°",relleno,0);
+					textbox(270,370,7,22,"CON CAUTELA",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,13,22,"!!ENTRAR°°",relleno,0);
+					textbox(270,370,7,22,"CON CAUTELA",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,13,22,"!!ENTRAR°°",relleno,0);
+					break;
+			case 2: textbox(270,370,7,22,"CON CAUTELA",relleno,0);
+					break;
+			case 3: textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+	
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	violentamentes(8,2,relleno,color); getch(); m_violentamente1(8,2,relleno,color); i=3;
+				break;
+				case 2: m_cautela1(8,2,relleno,color); i=3;
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			esconderse(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//1_1_1
+void m_este1  (int relleno,	int color, int relleno1, int color1){
+	char tecla;
+	int i=1;
+	este(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"CORRER",relleno1,color);
+					textbox(270,370,10,22,"ESCONDERSE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"CORRER",relleno,0);
+					textbox(270,370,10,22,"ESCONDERSE",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"CORRER",relleno,0);
+					textbox(270,370,10,22,"ESCONDERSE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"CORRER",relleno,0);
+					break;
+			case 2: textbox(270,370,10,22,"ESCONDERSE",relleno,0);
+					break;
+			case 3: textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+	
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	m_correr1(11,5, relleno, color); i=3;
+				break;
+				case 2: m_esconderse1(11,5, relleno, color); i=3;
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			este(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+
+void m_regresarse(int relleno, int color, int relleno1, int color1){
+	char tecla;
+	int i=2;
+	regresarse(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,10,22,"PREGUNTARLE",relleno1,color);
+					textbox(270,370,20,22,"IRSE",relleno,0);
+					textbox(455,370,20,22,"NINGUNA",relleno,0);
+					break;
+			case 2:	textbox(85,370,10,22,"PREGUNTARLE",relleno,0);
+					textbox(270,370,20,22,"IRSE",relleno1,color);
+					textbox(455,370,20,22,"NINGUNA",relleno,0);
+					break;
+			case 3:	textbox(85,370,10,22,"PREGUNTARLE",relleno,0);
+					textbox(270,370,20,22,"IRSE",relleno,0);
+					textbox(455,370,20,22,"NINGUNA",relleno1,color);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,10,22,"PREGUNTARLE",relleno,0);		
+					break;
+			case 2: textbox(270,370,20,22,"IRSE",relleno,0);
+					break;
+			case 3: textbox(455,370,20,22,"NINGUNA",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1: preguntare(1,1,relleno,color); getch(); irse(1,1,relleno,color); getch(); i=3;
+				break;
+				case 2: irse(1,1,relleno,color); getch(); i=3; 
+				break;
+				case 3: tecla =27;
+				break;
+			}
+			regresarse(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+
+//1_1_1_2_1
+void m_lanzarse (int relleno,	int color, int relleno1, int color1){
+	char tecla;
+	int i=1;
+	lanzarse(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,7,22,"REGRESARSE",relleno1,color);
+					textbox(270,370,20,22,"IRSE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,7,22,"REGRESARSE",relleno,0);
+					textbox(270,370,20,22,"IRSE",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,7,22,"REGRESARSE",relleno,0);
+					textbox(270,370,20,22,"IRSE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,10,22,"REGRESARSE",relleno,0);
+					break;
+			case 2: textbox(270,370,20,22,"IRSE",relleno,0);
+					break;
+			case 3: textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+	
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1: m_regresarse(5,5,relleno,color); i=3;
+				break;
+				case 2: irse  (5,5,relleno,color); getch(); i=3;
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			lanzarse(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//1_1_1_2_1
+void m_violentamente  (int relleno,	int color, int relleno1, int color1){
+	char tecla;
+	int i=1;
+	violentamente(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,7,22,"LANZARSE",relleno1,color);
+					textbox(270,370,20,22,"CUBRIRSE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,7,22,"LANZARSE",relleno,0);
+					textbox(270,370,20,22,"CUBRIRSE",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,7,22,"LANZARSE",relleno,0);
+					textbox(270,370,20,22,"CUBRIRSE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,10,22,"LANZARSE",relleno,0);
+					break;
+			case 2: textbox(270,370,20,22,"CUBRIRSE",relleno,0);
+					break;
+			case 3: textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+	
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1: m_lanzarse (1,1,relleno,color); i=3;
+				break;
+				case 2: cubrirse (1,1,relleno,color); getch(); i=3;
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			violentamente(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//1_1_1_2_2
+void m_cautela  (int relleno,	int color, int relleno1, int color1){
+	char tecla;
+	int i=1;
+	cautela(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,7,22,"LANZARSE",relleno1,color);
+					textbox(270,370,20,22,"CUBRIRSE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,7,22,"LANZARSE",relleno,0);
+					textbox(270,370,20,22,"CUBRIRSE",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,7,22,"LANZARSE",relleno,0);
+					textbox(270,370,20,22,"CUBRIRSE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,10,22,"LANZARSE",relleno,0);
+					break;
+			case 2: textbox(270,370,20,22,"CUBRIRSE",relleno,0);
+					break;
+			case 3: textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+	
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1: m_lanzarse (1,1,relleno,color); i=3;
+				break;
+				case 2: cubrirse (1,1,relleno,color); getch(); i=3;
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			cautela(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//1_1_1_1
+void m_correr  (int relleno,	int color, int relleno1, int color1){
+	char tecla;
+	int i=1;
+	correr(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,7,22,"PREGUNTARLE",relleno1,color);
+					textbox(270,370,20,22,"ATACARLA",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,7,22,"PREGUNTARLE",relleno,0);
+					textbox(270,370,20,22,"ATACARLA",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,7,22,"PREGUNTARLE",relleno,0);
+					textbox(270,370,20,22,"ATACARLA",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,10,22,"PREGUNTARLE",relleno,0);
+					break;
+			case 2: textbox(270,370,20,22,"ATACARLA",relleno,0);
+					break;
+			case 3: textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+	
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1: preguntarle (1,1,relleno,color); getch(); i=3;
+				break;
+				case 2: atacarla (1,1,relleno,color); getch(); i=3;
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			correr(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//1_1_1_2
+void m_esconderse  (int relleno,	int color, int relleno1, int color1){
+	char tecla;
+	int i=2;
+	esconderse(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,13,22,"!!ENTRAR°°",relleno1,color);
+					textbox(270,370,7,22,"CON CAUTELA",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,13,22,"!!ENTRAR°°",relleno,0);
+					textbox(270,370,7,22,"CON CAUTELA",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,13,22,"!!ENTRAR°°",relleno,0);
+					textbox(270,370,7,22,"CON CAUTELA",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,13,22,"!!ENTRAR°°",relleno,0);
+					break;
+			case 2: textbox(270,370,7,22,"CON CAUTELA",relleno,0);
+					break;
+			case 3: textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+	
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	violentamentes(8,2,relleno,color); getch(); m_violentamente(8,2,relleno,color); i=3;
+				break;
+				case 2: m_cautela(8,2,relleno,color); i=3;
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			esconderse(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//1_1_1
+void m_este  (int relleno,	int color, int relleno1, int color1){
+	char tecla;
+	int i=1;
+	este(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"CORRER",relleno1,color);
+					textbox(270,370,10,22,"ESCONDERSE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"CORRER",relleno,0);
+					textbox(270,370,10,22,"ESCONDERSE",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"CORRER",relleno,0);
+					textbox(270,370,10,22,"ESCONDERSE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"CORRER",relleno,0);
+					break;
+			case 2: textbox(270,370,10,22,"ESCONDERSE",relleno,0);
+					break;
+			case 3: textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+	
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	m_correr(11,5, relleno, color); i=3;
+				break;
+				case 2: m_esconderse(11,5, relleno, color); i=3;
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			este(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+
+
+void m_regresarese(int relleno, int color, int relleno1, int color1){
+	int i=1;
+	char tecla;
+	regresarese(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"ESTE",relleno1,color);
+					textbox(270,370,20,22,"",relleno,0);
+					textbox(455,370,20,22,"REGRESARSE",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"ESTE",relleno,0);
+					textbox(270,370,20,22,"",relleno,0);
+					textbox(455,370,20,22,"REGRESARSE",relleno1,color);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"ESTE",relleno,0);		
+					break;
+			case 2: textbox(455,370,20,22,"NINGUNA",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=2;
+			if (i>2) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	m_este1(8,6,relleno,color);
+				break;
+				case 2: tecla=27;
+				break;
+			}
+			regresarese(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//1_1_2
+void m_oeste  (int relleno,	int color, int relleno1, int color1){
+	char tecla;
+	int i=1;
+	oeste(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"REGRESARSE",relleno,color);
+					textbox(270,370,20,22,"SEGUIR",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"REGRESARSE",relleno,0);
+					textbox(270,370,20,22,"SEGUIR",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"REGRESARSE",relleno,0);
+					textbox(270,370,20,22,"SEGUIR",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"REGRESARSE",relleno,0);
+					break;
+			case 2: textbox(270,370,20,22,"SEGUIR",relleno,0);
+					break;
+			case 3: textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+	
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1: m_regresarese(11,4,relleno,color );	 i=3;
+				break;
+				case 2: m_este(11,4, relleno,color); i=3;
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			oeste(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//1_1
+void m_salir(int relleno, int color, int relleno1, int color1){
+	char tecla;
+	int i=1;
+	salir(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"ESTE",relleno1,color);
+					textbox(270,370,20,22,"OESTE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"ESTE",relleno,0);
+					textbox(270,370,20,22,"OESTE",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"ESTE",relleno,0);
+					textbox(270,370,20,22,"OESTE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,color);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"ESTE",relleno,0);		
+					break;
+			case 2: textbox(270,370,20,22,"OESTE",relleno,0);
+					break;
+			case 3: textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	m_este(8,6,relleno,color);
+				break;
+				case 2: m_oeste(8,6,relleno,color);
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			salir(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//1_2
+void m_preguntar(int relleno, int color, int relleno1, int color1){
+	char tecla;
+	int i=1;
+	preguntar(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"ESTE",relleno1,color);
+					textbox(270,370,20,22,"OESTE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 2:	textbox(85,370,20,22,"ESTE",relleno,0);
+					textbox(270,370,20,22,"OESTE",relleno1,color);
+					textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+			case 3:	textbox(85,370,20,22,"ESTE",relleno,0);
+					textbox(270,370,20,22,"OESTE",relleno,0);
+					textbox(455,370,20,22,"REGRESAR",relleno1,color);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,20,22,"ESTE",relleno,0);		
+					break;
+			case 2: textbox(270,370,20,22,"OESTE",relleno,0);
+					break;
+			case 3: textbox(455,370,20,22,"REGRESAR",relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	m_este(8,6,relleno,color);
+				break;
+				case 2: m_oeste(8,6,relleno,color);
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			preguntar(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//1
+void m_inicio	(int relleno, int color, int relleno1, int color1, int i){
+	char tecla;
+	
+	inicio(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,13,22,"  SALIR",relleno1,color);
+					textbox(270,370,13,22,"PREGUNTAR",relleno,0);
+					textbox(455,370,15,22,"REGRESAR", relleno,0);
+					break;
+			case 2:	textbox(85,370,13,22,"  SALIR",relleno,0);
+					textbox(270,370,13,22,"PREGUNTAR",relleno1,color);
+					textbox(455,370,15,22,"REGRESAR", relleno,0);
+					break;
+			case 3:	textbox(85,370,13,22,"  SALIR",relleno,0);
+					textbox(270,370,13,22,"PREGUNTAR",relleno,0);
+					textbox(455,370,15,22,"REGRESAR", relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,13,22,"  SALIR",relleno,0);
+					break;
+			case 2: textbox(270,370,13,22,"PREGUNTAR",relleno,0);
+					break;
+			case 3: textbox(455,370,15,22,"REGRESAR", relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1: m_salir (3, 4, relleno, color); i=3; 
+				break;
+				case 2: m_preguntar (3, 4, relleno, color); i=3;
+				break;
+				case 3: tecla=27;; 
+				break;
+			}
+			inicio(relleno, color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+
+void m_introduccion	(int relleno, int color, int relleno1, int color1){
+	char tecla;
+	int i=1;
+	introduccion(relleno, color, relleno1, color1);
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(85,370,13,22,"SIGUIENTE",relleno1,color);
+					textbox(270,370,3,22,"SALTAR INTRO",relleno,0);
+					textbox(455,370,15,22,"REGRESAR", relleno,0);
+					break;
+			case 2:	textbox(85,370,13,22,"SIGUIENTE",relleno,0);
+					textbox(270,370,3,22,"SALTAR INTRO",relleno1,color);
+					textbox(455,370,15,22,"REGRESAR", relleno,0);
+					break;
+			case 3:	textbox(85,370,13,22,"SIGUIENTE",relleno,0);
+					textbox(270,370,3,22,"SALTAR INTRO",relleno,0);
+					textbox(455,370,15,22,"REGRESAR", relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(85,370,13,22,"SIGUIENTE",relleno,0);
+					break;
+			case 2: textbox(270,370,3,22,"SALTAR INTRO",relleno,0);
+					break;
+			case 3: textbox(455,370,15,22,"REGRESAR", relleno,0);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	introduccion2(3, 2); getch(); m_inicio(11,3,relleno, color,1); i=3;
+				break;
+				case 2: m_inicio(11, 3, relleno , color,2); i=3;
+				break;
+				case 3: tecla=27; 
+				break;
+			}
+			introduccion(relleno, color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+
+void start_menu	(int relleno, int color, int relleno1, int color1){
+	char tecla;
+	int i = 2;
+	menu(relleno, color, relleno1, color1);
+
+	do
+	{
+		switch (i)
+		{
+			case 1:	textbox(140,200,20,22,"INICIAR",relleno1,5);
+					textbox(270,200,27,22,"AYUDA"  ,relleno,color);
+					textbox(400,200,27,22,"SALIR"  ,relleno,color);
+					break;
+			case 2: textbox(140,200,20,22,"INICIAR",1,0);
+					textbox(270,200,27,22,"AYUDA"  ,10,color1);
+					textbox(400,200,27,22,"SALIR"  ,1,0);
+					break;
+			case 3: textbox(140,200,20,22,"INICIAR",relleno,color);
+					textbox(270,200,27,22,"AYUDA"  ,relleno,color);
+					textbox(400,200,27,22,"SALIR"  ,relleno1,RED);
+					break;
+		}
+		tecla = getch();
+		switch (i)
+		{
+			case 1:	textbox(140,200,20,22,"INICIAR",relleno,color);
+					break;
+			case 2: textbox(270,200,27,22,"AYUDA"  ,relleno,color);
+					break;
+			case 3: textbox(400,200,27,22,"SALIR"  ,relleno,color);
+					break;
+		}
+		switch(tecla)
+		{
+			case 0: tecla = getch();
+			switch(tecla)
+			{
+				case 77: i++;
+				break;
+				case 75: i--;
+				break;
+			}
+			if (i<1) i=3;
+			if (i>3) i=1;
+			break;
+			case 13:
+			switch(i)
+			{
+				case 1:	m_introduccion(6,2,relleno,color);
+				break;
+				case 2:	AYUDA (); getch();
+				break;
+				case 3: tecla=27;
+				break;
+			}
+			menu(relleno,color, relleno1, color1);
+			break;
+		}
+	 }
+	 while (tecla!=27);
+}
+//MAIN
+void main (){
+	inicializa();
+	start_menu(10,0,8,2);
+}

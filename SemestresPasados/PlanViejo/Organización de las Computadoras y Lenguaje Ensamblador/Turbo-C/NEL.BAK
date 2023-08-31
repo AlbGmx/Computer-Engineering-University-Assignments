@@ -1,0 +1,245 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <graphics.h>
+#include <dos.h>
+void inicializa()
+{  int gm, gd=DETECT;
+  initgraph(&gd,&gm, "C:\\turboc3\\bgi");
+}
+void box(int x1, int y1, int x2, int y2, int relleno, int color)
+{  int poly[8];
+  poly[0] = x1; poly[1] = y1;
+  poly[2] = x2; poly[3] = y1;
+  poly[4] = x2; poly[5] = y2;
+  poly[6] = x1; poly[7] = y2;
+  setfillstyle(relleno,color);
+  fillpoly(4, poly);
+}
+void matriz( int M[5][4])
+{  int i, j;
+  for( i = 0; i < 5; i++ )
+  for( j = 0; j < 4; j++ ) M[i][j] = ((i*4)+j);
+}
+void cara(int M[5][4], int i, int j, int color)
+{  switch (M[i][j]){
+	case 0:  box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+			 setlinestyle(0,0,3);
+			 line(135 + j*70, 140 + i*70, 140 + j*70, 135 + i*70);
+			 break;
+	case 1:  box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+			 setlinestyle(0,0,3);
+			 line(70 + j*70, 135 + i*70, 105 + j*70, 117 + i*70);
+			 line(105 + j*70, 117 + i*70, 140 + j*70, 117 + i*70);
+			 break;
+	case 2:  box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+			 setlinestyle(0,0,3);
+			 line(70 + j*70, 117 + i*70, 105 + j*70, 117 + i*70);
+			 line(105 + j*70, 117 + i*70, 140 + j*70, 135 + i*70);
+			 break;
+	case 3:  box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+			 setlinestyle(0,0,3);
+			 line(70 + j*70, 135 + i*70, 75 + j*70, 140  + i*70);
+			 break;
+	case 4:  box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+             setlinestyle(0,0,3);
+			 line(135 + j*70, 70 + i*70, 95 + j*70, 105  + i*70);
+			 line(95 + j*70, 105 + i*70, 75 + j*70, 140  + i*70);
+			 break;
+	case 5:  box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+             setlinestyle(0,0,3);
+			 line(115 + j*70, 117 + i*70, 115 + j*70, 140  + i*70);
+	         break;
+	case 6:  box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+             setlinestyle(0,0,3);
+			 line(95 + j*70, 117 + i*70, 95 + j*70, 140  + i*70);
+	         break;
+	case 7:  box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+             setlinestyle(0,0,3);
+			 line(135 + j*70, 140 + i*70, 115 + j*70, 105  + i*70);
+			 line(115 + j*70, 105 + i*70, 75 + j*70, 70  + i*70);
+			 break;
+	case 8:  box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+             setlinestyle(0,0,3);
+			 line(75 + j*70, 70 + i*70, 70 + j*70, 115  + i*70);
+			 line(70 + j*70, 115 + i*70, 75 + j*70, 140  + i*70);
+			 break;
+	case 9: box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+             setlinestyle(0,0,3);
+			 line(115 + j*70, 70 + i*70, 115 + j*70, 105  + i*70);
+	         break;
+	case 10: box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+             setlinestyle(0,0,3);
+			 line(95 + j*70, 70 + i*70, 95 + j*70, 105  + i*70);
+	         break;
+	case 11: box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+             setlinestyle(0,0,3);
+			 line(135 + j*70, 140 + i*70, 140 + j*70, 115  + i*70);
+			 line(140 + j*70, 115 + i*70, 135 + j*70, 70  + i*70);
+			 break;
+	case 12: box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+             setlinestyle(0,0,3);
+			 line(75 + j*70, 70 + i*70, 85 + j*70, 115  + i*70);
+			 line(85 + j*70, 115 + i*70, 105 + j*70, 140  + i*70);
+			 break;
+	case 13: box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+			 setlinestyle(0,0,3);
+			 line(80 + j*70, 80 + i*70, 90 + j*70, 117  + i*70);
+			 line(90 + j*70, 117 + i*70, 140 + j*70, 120  + i*70);
+			 break; 
+	case 14: box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+             setlinestyle(0,0,3);
+			 line(130 + j*70, 80 + i*70, 120 + j*70, 117  + i*70);
+			 line(120 + j*70, 117 + i*70, 70 + j*70, 120  + i*70);
+			 break; 
+    case 15: box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+             setlinestyle(0,0,3);
+			 line(135 + j*70, 70 + i*70, 125 + j*70, 115  + i*70);
+			 line(125 + j*70, 115 + i*70, 105 + j*70, 140  + i*70);
+			 break;
+    case 16: box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+             setlinestyle(0,0,3);
+			 line(105 + j*70, 70 + i*70, 140 + j*70, 93  + i*70);
+			 break; 
+    case 17: box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+             setlinestyle(0,0,3);
+			 line(70 + j*70, 93 + i*70, 105 + j*70, 115  + i*70);
+			 line(105 + j*70, 115 + i*70, 140 + j*70, 117  + i*70);
+			 break; 
+    case 18: box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+             setlinestyle(0,0,3);
+			 line(70 + j*70, 117 + i*70, 105 + j*70, 115  + i*70);
+			 line(105 + j*70, 115 + i*70, 140 + j*70, 93  + i*70);
+			 break;
+    case 19: box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, color);
+             setlinestyle(0,0,3);
+			 line(105 + j*70, 70 + i*70, 70 + j*70, 93  + i*70);
+			 break;
+ 
+
+}
+	setlinestyle(0,0,0);
+}
+int compara(int M[5][4])
+{  int i,j,c=-1;
+  for(i=0; i<5; i++) 
+  for (j=0; j<4; j++)
+  if (i*4+j == M[i][j]){
+    c++;
+    cara(M,i,j,GREEN);
+  }
+  else cara (M,i,j,RED);
+  setlinestyle(0,0,0);
+  return c;
+}
+void pintamatriz( int M[5][4])
+{  int i,j;
+  for( i = 0; i < 5; i++ )
+  for( j = 0; j < 4; j++ ){
+  cara(M,i,j,BLUE);
+  }
+}
+void revolver(int M[5][4]){
+  int i,j, aux;
+  for (i=0; i<5; i++) for (j=0; j<4; j++){
+    if (M[i][j]!=19){
+	aux=M[i][j];
+    	switch(rand()%20){
+    	case 0:   M[i][j] = M[0][0];  M[0][0] = aux;  break;
+    	case 1:   M[i][j] = M[0][1];  M[0][1] = aux;  break;
+    	case 2:   M[i][j] = M[0][2];  M[0][2] = aux;  break;
+    	case 3:   M[i][j] = M[0][3];  M[0][3] = aux;  break;
+    	case 4:   M[i][j] = M[1][0];  M[1][0] = aux;  break;
+    	case 5:   M[i][j] = M[1][1];  M[1][1] = aux;  break;
+    	case 6:   M[i][j] = M[1][2];  M[1][2] = aux;  break;
+    	case 7:   M[i][j] = M[1][3];  M[1][3] = aux;  break;
+    	case 8:   M[i][j] = M[2][0];  M[2][0] = aux;  break;
+    	case 9:   M[i][j] = M[2][1];  M[2][1] = aux;  break;
+    	case 10:  M[i][j] = M[2][2];  M[2][2] = aux;  break;
+    	case 11:  M[i][j] = M[2][3];  M[2][3] = aux;  break;
+    	case 12:  M[i][j] = M[3][0];  M[3][0] = aux;  break;
+    	case 13:  M[i][j] = M[3][1];  M[3][1] = aux;  break;
+    	case 14:  M[i][j] = M[3][2];  M[3][2] = aux;  break;
+    	case 15:  M[i][j] = M[3][3];  M[3][3] = aux;  break;
+    	case 16:  M[i][j] = M[4][0];  M[4][0] = aux;  break;
+    	case 17:  M[i][j] = M[4][1];  M[4][1] = aux;  break;
+    	case 18:  M[i][j] = M[4][2];  M[4][2] = aux;  break;
+    	}
+	}
+  }
+  pintamatriz(M);
+  
+}
+void movimiento(int &mud)
+{  int i,j, M[5][4], ia, ja, k, puntaje=10000;
+  char tecla, puntos[5];
+  setbkcolor(LIGHTBLUE);
+  matriz(M);
+  pintamatriz(M);
+  i=4; j=3; ia=4; ja=3;
+  outtextxy(375,220,"PRESIONE ENTER PARA COMENZAR");
+  tecla = getch();
+  revolver(M);
+  box(0,0,getmaxx(),getmaxy(),1,LIGHTBLUE);
+  pintamatriz(M);
+  do{
+      outtextxy(160,50,"ROMPECABEZAS");
+      box(400,200,550,250,1, BLUE);
+      outtextxy(445,180,"PUNTAJE");
+      itoa(puntaje,puntos,10);
+      outtextxy(450,220,puntos);
+      outtextxy(390,300,"PRESIONE C PARA COMPARAR");
+ 	  outtextxy(390,280,"PRESIONE ESC PARA SALIR");
+ 	  //No borrar fichas, Puro Marco.
+	  //setcolor(BLUE);
+	  //rectangle(128 + j*128, 80 + i*80, 128 + j*128, 80 + i*80);
+	  //tecla = getch();
+	  //setcolor(WHITE);
+	  //rectangle(128 + j*128, 80 + i*80, 128 + j*128, 80 + i*80);
+
+	  box(70 + j*70, 70 + i*70, 140 + j*70, 140 + i*70, 1, CYAN);
+	  tecla = getch();
+	  switch(tecla)
+	  { case 0: tecla = getch();
+		  switch(tecla)
+		  {
+		  case 75: j--; break;
+		  case 77: j++; break;
+		  case 72: i--; break;
+		  case 80: i++; break;
+		  }
+		if (puntaje<=0)  puntaje=0;
+		else puntaje-=10;
+		if(i<0) i=0; if(i>4) i=4;
+		if(j<0) j=0;  if(j>3) j=3;
+		k=M[i][j];
+		M[i][j]=M[ia][ja];
+		M[ia][ja]=k;
+		cara(M,ia,ja,BLUE);
+		ia=i; ja=j;
+		break;
+		case 'c':  if (compara(M)==19) tecla =27; break;
+	    case 'C':  if (compara(M)==19) tecla =27; break;
+	    // case 'R':  i=4; j=3;  revolver(M);  break;
+        // case 'r':  i=4; j=3;  revolver(M);  break;
+	  }
+    
+	}while(tecla != 27);
+	if (compara(M)==19)outtextxy(430,320,"FELICIDADES");
+    else  outtextxy(400,340,"HAS DECIDIDO SALIR");
+	outtextxy(400,360,"VOLVER A JUGAR? S/N");
+	tecla=getch();
+	if (tecla== 's' || tecla == 'S') mud=1;
+	else mud=0;
+	
+
+}
+void main()
+{  randomize();
+  inicializa();
+  int mud=0; //Mientras el Usuario lo Desea
+  do{
+	  box(0,0,getmaxx(),getmaxy(),1,LIGHTBLUE);
+	  movimiento(mud);
+  }while (mud!=0);
+}

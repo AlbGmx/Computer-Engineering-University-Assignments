@@ -1,0 +1,399 @@
+#include <conio.h>
+#include <stdio.h>
+#include <graphics.h>
+#include <stdlib.h>
+
+void inicializa()
+{int gm,gd=DETECT;
+initgraph(&gd,&gm,"C:\\turboc3\\bgi");
+}
+
+void box(int x1, int y1, int x2, int y2, int relleno, int color)
+{
+   int poly[8];
+
+poly[0]=x1;
+poly[1]=y1;
+poly[2]=x2;
+poly[3]=y1;
+poly[4]=x2;
+poly[5]=y2;
+poly[6]=x1;
+poly[7]=y2;
+setfillstyle(relleno,color);
+fillpoly(4,poly);
+   }
+
+    void asignanueva(int M[20][20])
+{int i,j;
+ for(i=0;i<20;i++)
+ for(j=0;j<20;j++)
+ {M[i][j]=LIGHTGRAY;
+ box(150+j*19,150+i*14,169+j*19,164+i*14,1,M[i][j]);
+}
+}
+void pintaicon(int M[20][20])
+{int i,j;
+ for(i=0;i<20;i++)
+ for(j=0;j<20;j++){
+ box(150+j*19,150+i*14,169+j*19,164+i*14,1,M[i][j]);
+ putpixel(100+j*1,300+i*1,M[i][j]);
+}
+}
+
+  void uno()
+ {
+
+
+
+outtextxy(560,65,"COLORS");
+box(555,80,585,110,1,0);//
+box(555,110,585,140,1,1);
+box(555,140,585,170,1,2);
+box(555,170,585,200,1,3);
+box(555,200,585,230,1,4);
+box(555,230,585,260,1,5);
+box(555,260,585,290,1,6);
+box(555,290,585,320,1,7);  //
+box(585,80, 615,110,1,8);
+box(585,110,615,140,1,9);
+box(585,140,615,170,1,10);
+box(585,170,615,200,1,11);
+box(585,200,615,230,1,12);
+box(585,230,615,260,1,13);
+box(585,260,615,290,1,14);
+box(585,290,615,320,1,15);
+
+ getch();
+   }
+
+ void mueve1(int &color)
+{
+  int i=1;
+  char tecla;
+  uno();
+  do{
+
+     switch(i)
+     {
+
+case 1: box(555,55,615,75,1,color);
+	outtextxy(560,65,"COLORS");
+	break;
+case 2: box(555,80,585,110,2,15);//
+	break;
+case 3: box(555,110,585,140,2,1);
+	break;
+case 4:box(555,140,585,170,2,2);
+	break;
+case 5:box(555,170,585,200,2,3);
+	break;
+case 6:box(555,200,585,230,2,4);
+	break;
+case 7:box(555,230,585,260,2,5);
+	break;
+case 8:box(555,260,585,290,2,6);
+	break;
+case 9:box(555,290,585,320,2,7);  //
+	break;
+case 10:box(585,80,615,110,2,8);
+	break;
+case 11:box(585,110,615,140,2,9);
+	break;
+case 12:box(585,140,615,170,2,10);
+	break;
+case 13:box(585,170,615,200,2,11);
+	break;
+case 14:box(585,200,615,230,2,12);
+	break;
+case 15:box(585,230,615,260,2,13);
+	break;
+case 16:box(585,260,615,290,2,14);
+	break;
+case 17:box(585,290,615,320,2,15);
+	break;
+     }
+      tecla=getch();
+
+   switch (i)
+
+{
+case 1: box(555,55,615,75,1,color);
+	outtextxy(560,65,"COLORS");
+	break;
+case 2: box(555,80,585,110,1,0);//aqui
+	break;
+case 3: box(555,110,585,140,1,1);
+	break;
+case 4:box(555,140,585,170,1,2);
+	break;
+case 5:box(555,170,585,200,1,3);
+	break;
+case 6:box(555,200,585,230,1,4);
+	break;
+case 7:box(555,230,585,260,1,5);
+	break;
+case 8:box(555,260,585,290,1,6);
+	break;
+case 9:box(555,290,585,320,1,7);  //fin
+	break;
+case 10:box(585,80,615,110,1,8);
+	break;
+case 11:box(585,110,615,140,1,9);
+	break;
+case 12:box(585,140,615,170,1,10);
+	break;
+case 13:box(585,170,615,200,1,11);
+	break;
+case 14:box(585,200,615,230,1,12);
+	break;
+case 15:box(585,230,615,260,1,13);
+	break;
+case 16:box(585,260,615,290,1,14);
+	break;
+case 17:box(585,290,615,320,1,15);
+	break;
+}
+
+ switch(tecla)
+
+{case 0:tecla=getch();
+	switch(tecla)
+	{     case 75: i--; break;
+	      case 77: i++; break;
+	    }
+	    if (i>17) i=1;
+	    if (i<1) i=17;
+	    break;// fin flecha
+
+ case 13 :switch(i)
+	{case 2: color=0; break;
+	 case 3: color=1; break;
+	 case 4: color=2; break;
+	 case 5: color=3; break;
+	 case 6: color=4; break;
+	 case 7: color=5; break;
+	 case 8: color=6; break;
+	 case 9: color=7; break;
+	 case 10:color=8; break;
+	 case 11:color=9; break;
+	 case 12:color=10;break;
+	 case 13:color=11;break;
+	 case 14:color=12;break;
+	 case 15:color=13;break;
+	 case 16:color=14;break;
+	 case 17:color=15;break;
+	 case 18:tecla=27;break;
+	}
+	 box(560,330,610,360,1,color); //OJo este
+	 if(i!=17) uno();
+	 break;
+
+	   }//find e tecla
+
+
+  }while(tecla !=27);
+  }
+   void icono ( int M[20][20],int color )
+   {int i=0, j=0;
+   char tecla;
+
+     do{ setcolor(BLUE);
+	 rectangle( 150 + j*19, 150 + i*14 , 169 + j*19 , 164 + i*14);
+
+       tecla=getch();
+
+       setcolor(WHITE);
+       rectangle( 150 + j*19, 150 + i*14 , 169 + j*19 , 164 + i*14);
+
+
+       switch(tecla)
+       { case 0: tecla=getch();
+		 switch(tecla)
+		 { case 75 : j--; break;
+		   case 77 : j++; break;
+		   case 72 : i--; break;
+		   case 80 : i++; break;
+
+		   }
+
+		   if (i<0) i=0; if (i>19) i=19;
+		   if (j<0) j=0; if (j>19) j=19;
+
+		   break;
+
+	     case 13:M[i][j]=color;
+		      putpixel(100+j*1,300+i*1,M[i][j]);
+		     box(150+j*19,150+i*14,169+j*19,164+i*14,1,M[i][j]);
+		     break;
+	      case 9:  mueve1(color);
+		       break;
+
+	    }
+
+
+      }while(tecla!=27); box(560,330,610,360,1,color);
+}
+
+void save( int M[20][20], int G[20][20])
+{ int i,j;
+
+ for(i=0; i<20; i++)
+ for(j=0; j<20; j++)
+
+	G[i][j]=M[i][j];
+}
+void open ( int M[20][20], int G[20][20])
+{ int i,j;
+
+ for(i=0; i<20; i++)
+ for(j=0; j<20; j++)
+
+	M[i][j]=G[i][j];
+}
+
+
+     void menu()
+
+    {settextstyle(1,0,1);
+     outtextxy(250,25,"RED ICON:by mtz");
+     settextstyle(2,0,0);
+     outtextxy(55,110,"Press (ESC) to go back.");
+     outtextxy(300,110,"Press (TAB) to choose color.");
+
+     box(95,295,125,325,1,LIGHTGRAY);
+
+     box(0,50,0,450,1,7);
+
+
+     settextstyle(2,0,0);
+     box (55,55,125,75,1,9);
+     outtextxy(60,65,"NEW");
+     box(150,55,225,75,1,9);
+     outtextxy(155,65,"OPEN");
+     box(245,55,325,75,1,9);
+     outtextxy(250,65,"SAVE");
+     box(340,55,425,75,1,9);
+     outtextxy(345,65,"SCREEN");
+
+     box(500,55,540,75,1,RED);
+     outtextxy(520,65,"END");
+
+box(555,55,615,75,1,LIGHTBLUE);
+outtextxy(560,65,"COLORS");
+box(555,80,585,110,1,0);//aqui
+box(555,110,585,140,1,1);
+box(555,140,585,170,1,2);
+box(555,170,585,200,1,3);
+box(555,200,585,230,1,4);
+box(555,230,585,260,1,5);
+box(555,260,585,290,1,6);
+box(555,290,585,320,1,7);  //fin
+box(585,80, 615,110,1,8);
+box(585,110,615,140,1,9);
+box(585,140,615,170,1,10);
+box(585,170,615,200,1,11);
+box(585,200,615,230,1,12);
+box(585,230,615,260,1,13);
+box(585,260,615,290,1,14);
+box(585,290,615,320,1,15);
+
+
+
+   }
+    void mueve()
+{
+  int i=1;
+  int color, M[20][20],G[20][20];
+  char tecla;
+   box(0,0,getmaxx(),getmaxy(),1,RED);
+ menu();
+
+ asignanueva(M);
+ pintaicon(M);
+
+  do{
+     switch(i)
+     {
+       case 1: box (55,55,125,75,1,CYAN);
+	       outtextxy(60,65,"NEW");
+	       break;
+       case 2: box(150,55,225,75,1,CYAN);
+	       outtextxy(155,65,"OPEN");
+	       break;
+       case 3: box(245,55,325,75,1,CYAN);
+	       outtextxy(250,65,"SAVE");
+	       break;
+
+       case 4: box(340,55,425,75,1,CYAN);
+	       outtextxy(345,65,"SCREEN");
+	       break;
+       case 5: box(500,55,540,75,1,CYAN);
+	       outtextxy(520,65,"END");
+	       break;
+
+
+
+    } // fin de CYAN
+
+  tecla=getch();
+
+
+     switch(i)
+     { case 1: box (55,55,125,75,1,9);
+	       outtextxy(60,65,"NEW");
+	       break;
+       case 2: box(150,55,225,75,1,9);
+	       outtextxy(155,65,"OPEN");
+	       break;
+       case 3: box(245,55,325,75,1,9);
+	       outtextxy(250,65,"SAVE");
+	       break;
+       case 4: box(340,55,425,75,1,9);
+	       outtextxy(345,65,"SCREEN");
+	       break;
+       case 5: box(500,55,540,75,1,RED);
+	       outtextxy(520,65,"END");
+	       break;
+
+    }// fin de gray
+  switch(tecla)
+  {
+   case 0: tecla=getch();
+	    switch(tecla)
+	    { case 75: i--; break;
+	      case 77: i++; break;
+	    }
+	    if (i>5) i=1;
+	    if (i<1) i=5;
+	    break;
+   case 13:switch(i)
+	    {
+
+	    case 1: asignanueva(M);//nuevo
+		 icono(M,color);
+		 break;
+	 case 2: open(M,G);//abrir
+		 pintaicon(M);
+		 break;
+	 case 3: save(M,G);//guardar
+		 break;
+	 case 4: icono(M,color); //pantalla
+		 break;
+	 case 5: tecla=27;
+		 break;// x
+
+
+	    }
+	     //parche
+
+	    break; //fin enter
+   }//fin de flecha
+  }while(tecla !=27);
+}//Fin de Captura
+
+    void main()
+    {inicializa();
+    mueve();
+
+}

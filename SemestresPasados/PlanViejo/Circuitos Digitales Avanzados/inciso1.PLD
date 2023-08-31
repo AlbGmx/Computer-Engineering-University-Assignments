@@ -1,0 +1,68 @@
+Name     Name ;
+PartNo   1253171;
+Date     28/05/2021 ;
+Revision 01 ;
+Designer Engineer ;
+Company  UABC ;
+Assembly None ;
+Location None;
+Device   g22v10;
+
+/* *************** INPUT PINS *********************/
+PIN 1    =  CLK;
+PIN 2    =  DIR;                   
+PIN 3    =  STEP;                   
+
+/* *************** OUTPUT PINS *********************/
+PIN 19    =  A; 
+PIN 20    =  B; 
+PIN 21    =  C; 
+PIN 22    =  D; 
+
+/**ESTADOS**/
+$DEFINE s0 'b'1000 
+$DEFINE s1 'b'1100
+$DEFINE s2 'b'0100
+$DEFINE s3 'b'0110
+$DEFINE s4 'b'0010
+$DEFINE s5 'b'0011
+$DEFINE s6 'b'0001
+$DEFINE s7 'b'1001
+
+/**MAQUINA DE ESTADOS**/
+FIELD input = [A,B,C,D];
+SEQUENCE input
+{   
+PRESENT s0 
+ IF DIR & STEP NEXT s2;
+ IF DIR & !STEP NEXT s1;
+ IF !DIR & STEP NEXT s7;
+ IF !(DIR & STEP) NEXT s6; 
+PRESENT s1 
+ IF DIR NEXT s2;
+ IF !DIR NEXT s0;
+PRESENT s2 
+ IF DIR & STEP NEXT s4;
+ IF DIR & !STEP NEXT s3;
+ IF !DIR & STEP NEXT s0;
+ IF !(DIR & STEP) NEXT s1; 
+PRESENT s3 
+ IF DIR NEXT s4;
+ IF !DIR NEXT s2;
+PRESENT s4
+ IF DIR & STEP NEXT s6;
+ IF DIR & !STEP NEXT s5;
+ IF !DIR & STEP NEXT s2;
+ IF !(DIR & STEP) NEXT s3; 
+PRESENT s5
+ IF DIR NEXT s6;
+ IF !DIR NEXT s4;
+PRESENT s6
+ IF DIR & STEP NEXT s0;
+ IF DIR & !STEP NEXT s7;
+ IF !DIR & STEP NEXT s4;
+ IF !(DIR & STEP) NEXT s5; 
+PRESENT s7
+ IF DIR NEXT s0;
+ IF !DIR NEXT s6;
+}

@@ -1,0 +1,35 @@
+#include<conio.h>
+#include<stdio.h>
+#include<graphics.h>
+#include<string.h>
+#include<ctype.h>
+
+void inicializa ()
+{ int gm, gd=DETECT;
+initgraph ( &gd, &gm, "c:\\turboc3\\bgi");
+}
+void captura ( float &xmin, float &float &xmax, float &inc )
+{
+	clrscr ();
+	printf (" \n\r XMIN = " ); scanf (" %f", &min );
+	printf (" \n\r XMAX = " ); scanf (" %f", &max );
+	printf (" \n\r INC  = " ); scanf (" %f", &inc );
+
+	}
+
+	void ejes ()
+{	line (0, getmaxy () / 2 ,  getmaxx () , getmaxy / 2 );
+	line ( getmaxx () /2 , 0 , getmaxx () / 2 , getmaxy () );
+	}
+	void grafica ( float xmin, float xmax, float inc )
+{
+ float x, y, f=1 ;
+ ejes ();
+ getch();
+}
+ void main ()
+{
+	captura (xmin, xmax, inc);
+	inicializa ();
+	grafica(xmin, xmax, inc);
+}
