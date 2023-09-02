@@ -1,0 +1,44 @@
+CSIM(WM): CUPL Simulation Program
+Version 5.0a Serial# 
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+CREATED Thu Jun 03 17:58:54 2021
+
+LISTING FOR SIMULATION FILE: inciso1.si
+
+   1: Name     Name;
+   2: PartNo   1253171;
+   3: Date     28/05/2021;
+   4: Revision 01;
+   5: Designer Engineer;
+   6: Company  UABC;
+   7: Assembly None;
+   8: Location None;
+   9: Device   g22v10;
+  10: 
+  11: 
+  12: FIELD input = [A,B,C,D];
+  13:
+  14: ORDER: A, B, C, CLK, D, DIR, STEP, input; 
+  15: 
+  16: 
+
+====================
+            S       
+         C DT       
+         L IE       
+      ABCKDRPinput  
+====================
+0001: LLL1L11LLLL
+       ^
+[0019sa] user expected (H) for B
+
+0002: LLL0L11LLLL
+0003: LLL1L11LLLL
+0004: LLL0L11LLLL
+0005: LLL1L01LLLL
+0006: LLL0L10LLLL
+0007: LLL1L10LLLL
+0008: LLL0L10LLLL
+0009: LLL1L00LLLL
+0010: LLL0L01LLLL
+0011: LLL1L00LLLL

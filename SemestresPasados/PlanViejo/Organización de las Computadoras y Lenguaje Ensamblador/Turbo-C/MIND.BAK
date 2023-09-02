@@ -1,0 +1,175 @@
+#include <graphics.h>
+#include <dos.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <stdio.h>
+void box (int x1, int y1, int x2, int y2, int relleno, int color){
+  int poly[8];
+  poly [0]=x1;	poly [1]=y1;
+  poly [2]=x2;	poly [3]=y1;
+  poly [4]=x2;	poly [5]=y2;
+  poly [6]=x1;	poly [7]=y2;
+  setfillstyle(relleno,color);
+  fillpoly(4,poly);
+}
+void bgcolor(int color){
+	box(0, 0, getmaxx(), getmaxy(),1,color);
+}
+void inicializarEnAzul(){
+  int gm, gd=DETECT;
+  initgraph(&gd, &gm,"c:\\turboc3\\bgi");
+  bgcolor(0);
+}
+void generate(int Matrix[15][4]){
+  int i, j;
+  for(i=0; i<15; i++){
+	for (j=0; j<4; j++)	Matrix[i][j]=0;
+  }
+}
+void exe(int x1, int y1, int x2, int y2){
+  int line1 [4];
+  line1 [0]=x1;  line1 [1]=y1;
+  line1 [2]=x2;  line1 [3]=y2;
+  int line2[4];
+  line2 [0]=x1;  line2 [1]=y2;
+  line2 [2]=x2;  line2 [3]=y1;
+  fillpoly(2,line1);
+  fillpoly(2,line2);
+}
+void good(int x1, int y1, int x2, int y2){
+  int line1 [4];
+  line1 [0]=x1;    line1 [1]=y1/2;
+  line1 [2]=x2/2;  line1 [3]=y2;
+  int line2[4];
+  line2 [0]=x2/2;  line2 [1]=y1/2;
+  line2 [2]=x2;    line2 [3]=y1;
+  fillpoly(2,line1);
+  fillpoly(2,line2);
+}
+
+void generateBoard(int Matrix[15][4],int row){
+  int j, i;
+  for(i=0; i<15; i++) for (j=0; j<4; j++)  box(i*30+70,j*30+130,i*30+100,j*30+160,1,3);
+  for(i=0; i<row; i++) for (j=0; j<4; j++)  if(Matrix[i][j]==1){
+	box(i*30+70,j*30+130,i*30+100,j*30+160,1,4);
+	exe(i*30+70,j*30+130,i*30+100,j*30+160);
+	else if(Matrix[i][j]==2){
+	box(i*30+70,j*30+130,i*30+100,j*30+160,1,2);
+	good(i*30+70,j*30+130,i*30+100,j*30+160);
+  }else box(i*30+70,j*30+130,i*30+100,j*30+160,1,5);
+
+}
+void actualColumn (int Matrix[15][4], int row, int reveal){
+  int j;
+  if (reveal==1){
+    for(j=0; j<4; j++){
+	  if(Matrix[row][j]==1) box(row*30+70,j*30+130,row*30+100,j*30+160,1,4); 
+	  else  box(row*30+70,j*30+130,row*30+100,j*30+160,1,2);
+    } 
+  }else for(j=0; j<4; j++)  box(row*30+70,j*30+130,row*30+100,j*30+160,1,5);
+}
+void placeMines(int Matrix[15][4]){
+  int i;
+  for(i=0; i<15; i++){
+    Matrix[i][rand()%4]=1;
+  }
+}
+void paintMe(int row, int column){
+  box(row*30+70,column*30+130,row*30+100,column*30+160,1,14);
+}
+void endGame(int end, int row){
+  settextstyle(7,0,1);
+  if(end==2){
+   box (170,295,180,305,1,1);
+   outtextxy(175,300,"Felicidades, has ganado");
+  }
+  else if (end==1){
+	if (row==1){
+    box (50,290,560,340,1,2);
+	outtextxy(55,300,"Se ha encontrado con una mina, usted ha perdido");
+	}
+	else{
+	box (50,290,560,340,1,1);
+	outtextxy(55,300,"Se ha encontrado con una mina, usted ha perdido");
+	}
+  }
+  else outtextxy(75,300,"Ha decidido abortar el juego, vuelva pronto :D");
+  getch();
+}
+void start(int &play){
+  int Matrix[15][4], row=0, column=0, end=0;
+  char tecla;
+  generate(Matrix);
+  placeMines(Matrix);
+  generateBoard(Matrix,row);
+  do{
+	actualColumn(Matrix,row,0);
+	paintMe(row, column);
+	tecla=getch();
+	switch(tecla){
+	  case 0: tecla=getch();
+		switch(tecla){
+		  case 80: column++; break;
+		  case 72: column--; break;
+		}
+	  if(column<0) column=0; if (column>3) column=3;
+	  break;
+		case 13:
+		  if(Matrix[row][column]==1) end=1, tecla=27;
+		  else{
+			Matrix[row][column]==2;
+			row++;
+			bgcolor(row);
+			generateBoard(Matrix,row);
+			if(row>14) {end=2; tecla=27;}
+		  }
+		  break;
+	}
+
+  }while(tecla!=27);
+  endGame(end,row);
+  outtextxy(200,100,"DESEA VOLVER A JUGAR? S/N");
+  tecla = getch();
+  if (tecla==83 || tecla== 115) play = 2;
+  else play=1;
+
+}
+void main(){
+  int play = 1;
+  randomize();
+  inicializarEnAzul();
+  do{
+	bgcolor(0);
+	start(play);
+  }while (play!=1);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

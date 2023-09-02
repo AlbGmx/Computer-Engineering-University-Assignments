@@ -1,0 +1,60 @@
+%SIGNAL
+PIN  19 =  A 
+PIN  20 =  B 
+PIN  21 =  C 
+PIN   1 =  CLK 
+PIN  22 =  D 
+PIN   2 =  DIR 
+PIN   3 =  STEP 
+%END
+
+%FIELD
+FIELD input = A,B,C,D
+%END
+
+%EQUATION
+A.d  =>
+    B & C & !D & DIR
+  # !A & B & C & D & DIR & !STEP
+  # !A & B & C & D & !DIR & STEP
+  # !A & !B & C & D & !DIR
+  # A & !B & C & D & !DIR
+  # A & !B & C & D & !STEP
+
+B.d  =>
+    !A & C & D & DIR
+  # A & B & !C & D & !STEP
+  # A & !B & C & D & !STEP
+  # A & !B & C & D & !DIR
+  # A & !B & !C & D & !DIR
+  # A & B & !C & D & !DIR
+
+C.d  =>
+    A & B & C & !D & !STEP
+  # A & !B & D & DIR
+  # A & B & !C & D & !STEP
+  # A & B & !C & D & !DIR
+  # A & B & !C & !D & !DIR
+  # A & B & C & !D & !DIR
+
+D.d  =>
+    !A & B & C & !D & !DIR
+  # !A & B & C & D & !DIR
+  # !A & B & C & D & !STEP
+  # A & B & !C & DIR
+  # A & B & C & !D & !STEP
+  # A & B & C & !D & !DIR
+
+A.oe  =>
+    1 
+
+B.oe  =>
+    1 
+
+C.oe  =>
+    1 
+
+D.oe  =>
+    1 
+
+%END

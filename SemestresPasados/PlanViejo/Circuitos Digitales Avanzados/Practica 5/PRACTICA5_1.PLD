@@ -1,0 +1,21 @@
+Name practica5_1;
+Partno 00;
+Date 12/11/20;
+Revision 01;
+Designer CDA;
+Company UABC;
+Assembly None;
+Location None;
+Device g22v10;
+
+/**INPUTS**/
+Pin 1 = A;
+Pin 2 = B;
+Pin 3 = C;
+Pin 4 = D;
+
+
+/**OUTPUTS**/
+Pin 19 = F;
+F = A&!B#A&B&D#A&B&!D#!A&!C&!D#!A&B&!C;
+
