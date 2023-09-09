@@ -11,8 +11,12 @@
             "id": "78cea874b78e2d7b",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Microcontroladores/Registros IO.md",
+                "mode": "source",
+                "source": false
+              }
             }
           },
           {
@@ -21,14 +25,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Standard to use.md",
+                "file": "Microcontroladores/Preguntas de Examen(?.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -47,7 +50,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "byModifiedTime"
               }
             }
           },
@@ -78,7 +81,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "5c67b833e7e501cc",
@@ -94,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Standard to use.md",
+                "file": "Microcontroladores/Registros IO.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Standard to use.md",
+                "file": "Microcontroladores/Registros IO.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Standard to use.md"
+                "file": "Microcontroladores/Registros IO.md"
               }
             }
           }
@@ -155,9 +159,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b9e6ed78e009c625",
+  "active": "78cea874b78e2d7b",
   "lastOpenFiles": [
-    "Standard to use.md",
+    "Microcontroladores/Preguntas de Examen(?.md",
+    "Microcontroladores/Registros IO.md",
+    "Microcontroladores/Standard to use.md",
+    "Input / output.md",
+    "Input ",
     "Asignaturas - 46 Creditos pendientes.md",
     "Microcontroladores/Categorías de los microcontroladores.md",
     "Microcontroladores",
