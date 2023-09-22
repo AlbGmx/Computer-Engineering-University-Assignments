@@ -1,0 +1,69 @@
+﻿
+Input
+Store national
+Input
+Store messagesSent
+Input
+Store international
+Clear
+Add plan
+Store total
+JnS AddNational
+JnS AddMessages
+JnS AddInternational
+Load total
+Output
+Halt
+
+AddMessages,  	HEX 000
+				Load messagesSent
+                Subt mesLimit
+                Store messagesSent
+loopMes,		Skipcond 800
+				JumpI AddMessages
+				Load total
+				Add two
+				Store total
+				Load messagesSent
+				Subt one		
+                Store messagesSent
+                Jump loopMes
+
+AddNational,	HEX 000
+				Load national
+                Subt minLimit
+                Store national
+loopNat,		Skipcond 800
+				JumpI AddNational
+				Load total
+				Add one
+				Store total
+				Load national
+				Subt one		
+                Store national
+                Jump loopNat
+
+AddInternational,	HEX 000
+					Load international
+loopInt,			Skipcond 800
+					JumpI AddInternational
+					Load total
+					Add three
+					Store total
+					Load international
+					Subt one		
+                    Store international
+                    Jump loopInt
+
+one, dec 1
+two, dec 2
+three, dec 3
+minLimit, dec 100
+mesLimit, dec 70
+plan, dec 80
+total, dec 0
+national, dec 0
+international, dec 0
+messagesSent, dec 0
+min, dec 100
+mes, dec 70 

@@ -1,0 +1,15 @@
+body{
+   background-color: lightgray;
+}
+#one{
+   color:blue; font-weight: bold;
+}
+#two{
+   color:green; font-style: italic;
+}
+#three{
+   color:brown; text-decoration: underline; 
+}
+#four{
+   color:red;
+}

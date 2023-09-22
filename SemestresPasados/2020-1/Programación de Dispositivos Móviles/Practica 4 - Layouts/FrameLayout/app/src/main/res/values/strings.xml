@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Frame Layout</string>
+    <string name="message">Thanks for choosing our awesome blend tea. how do you want it serving?
+    </string>
+    <string name="temp">Temperature: </string>
+    <string name="hot">Hot</string>
+    <string name="cold">Cold</string>
+    <string name="milk">Milk</string>
+    <string name="sugar">Sugar</string>
+    <string name="lemon">Lemon</string>
+
+</resources>

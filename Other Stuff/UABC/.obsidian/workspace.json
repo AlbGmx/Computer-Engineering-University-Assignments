@@ -8,9 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "78cea874b78e2d7b",
+            "id": "9b946b88c5b01cf2",
             "type": "leaf",
             "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.4.5"
               "type": "markdown",
               "state": {
                 "file": "Microcontroladores/Registros IO.md",
@@ -159,14 +162,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "78cea874b78e2d7b",
+  "active": "9b946b88c5b01cf2",
   "lastOpenFiles": [
-    "Microcontroladores/Preguntas de Examen(?.md",
+    "Standard to use.md",
     "Microcontroladores/Registros IO.md",
+    "Microcontroladores/Preguntas de Examen(?.md",
+
+    "Asignaturas - 46 Creditos pendientes.md",
     "Microcontroladores/Standard to use.md",
     "Input / output.md",
     "Input ",
-    "Asignaturas - 46 Creditos pendientes.md",
     "Microcontroladores/Categorías de los microcontroladores.md",
     "Microcontroladores",
     "Meta 1.2 Estandar TIA-EIA 568.md",

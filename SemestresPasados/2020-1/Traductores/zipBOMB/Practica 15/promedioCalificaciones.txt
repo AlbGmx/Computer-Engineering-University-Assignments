@@ -1,0 +1,20 @@
+inicio-programa
+
+    entero materias
+    entero calificacion
+    entero promedio
+    entero contador
+
+    leer "Ingresar numero de materias: ", materias
+
+    mientras (contador < materias)
+        leer "Ingrese calificacion: ", calificacion
+        promedio = promedio + calificacion
+        contador = contador + 1
+    fin-mientras
+
+    promedio = promedio / materias
+
+    escribir "El promedio de las calificacion es: ", promedio
+
+fin-programa
