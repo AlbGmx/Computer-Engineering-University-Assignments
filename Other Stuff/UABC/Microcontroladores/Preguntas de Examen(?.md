@@ -1,0 +1,9 @@
+- ¿Qué pasa si se escribe a PIN?  
+	- Se invierte el valor de PORT
+- Resistencias en Paralelo
+	- ¿Cómo saber si un voltaje es un 0/1 digital cuando 5v?
+		- PIN =: 0 ->  -0.5v ~ 1.5v
+		- PIN =: 1 -> 3v ~ 5.5v
+- ¿Cuánta corriente da cada PIN?
+	- 40mA I/O PIN
+	- 200mA Suma de todos los pines
