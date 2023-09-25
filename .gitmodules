@@ -1,3 +1,12 @@
 [submodule "AsignaturasActuales/Microcontroladores/uc-prac1-AlbGmx-1"]
 	path = AsignaturasActuales/Microcontroladores/uc-prac1-AlbGmx-1
 	url = https://github.com/uPuC2/uc-prac1-AlbGmx-1
+[submodule "AsignaturasActuales/Microcontroladores/uc-prac3-AlbGmx"]
+	path = AsignaturasActuales/Microcontroladores/uc-prac3-AlbGmx
+	url = https://github.com/uPuC2/uc-prac3-AlbGmx.git
+[submodule "AsignaturasActuales/Microcontroladores/uc-prac2-AlbGmx"]
+	path = AsignaturasActuales/Microcontroladores/uc-prac2-AlbGmx
+	url = https://github.com/uPuC2/uc-prac2-AlbGmx.git
+[submodule "AsignaturasActuales/Microcontroladores/uc-prac4-AlbGmx"]
+	path = AsignaturasActuales/Microcontroladores/uc-prac4-AlbGmx
+	url = https://github.com/uPuC2/uc-prac4-AlbGmx.git
