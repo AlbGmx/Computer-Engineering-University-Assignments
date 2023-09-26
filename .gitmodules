@@ -7,3 +7,6 @@
 [submodule "AsignaturasActuales/Microcontroladores/uc-prac4-AlbGmx"]
 	path = AsignaturasActuales/Microcontroladores/uc-prac4-AlbGmx
 	url = https://github.com/uPuC2/uc-prac4-AlbGmx.git
+[submodule "AsignaturasActuales/Microcontroladores/uc-prac1-AlbGmx-1"]
+	path = AsignaturasActuales/Microcontroladores/uc-prac1-AlbGmx-1
+	url = https://github.com/uPuC2/uc-prac1-AlbGmx-1.git
