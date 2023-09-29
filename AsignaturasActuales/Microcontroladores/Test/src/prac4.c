@@ -1,13 +1,11 @@
 #include <avr/io.h>
 #include <inttypes.h>
+#include <stdio.h>
 
 extern void Delay(uint8_t); /* Prototipo de la función Delay */
 
 int main(void) {
    int i = 0;
-
-
-
    /* Configurar el bit 5 del PORTB como salida para controlar el LED en D13 */
    DDRB |= (1 << DDB5); /* DDRB = 00100000 */
 
@@ -17,7 +15,7 @@ int main(void) {
    while (1) {
       PORTB &= ~(1 << PORTB5); /* encender LED PC4 = 0 */
 
-      for (i = 0; i < 100; i++) {
+      for (i = 0; i < 10; i++) {
          Delay(10);
       }
       printf("1s delay");
