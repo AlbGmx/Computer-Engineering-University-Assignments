@@ -1,0 +1,215 @@
+
+prac4.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000ea  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .debug_aranges 00000040  00000000  00000000  00000140  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  2 .debug_pubnames 0000001b  00000000  00000000  00000180  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   0000011e  00000000  00000000  0000019b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 00000064  00000000  00000000  000002b9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   000000e2  00000000  00000000  0000031d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  00000020  00000000  00000000  00000400  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    000000b5  00000000  00000000  00000420  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   8:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  10:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  14:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  18:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  1c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  20:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  24:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  28:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  2c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  30:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  34:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  38:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  3c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  40:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  44:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  48:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  4c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  50:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  54:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  58:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  5c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  60:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  64:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+  74:	0e 94 40 00 	call	0x80	; 0x80 <main>
+  78:	0c 94 73 00 	jmp	0xe6	; 0xe6 <_exit>
+
+0000007c <__bad_interrupt>:
+  7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000080 <main>:
+#include <avr/io.h>
+#include <inttypes.h>
+
+extern void Delay(uint8_t); /* Prototipo de la función Delay */
+
+int main(void) {
+  80:	cf 93       	push	r28
+  82:	df 93       	push	r29
+   int i = 0;
+   /* Configurar el bit 5 del PORTB como salida para controlar el LED en D13 */
+   DDRB |= (1 << DDB2); /* DDRB = 00100000 */
+  84:	22 9a       	sbi	0x04, 2	; 4
+
+   /* Establecer el valor inicial en el puerto para apagar el LED */
+   PORTB &= ~(1 << PORTB2); /* PORTB = 0xxxxxx0 */
+  86:	2a 98       	cbi	0x05, 2	; 5
+
+   while (1) {
+      PORTB &= ~(1 << PORTB2); /* encender LED PC4 = 0 */
+  88:	2a 98       	cbi	0x05, 2	; 5
+  8a:	c0 e0       	ldi	r28, 0x00	; 0
+  8c:	d0 e0       	ldi	r29, 0x00	; 0
+
+      for (i = 0; i < 100; i++) {
+         Delay(10);
+  8e:	8a e0       	ldi	r24, 0x0A	; 10
+  90:	0e 94 59 00 	call	0xb2	; 0xb2 <Delay>
+   PORTB &= ~(1 << PORTB2); /* PORTB = 0xxxxxx0 */
+
+   while (1) {
+      PORTB &= ~(1 << PORTB2); /* encender LED PC4 = 0 */
+
+      for (i = 0; i < 100; i++) {
+  94:	21 96       	adiw	r28, 0x01	; 1
+  96:	c4 36       	cpi	r28, 0x64	; 100
+  98:	d1 05       	cpc	r29, r1
+  9a:	c9 f7       	brne	.-14     	; 0x8e <main+0xe>
+         Delay(10);
+      }
+      PORTB |= (1 << PORTB2); /* apagar LED PC4 = 1 */
+  9c:	2a 9a       	sbi	0x05, 2	; 5
+  9e:	c0 e0       	ldi	r28, 0x00	; 0
+  a0:	d0 e0       	ldi	r29, 0x00	; 0
+      for (i = 0; i < 10; i++) {
+         Delay(100);
+  a2:	84 e6       	ldi	r24, 0x64	; 100
+  a4:	0e 94 59 00 	call	0xb2	; 0xb2 <Delay>
+
+      for (i = 0; i < 100; i++) {
+         Delay(10);
+      }
+      PORTB |= (1 << PORTB2); /* apagar LED PC4 = 1 */
+      for (i = 0; i < 10; i++) {
+  a8:	21 96       	adiw	r28, 0x01	; 1
+  aa:	ca 30       	cpi	r28, 0x0A	; 10
+  ac:	d1 05       	cpc	r29, r1
+  ae:	c9 f7       	brne	.-14     	; 0xa2 <main+0x22>
+  b0:	eb cf       	rjmp	.-42     	; 0x88 <main+0x8>
+
+000000b2 <Delay>:
+;        If we need a n-ms delay, we need x amount of 16000 cycles
+
+.global Delay
+Delay:         ;Cycles used
+                  ;5 call from C
+   push r24       ;2
+  b2:	8f 93       	push	r24
+
+000000b4 <delayLoop>:
+delayLoop:        ;loop for delay
+   cpi r24,1      ;1
+  b4:	81 30       	cpi	r24, 0x01	; 1
+   breq delay1ms  ;2 if x=1, otherwise 1
+  b6:	31 f0       	breq	.+12     	; 0xc4 <delay1ms>
+   rcall delayAux ;3
+  b8:	0f d0       	rcall	.+30     	; 0xd8 <delayAux>
+   dec r24        ;1
+  ba:	8a 95       	dec	r24
+   jmp delayLoop  ;3
+  bc:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <delayLoop>
+
+000000c0 <end>:
+end:
+   pop r24        ;2
+  c0:	8f 91       	pop	r24
+   ret            ;4
+  c2:	08 95       	ret
+
+000000c4 <delay1ms>:
+
+; Delay aprox 1ms should take 16000 - 16, the cycles used by only the function (not counting loop)
+;  eq = 4xy + 3x + 4 = 15989 = > x = 68, y = 58
+delay1ms:
+	ldi r26,68   ;1
+  c4:	a4 e4       	ldi	r26, 0x44	; 68
+	...
+
+000000c8 <x1Loop>:
+   nop          ;1
+x1Loop: 	      ;loop for x
+   ldi r27,58  ;x  
+  c8:	ba e3       	ldi	r27, 0x3A	; 58
+
+000000ca <y1Loop>:
+y1Loop:	      ;loop for y
+   nop         ;xy
+  ca:	00 00       	nop
+   dec r27     ;xy
+  cc:	ba 95       	dec	r27
+	brne y1Loop  ;(2y-1)(x)
+  ce:	e9 f7       	brne	.-6      	; 0xca <y1Loop>
+	dec r26      ;x
+  d0:	aa 95       	dec	r26
+	brne x1Loop  ;(2x-1)
+  d2:	d1 f7       	brne	.-12     	; 0xc8 <x1Loop>
+   jmp end      ; 3
+  d4:	0c 94 60 00 	jmp	0xc0	; 0xc0 <end>
+
+000000d8 <delayAux>:
+
+
+; Auxiliar function, should take 16000 - 9, the cycles used by the loop 3xy + 3x + 4 = 15991 => x = 73, y = 72
+delayAux:
+	ldi r26,73   ;1
+  d8:	a9 e4       	ldi	r26, 0x49	; 73
+
+000000da <xLoop>:
+xLoop: 	      ;loop for x
+   ldi r27,72 ;x  
+  da:	b8 e4       	ldi	r27, 0x48	; 72
+
+000000dc <yLoop>:
+yLoop:	      ;loop for y
+   dec r27     ;xy
+  dc:	ba 95       	dec	r27
+	brne yLoop  ;(2y-1)(x)
+  de:	f1 f7       	brne	.-4      	; 0xdc <yLoop>
+	dec r26     ;x
+  e0:	aa 95       	dec	r26
+	brne xLoop  ;(2x-1)
+  e2:	d9 f7       	brne	.-10     	; 0xda <xLoop>
+   ret         ; 4
+  e4:	08 95       	ret
+
+000000e6 <_exit>:
+  e6:	f8 94       	cli
+
+000000e8 <__stop_program>:
+  e8:	ff cf       	rjmp	.-2      	; 0xe8 <__stop_program>

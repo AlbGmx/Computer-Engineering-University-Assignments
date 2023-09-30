@@ -1,0 +1,28 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.42</VERSION>
+ <DEVICE>ATmega328P</DEVICE>
+ <WORKING_DIR>C:\Users\gomez\OneDrive\Documents\UABC\AsignaturasActuales\Microcontroladores\uc-prac2-AlbGmx</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\avr\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\gomez\OneDrive\Documents\UABC\AsignaturasActuales\Microcontroladores\uc-prac2-AlbGmx\prac2.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\avr\AvrAssembler2\Appnotes\m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\gomez\OneDrive\Documents\UABC\AsignaturasActuales\Microcontroladores\uc-prac2-AlbGmx\Prac2.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>C:\Users\gomez\OneDrive\Documents\UABC\AsignaturasActuales\Microcontroladores\uc-prac2-AlbGmx\Prac2.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>C:\Users\gomez\OneDrive\Documents\UABC\AsignaturasActuales\Microcontroladores\uc-prac2-AlbGmx\Prac2.map</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <next><FILE>C:\Users\gomez\OneDrive\Documents\UABC\AsignaturasActuales\Microcontroladores\uc-prac2-AlbGmx\prac2.asm</FILE><LINE>21</LINE></next>
+  <shiftLeft><FILE>C:\Users\gomez\OneDrive\Documents\UABC\AsignaturasActuales\Microcontroladores\uc-prac2-AlbGmx\prac2.asm</FILE><LINE>33</LINE></shiftLeft>
+  <rotateRight><FILE>C:\Users\gomez\OneDrive\Documents\UABC\AsignaturasActuales\Microcontroladores\uc-prac2-AlbGmx\prac2.asm</FILE><LINE>29</LINE></rotateRight>
+  <printOutput><FILE>C:\Users\gomez\OneDrive\Documents\UABC\AsignaturasActuales\Microcontroladores\uc-prac2-AlbGmx\prac2.asm</FILE><LINE>42</LINE></printOutput>
+  <rotateLeft><FILE>C:\Users\gomez\OneDrive\Documents\UABC\AsignaturasActuales\Microcontroladores\uc-prac2-AlbGmx\prac2.asm</FILE><LINE>39</LINE></rotateLeft>
+ </LABELS>
+</ASSEMBLER_INFO>
