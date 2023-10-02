@@ -1,13 +1,13 @@
 #include <avr/io.h>
 // Configure UART0
-// 177000 Bauds, 6 bits, paridad even, 2 stop bits
-// UBRR = 11.29 - 1 = 10.29 = 10
+// 115200 Bauds, 6 bits, paridad even, 2 stop bits
+// UBRR calculation: 16MHz / (16 * 115200) - 1 = 8.68 = 8
 
 void uart_Init() {
    UCSR0A = 1 << U2X0;                                    // Double Speed
    UCSR0B = (1 << TXEN0) | (1 << RXEN0);                  // Enable Pins
    UCSR0C = (2 << UPM00) | (1 << USBS0) | (1 << UCSZ00);  // Parity Even, 2 Stop Bits, 6 bits
-   UBRR0  = 10;                                           // 177000 Bauds
+   UBRR0  = 8;                                           // 115200 Bauds
 }
 
 // Configure UART0
