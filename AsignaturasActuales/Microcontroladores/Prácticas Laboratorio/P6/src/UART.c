@@ -10,7 +10,7 @@ volatile uint8_t *regUBRRL[4] = {&UBRR0L, &UBRR1L, &UBRR2L, &UBRR3L};
 volatile uint8_t *regUSCRA[4] = {&UCSR0A, &UCSR1A, &UCSR2A, &UCSR3A};
 volatile uint8_t *regUCSRB[4] = {&UCSR0B, &UCSR1B, &UCSR2B, &UCSR3B};
 volatile uint8_t *regUCSRC[4] = {&UCSR0C, &UCSR1C, &UCSR2C, &UCSR3C};
-volatile uint8_t *regUDR[4] = {&UDR0, &UDR1, &UDR2, &UDR3};
+volatile uint8_t *regUDR[4]   = {&UDR0, &UDR1, &UDR2, &UDR3};
 
 // Prototypes
 // Initialization
@@ -80,14 +80,14 @@ void itoa(uint32_t number, char* str, uint8_t base) {
       while (number != 0) {
          remainder = number % base;
          str[index++] = (remainder > 9) ? (remainder - 10) + 'a' : remainder + '0';
-         number /= base;
+         number = number / base;
       }
       str[index] = '\0';
-      uint8_t i = 0;
+      uint8_t j = 0;
       index--;
-      while (i < index) {
-         char temp = str[i];
-         str[i++] = str[index];
+      while (j < index) {
+         char temp = str[j];
+         str[j++] = str[index];
          str[index--] = temp;
       } 
    } else {
@@ -99,7 +99,7 @@ void itoa(uint32_t number, char* str, uint8_t base) {
 uint16_t atoi(char *str){
    uint16_t number = 0;
    while (*str) {
-      number = (number * 10) + (*str++ - '0');
+      number = number * 10 + (*str++ - '0');
    }
    return number;
 }

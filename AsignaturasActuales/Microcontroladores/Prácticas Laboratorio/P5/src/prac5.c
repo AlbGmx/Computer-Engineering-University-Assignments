@@ -5,6 +5,7 @@
 #define RIGHT_BTN PD3
 #define LED_ON_DELAY 300
 #define LED_OFF_DELAY 50
+#define WALKING_ZEROS_DELAY 500
 #define SPEED_UP 20
 #define WALKING_ZEROS 0 
 
@@ -82,9 +83,6 @@ static void initIO(void) {
 void updateLedArray(uint8_t status) {
    setLEDsAsInput();
    switch (status) {
-      case AllLEDsOff:
-         setLEDsAsInput();
-         break;
       case LED1:
          DDRB |= (1 << PB0) | (1 << PB1);
          PORTB &= ~(1 << PB1);
@@ -120,8 +118,8 @@ void updateLedArray(uint8_t status) {
          PORTB &= ~(1 << PB3);
          PORTB |= (1 << PB0);
       break;
+   case AllLEDsOff:
    default:
-      setLEDsAsInput();
       DDRB |= (1<<PB5);
       PORTB |= (1<<PB5);
       break;
@@ -134,7 +132,7 @@ void walkingZeros() {
       startTime[walkingZerosIndex] = _millis;
       walkingZerosState = 8;
    } else {
-      if (_millis - startTime[walkingZerosIndex] >= LED_ON_DELAY) {
+      if (_millis - startTime[walkingZerosIndex] >= WALKING_ZEROS_DELAY) {
          startTime[walkingZerosIndex] = _millis;
          walkingZerosState--;
          if (walkingZerosState<1) {
@@ -202,11 +200,8 @@ void playSequence(eGameState_t gameState) {
 
 ePlayerInputState_t checkPlayerInput(eButtonState_t buttonState, eButtonId_t buttonId) {
    if (buttonState == eBtnShortPressed) {
-      if (buttonId == eLeftButton)
-         return (direction == eGoingLeft && (state == LED7 || state == LED6)) ? eCorrect : eIncorrect;
-      if (buttonId == eRightButton) {
-         return (direction == eGoingRight && (state == LED1 || state == LED2)) ? eCorrect : eIncorrect;
-      }
+      if (buttonId == eLeftButton) return (direction == eGoingLeft && (state == LED7 || state == LED6)) ? eCorrect : eIncorrect;
+      if (buttonId == eRightButton) return (direction == eGoingRight && (state == LED1 || state == LED2)) ? eCorrect : eIncorrect;
    }
    if (state == AllLEDsOff || state > LED7) return eIncorrect;
    return eWaiting;
@@ -266,10 +261,10 @@ int main(void) {
    eButtonId_t buttonId;
 	initIO();
 
-	while(1) {
+   while(1) {
       buttonState = checkButtons(&buttonId);
-		if (buttonState == eBtnLongPressed) currentGameState = eGameRestart;
-		
+      if (buttonState == eBtnLongPressed) currentGameState = eGameRestart;
+
 		switch(currentGameState){
 			case eGameRestart:
             startTime[walkingZerosIndex] = 0;
@@ -299,10 +294,9 @@ int main(void) {
                direction = (direction == eGoingLeft) ? eGoingRight : eGoingLeft;
 			   	score++;
                ledDelay -= SPEED_UP;
-			   } else if (playerInputState == eIncorrect) {
-		   		currentGameState = eEnd;
-			   }
+			   } else if (playerInputState == eIncorrect) currentGameState = eEnd;
 			break;
+         
 			case eEnd:
 			   playSequence(eEnd);
 			break;
