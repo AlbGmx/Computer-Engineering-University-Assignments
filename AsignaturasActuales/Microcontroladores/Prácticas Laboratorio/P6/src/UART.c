@@ -80,14 +80,14 @@ void itoa(uint32_t number, char* str, uint8_t base) {
       while (number != 0) {
          remainder = number % base;
          str[index++] = (remainder > 9) ? (remainder - 10) + 'a' : remainder + '0';
-         number = number / base;
+         number /= base;
       }
       str[index] = '\0';
-      uint8_t j = 0;
+      uint8_t i = 0;
       index--;
-      while (j < index) {
-         char temp = str[j];
-         str[j++] = str[index];
+      while (i < index) {
+         char temp = str[i];
+         str[i++] = str[index];
          str[index--] = temp;
       } 
    } else {
@@ -99,7 +99,7 @@ void itoa(uint32_t number, char* str, uint8_t base) {
 uint16_t atoi(char *str){
    uint16_t number = 0;
    while (*str) {
-      number = number * 10 + (*str++ - '0');
+      number = (number * 10) + (*str++ - '0');
    }
    return number;
 }
