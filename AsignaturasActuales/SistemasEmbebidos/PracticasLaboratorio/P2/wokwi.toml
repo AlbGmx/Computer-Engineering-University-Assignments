@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = "build/p2.bin"
+elf = "build/P2.elf"

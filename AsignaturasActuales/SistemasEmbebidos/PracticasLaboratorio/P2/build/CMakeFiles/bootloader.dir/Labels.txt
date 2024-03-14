@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/Users/eg0822/Documents/Repos/UABC/AsignaturasActuales/SistemasEmbebidos/PracticasLaboratorio/P2/build/CMakeFiles/bootloader
+/Users/eg0822/Documents/Repos/UABC/AsignaturasActuales/SistemasEmbebidos/PracticasLaboratorio/P2/build/CMakeFiles/bootloader.rule
+/Users/eg0822/Documents/Repos/UABC/AsignaturasActuales/SistemasEmbebidos/PracticasLaboratorio/P2/build/CMakeFiles/bootloader-complete.rule
+/Users/eg0822/Documents/Repos/UABC/AsignaturasActuales/SistemasEmbebidos/PracticasLaboratorio/P2/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/Users/eg0822/Documents/Repos/UABC/AsignaturasActuales/SistemasEmbebidos/PracticasLaboratorio/P2/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/Users/eg0822/Documents/Repos/UABC/AsignaturasActuales/SistemasEmbebidos/PracticasLaboratorio/P2/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/Users/eg0822/Documents/Repos/UABC/AsignaturasActuales/SistemasEmbebidos/PracticasLaboratorio/P2/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/Users/eg0822/Documents/Repos/UABC/AsignaturasActuales/SistemasEmbebidos/PracticasLaboratorio/P2/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/Users/eg0822/Documents/Repos/UABC/AsignaturasActuales/SistemasEmbebidos/PracticasLaboratorio/P2/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/Users/eg0822/Documents/Repos/UABC/AsignaturasActuales/SistemasEmbebidos/PracticasLaboratorio/P2/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
