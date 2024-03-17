@@ -1,158 +1,236 @@
-/*
-
-#include "freertos/FreeRTOS.h"
-#include "esp_adc/adc_continuous.h"
-#include "esp_err.h"
-#include "freertos/task.h"
-
-#define ADC_UNIT ADC_UNIT_1
-#define ADC_CHANNEL ADC1_CHANNEL_0
-#define MAX_ADC_BUF_SIZE 1024
-#define CONV_FRAME_SIZE 100
-
-
-void init_adc_continuous_mode(adc_continuous_handle_t *handle) {
-	adc_continuous_handle_cfg_t adc_config = {
-		 .max_store_buf_size = MAX_ADC_BUF_SIZE,
-		 .conv_frame_size		= CONV_FRAME_SIZE,
-	};
-	ESP_ERROR_CHECK(adc_continuous_new_handle(&adc_config, handle));
-}
-
-void setup_adc(adc_continuous_handle_t handle) {
-	 adc_continuous_config_t adc_cont_config = {
-		  .pattern_num = 1,
-		  .adc_pattern = (adc_digi_pattern_config_t[]){{.atten = ADC_ATTEN_DB_0, .channel = ADC_CHANNEL, .unit = ADC_UNIT,
-.bit_width = ADC_WIDTH_BIT_12}}, .sample_freq_hz = 10000, // Sample frequency of 10 kHz .conv_mode =
-ADC_CONV_SINGLE_UNIT_1, .format = ADC_DIGI_OUTPUT_FORMAT_TYPE1
-	 };
-	 ESP_ERROR_CHECK(adc_continuous_config(handle, &adc_cont_config));
-}
-
-void app_main() {}
-*/
-
-/*
- * SPDX-FileCopyrightText: 2021-2022 Espressif Systems (Shanghai) CO LTD
- *
- * SPDX-License-Identifier: Apache-2.0
- */
-
-#include <string.h>
 #include <stdio.h>
-#include "sdkconfig.h"
-#include "esp_log.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "freertos/semphr.h"
-#include "esp_adc/adc_continuous.h"
+#include "freertos/queue.h"
+#include "esp_log.h"
+#include "esp_adc/adc_oneshot.h"
+#include <math.h>
+#include "driver/gpio.h"
 
-#define EXAMPLE_ADC_UNIT ADC_UNIT_1
-#define _EXAMPLE_ADC_UNIT_STR(unit) #unit
-#define EXAMPLE_ADC_UNIT_STR(unit) _EXAMPLE_ADC_UNIT_STR(unit)
-#define EXAMPLE_ADC_CONV_MODE ADC_CONV_SINGLE_UNIT_1
-#define EXAMPLE_ADC_ATTEN ADC_ATTEN_DB_0
-#define EXAMPLE_ADC_BIT_WIDTH SOC_ADC_DIGI_MAX_BITWIDTH
+// Adc
+#define ADC_UNIT ADC_UNIT_1
+#define SENSOR_TEMP_CHANNEL ADC_CHANNEL_4
+#define SENSOR_ILUM_CHANNEL ADC_CHANNEL_5
+// Button
+#define BUTTON_SELECT GPIO_NUM_13
+#define BUTTON_SELECT_MASK (1ULL << BUTTON_SELECT)
+#define ESP_INTR_FLAG_DEFAULT 0
+// Leds
+#define LIGHT_0 GPIO_NUM_26
+#define LIGHT_1 GPIO_NUM_27
+#define LIGHT_2 GPIO_NUM_14
+#define LIGHT_3 GPIO_NUM_12
+#define HEATER_LED GPIO_NUM_25
+#define LEDS_MASK (1ULL << LIGHT_0 | 1ULL << LIGHT_1 | 1ULL << LIGHT_2 | 1ULL << LIGHT_3 | 1ULL << HEATER_LED)
 
-#define EXAMPLE_ADC_OUTPUT_TYPE ADC_DIGI_OUTPUT_FORMAT_TYPE1
-#define EXAMPLE_ADC_GET_CHANNEL(p_data) ((p_data)->type1.channel)
-#define EXAMPLE_ADC_GET_DATA(p_data) ((p_data)->type1.data)
+// Parameters used by Wowki components
+#define SENSORS_BITWIDTH ADC_BITWIDTH_10
+#define SENSOR_ATTENUATION ADC_ATTEN_DB_11
+#define MAX_LUMINOSITY 100000
+#define SINGLE_LED_VALUE MAX_LUMINOSITY / 4
+#define V_REF 5.0
 
-#define EXAMPLE_READ_LEN 256
+// LDR sensor parameters
+#define RL10 50	// LDR resistance @ 10lux (in kilo-ohms)
+#define GAMMA 0.7 // Slope of the log(R) / log(lux) graph
+// This sensor ranges from 0.1 to 1000 lux
 
-static adc_channel_t adc_channel = ADC_CHANNEL_6;
+// NTC temperature parameters
+#define BETA 3975 // The beta coefficient of the thermistor
+// This sensor ranges from -28 to 80 degrees Celsius
 
-static TaskHandle_t s_task_handle;
-static const char *TAG = "EXAMPLE";
+// Pre computed values (update when modifying the sensor parameters!)
+#define INV_GAMMA 1.428571			 // 1 / GAMMA
+#define RL10_KGAMMA 250593.616813 // RL10 * 1e3 * pow(10, GAMMA)
 
-static bool IRAM_ATTR s_conv_done_cb(adc_continuous_handle_t handle, const adc_continuous_evt_data_t *edata,
-												 void *user_data) {
-	BaseType_t mustYield = pdFALSE;
-	// Notify that ADC continuous driver has done enough number of conversions
-	vTaskNotifyGiveFromISR(s_task_handle, &mustYield);
+float getTemperature();
+float getIlumination();
+void logStateChange(uint8_t lastState);
+void setLightsState(float iluminationValue, float iluminationTreshold);
 
-	return (mustYield == pdTRUE);
+// ISR routines
+static void selectButtonInterrupt(void *);
+static void selectButtonHandler(void *);
+
+// Global variables
+bool heater				= false;
+uint8_t lights			= 0;
+static uint64_t ms	= 0;
+uint8_t selectedRoom = 0;
+gpio_config_t io_conf;
+static QueueHandle_t gpio_evt_queue = NULL;
+// ADC variables
+static int adcRawValue;
+static float sensorValues[2];
+adc_oneshot_unit_handle_t sensorHandle;
+adc_oneshot_unit_init_cfg_t sensorConfig	 = {.unit_id = ADC_UNIT};
+adc_oneshot_chan_cfg_t sensorChannelConfig = {.atten = SENSOR_ATTENUATION, .bitwidth = SENSORS_BITWIDTH};
+
+// Enums
+enum ROOM { eBedroom = 0, eLivingroom, eKitchen, eRoomMAX };
+enum SENSORS { eIlumination, eTemperature, eSensorMAX };
+enum LIGHTS { eAllOff = 0, eOneLight, eTwoLights = 3, eThreeLights = 7, eAllLights = 15, eTresholdExceeded };
+
+typedef struct {
+	float iluminationTreshold;
+	float temperatureTreshold;
+} tresholds_t;
+
+tresholds_t roomTresholds[3] = {
+	 {MAX_LUMINOSITY + MAX_LUMINOSITY / 10, 40}, // Bedroom
+	 {60000, -10},											// Livingroom
+	 {30000, 0},											// Kitchen
+};
+
+void updateLights() {
+	gpio_set_level(LIGHT_0, lights & 1);
+	gpio_set_level(LIGHT_1, lights & 2);
+	gpio_set_level(LIGHT_2, lights & 4);
+	gpio_set_level(LIGHT_3, lights & 8);
+	gpio_set_level(HEATER_LED, heater);
 }
 
-static void continuous_adc_init(adc_channel_t *channel, uint8_t channel_num, adc_continuous_handle_t *out_handle) {
-	adc_continuous_handle_t handle = NULL;
+void gpioInit() {
+	// Input button, set isr service and handler
+	io_conf.pin_bit_mask = BUTTON_SELECT_MASK;
+	io_conf.mode			= GPIO_MODE_INPUT;
+	io_conf.intr_type		= GPIO_INTR_ANYEDGE;
+	io_conf.pull_up_en	= 1;
+	gpio_config(&io_conf);
+	gpio_set_intr_type(BUTTON_SELECT, GPIO_INTR_ANYEDGE);
+	gpio_evt_queue = xQueueCreate(10, sizeof(uint32_t));
+	xTaskCreate(selectButtonInterrupt, "selectButtonInterrupt", 2048, NULL, 10, NULL);
+	gpio_install_isr_service(ESP_INTR_FLAG_DEFAULT);
+	gpio_isr_handler_add(BUTTON_SELECT, selectButtonHandler, (void *)BUTTON_SELECT);
 
-	adc_continuous_handle_cfg_t adc_config = {
-		 .max_store_buf_size = 1024,
-		 .conv_frame_size		= EXAMPLE_READ_LEN,
-	};
-	ESP_ERROR_CHECK(adc_continuous_new_handle(&adc_config, &handle));
-
-	adc_continuous_config_t dig_cfg = {
-		 .sample_freq_hz = 20 * 1000,
-		 .conv_mode		  = EXAMPLE_ADC_CONV_MODE,
-		 .format			  = EXAMPLE_ADC_OUTPUT_TYPE,
-	};
-
-	adc_digi_pattern_config_t adc_pattern[SOC_ADC_PATT_LEN_MAX] = {0};
-	dig_cfg.pattern_num														= channel_num;
-	for (int i = 0; i < channel_num; i++) {
-		adc_pattern[i].atten		 = EXAMPLE_ADC_ATTEN;
-		adc_pattern[i].channel	 = channel[i] & 0x7;
-		adc_pattern[i].unit		 = EXAMPLE_ADC_UNIT;
-		adc_pattern[i].bit_width = EXAMPLE_ADC_BIT_WIDTH;
-
-		ESP_LOGI(TAG, "adc_pattern[%d].atten is :%" PRIx8, i, adc_pattern[i].atten);
-		ESP_LOGI(TAG, "adc_pattern[%d].channel is :%" PRIx8, i, adc_pattern[i].channel);
-		ESP_LOGI(TAG, "adc_pattern[%d].unit is :%" PRIx8, i, adc_pattern[i].unit);
-	}
-	dig_cfg.adc_pattern = adc_pattern;
-	ESP_ERROR_CHECK(adc_continuous_config(handle, &dig_cfg));
-
-	*out_handle = handle;
+	// Output lights
+	io_conf.pin_bit_mask = LEDS_MASK;
+	io_conf.mode			= GPIO_MODE_OUTPUT;
+	io_conf.pull_up_en	= 0;
+	gpio_config(&io_conf);
 }
 
-void app_main(void) {
-	esp_err_t ret;
-	uint32_t ret_num						= 0;
-	uint8_t result[EXAMPLE_READ_LEN] = {0};
-	memset(result, 0xcc, EXAMPLE_READ_LEN);
+void adcInit() {
+	ESP_ERROR_CHECK(adc_oneshot_new_unit(&sensorConfig, &sensorHandle));
+	ESP_ERROR_CHECK(adc_oneshot_config_channel(sensorHandle, SENSOR_TEMP_CHANNEL, &sensorChannelConfig));
+	ESP_ERROR_CHECK(adc_oneshot_config_channel(sensorHandle, SENSOR_ILUM_CHANNEL, &sensorChannelConfig));
+}
 
-	s_task_handle = xTaskGetCurrentTaskHandle();
-
-	adc_continuous_handle_t handle = NULL;
-	continuous_adc_init(&adc_channel, sizeof(adc_channel) / sizeof(adc_channel_t), &handle);
-
-	adc_continuous_evt_cbs_t cbs = {
-		 .on_conv_done = s_conv_done_cb,
-	};
-	ESP_ERROR_CHECK(adc_continuous_register_event_callbacks(handle, &cbs, NULL));
-	ESP_ERROR_CHECK(adc_continuous_start(handle));
+void app_main() {
+	gpioInit();
+	adcInit();
+	uint8_t lastState = 0;
+	printf("\n\n\nSelected room: %d\n Ilumination treshold has been set to: %f\n Temperature treshold has been set "
+			 "to: %f\n\n",
+			 selectedRoom, roomTresholds[selectedRoom].iluminationTreshold,
+			 roomTresholds[selectedRoom].temperatureTreshold);
 
 	while (1) {
+		printf("\nikimunaction = %0.2f", sensorValues[eIlumination]);
+		sensorValues[eIlumination] = getIlumination();
+		sensorValues[eTemperature] = getTemperature();
 
-		/**
-		 * This is to show you the way to use the ADC continuous mode driver event callback.
-		 * This `ulTaskNotifyTake` will block when the data processing in the task is fast.
-		 * However in this example, the data processing (print) is slow, so you barely block here.
-		 *
-		 * Without using this event callback (to notify this task), you can still just call
-		 * `adc_continuous_read()` here in a loop, with/without a certain block timeout.
-		 */
-		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+		setLightsState(sensorValues[eIlumination], roomTresholds[selectedRoom].iluminationTreshold);
+		logStateChange(lastState);
+		lastState = lights;
 
-		char unit[] = EXAMPLE_ADC_UNIT_STR(EXAMPLE_ADC_UNIT);
+		if (sensorValues[eTemperature] < roomTresholds[selectedRoom].temperatureTreshold && !heater) {
+			printf("Temperature treshold has been reached, turning on the heater\n");
+			heater = true;
+		} else if (sensorValues[eTemperature] > roomTresholds[selectedRoom].temperatureTreshold && heater) {
+			printf("Temperature treshold has been reached, turning off the heater\n");
+			heater = false;
+		}
+		ms++;
+		updateLights();
+		vTaskDelay(1 / portTICK_PERIOD_MS);
+	}
+}
 
-		while (1) {
-			ret = adc_continuous_read(handle, result, EXAMPLE_READ_LEN, &ret_num, 0);
-			if (ret == ESP_OK) {
-				ESP_LOGI("TASK", "ret is %x, ret_num is %" PRIu32 " bytes", ret, ret_num);
-				for (int i = 0; i < ret_num; i += SOC_ADC_DIGI_RESULT_BYTES) {
-					adc_digi_output_data_t *p = (adc_digi_output_data_t *)&result[i];
-					uint32_t chan_num			  = EXAMPLE_ADC_GET_CHANNEL(p);
-					uint32_t data				  = EXAMPLE_ADC_GET_DATA(p);
-					ESP_LOGI(TAG, "Unit: %s, Channel: %" PRIu32 ", Value: %" PRIx32, unit, chan_num, data);
-				}
-				vTaskDelay(1);
+void setLightsState(float iluminationValue, float iluminationTreshold) {
+	if (iluminationValue < iluminationTreshold) {
+		switch ((uint64_t)iluminationValue) {
+			case 0 ... SINGLE_LED_VALUE - 1:
+				lights = eAllLights;
+				break;
+			case SINGLE_LED_VALUE ... SINGLE_LED_VALUE * 2 - 1:
+				lights = eThreeLights;
+				break;
+			case SINGLE_LED_VALUE * 2 ... SINGLE_LED_VALUE * 3 - 1:
+				lights = eTwoLights;
+				break;
+			case SINGLE_LED_VALUE * 3 ... SINGLE_LED_VALUE * 4 - 1:
+				lights = eOneLight;
+				break;
+			case MAX_LUMINOSITY:
+			default:
+				lights = eAllOff;
+				break;
+		}
+	} else if (sensorValues[eIlumination] > roomTresholds[selectedRoom].iluminationTreshold) {
+		lights = eTresholdExceeded;
+	}
+}
+
+void logStateChange(uint8_t lastState) {
+	if (lights != lastState) {
+		switch (lights) {
+			case eAllOff:
+				printf("Light is very high, turning off the lights\n");
+				break;
+			case eOneLight:
+				printf("Light is high, turning on 1 light\n");
+				break;
+			case eTwoLights:
+				printf("Light is medium, turning on 2 lights\n");
+				break;
+			case eThreeLights:
+				printf("Light is low, turning on 3 lights\n");
+				break;
+			case eAllLights:
+				printf("Light is very low, turning on all the lights\n");
+				break;
+			case eTresholdExceeded:
+				printf("Ilumination treshold has been exceeded, turning off all the lights\n");
+				break;
+		}
+	}
+}
+
+static void IRAM_ATTR selectButtonHandler(void *arg) {
+	uint32_t gpio_num = (uint32_t)arg;
+	xQueueSendFromISR(gpio_evt_queue, &gpio_num, NULL);
+}
+
+static void selectButtonInterrupt(void *arg) {
+	static bool isPressed = 1;
+	uint32_t io_num;
+	for (;;) {
+		if (xQueueReceive(gpio_evt_queue, &io_num, portMAX_DELAY)) {
+			isPressed = !isPressed;
+			if (!isPressed) {
+				selectedRoom = (selectedRoom + 1) % eRoomMAX;
+				printf("Selected room: %d\n Ilumination treshold has been set to: %f\n Temperature treshold has been set "
+						 "to: %f\n\n",
+						 selectedRoom, roomTresholds[selectedRoom].iluminationTreshold,
+						 roomTresholds[selectedRoom].temperatureTreshold);
 			}
 		}
-
-		ESP_ERROR_CHECK(adc_continuous_stop(handle));
-		ESP_ERROR_CHECK(adc_continuous_deinit(handle));
 	}
+}
+
+// Functions used by Wowki components
+// NTC temperature sensor https://docs.wokwi.com/parts/wokwi-ntc-temperature-sensor#attributes
+float getTemperature() {
+	ESP_ERROR_CHECK(adc_oneshot_read(sensorHandle, SENSOR_TEMP_CHANNEL, &adcRawValue));
+	return (BETA / (log(1 / ((1023. / adcRawValue) - 1)) + 13.3322)) - 273.15;
+}
+
+// LDR sensor https://docs.wokwi.com/parts/wokwi-photoresistor-sensor#attributes
+float getIlumination() {
+	ESP_ERROR_CHECK(adc_oneshot_read(sensorHandle, SENSOR_ILUM_CHANNEL, &adcRawValue));
+	float voltage	  = adcRawValue / 1024. * V_REF;
+	float resistance = 2000 * voltage / (1 - voltage / V_REF);
+	// pow(RL10 * 1e3 * pow(10, GAMMA) / resistance, (1 / GAMMA)) is the formula to calculate the lux
+	return pow(RL10_KGAMMA / resistance, INV_GAMMA);
 }
