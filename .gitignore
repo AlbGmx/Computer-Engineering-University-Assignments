@@ -16,3 +16,8 @@
 *./local.properties
 .vscode/c_cpp_properties.json
 build*/
+*.mov
+Dockerfile
+sdkconfig
+devcontainer.json
+sdkconfig.defaults

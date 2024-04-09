@@ -54,6 +54,7 @@ static void selectButtonHandler(void *);
 
 // Global variables
 bool heater				= false;
+char *rooms[]			= {"Bedroom", "Living Room", "Kitchen"};
 uint8_t lights			= 0;
 static uint64_t ms	= 0;
 uint8_t selectedRoom = 0;
@@ -120,13 +121,12 @@ void app_main() {
 	gpioInit();
 	adcInit();
 	uint8_t lastState = 0;
-	printf("\n\n\nSelected room: %d\n Ilumination treshold has been set to: %f\n Temperature treshold has been set "
+	printf("\n\n\nSelected room: %s\n Ilumination treshold has been set to: %f\n Temperature treshold has been set "
 			 "to: %f\n\n",
-			 selectedRoom, roomTresholds[selectedRoom].iluminationTreshold,
+			 rooms[selectedRoom], roomTresholds[selectedRoom].iluminationTreshold,
 			 roomTresholds[selectedRoom].temperatureTreshold);
 
 	while (1) {
-		printf("\nikimunaction = %0.2f", sensorValues[eIlumination]);
 		sensorValues[eIlumination] = getIlumination();
 		sensorValues[eTemperature] = getTemperature();
 
@@ -210,9 +210,9 @@ static void selectButtonInterrupt(void *arg) {
 			isPressed = !isPressed;
 			if (!isPressed) {
 				selectedRoom = (selectedRoom + 1) % eRoomMAX;
-				printf("Selected room: %d\n Ilumination treshold has been set to: %f\n Temperature treshold has been set "
-						 "to: %f\n\n",
-						 selectedRoom, roomTresholds[selectedRoom].iluminationTreshold,
+				printf("\n\n\nSelected room: %s\n Ilumination treshold has been set to: %f\n Temperature treshold has been "
+						 "set to: %f\n\n",
+						 rooms[selectedRoom], roomTresholds[selectedRoom].iluminationTreshold,
 						 roomTresholds[selectedRoom].temperatureTreshold);
 			}
 		}
