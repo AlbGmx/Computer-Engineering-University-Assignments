@@ -14,7 +14,6 @@ import java.util.Scanner;
     es eliminada y la búsqueda continúa en la mitad restante hasta que el valor
     se encuentre.
 
-
 */
 public class practica4_GomezEmmanuel{
     public static void main(String args[]){

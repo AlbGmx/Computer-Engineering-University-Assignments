@@ -2,7 +2,7 @@ import java.util.Random;
 
 /*
     Algoritmos y Estructura de Datos
-    Práctica 6. Recursividad 2
+    Práctica 6. Recursividad
     Alumno: Gómez Cárdenas Emmanuel Alberto
     Docente: M.I Palacios Guerreros Alma Leticia
     Fecha de Entrega: 1 de noviembre a las 13:00

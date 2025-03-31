@@ -5,8 +5,30 @@
     Docente: M.I Palacios Guerreros Alma Leticia
     Fecha de Entrega: 23 de noviembre a las 14:00
 
+    Una compañía dedicada a la venta de celulares desea agradecer su preferencia a sus clientes haciéndoles regalos que 
+    van desde recargas desde 50 pesos hasta el celular que el cliente escoja del inventario. Los clientes se han
+    registrado a través de una página y se ha generado una lista a partir del registro. La compañía le ha pedido que 
+    diseñe e implemente una aplicación basada en el principio FIFO para seleccionar al cliente ganador. El algoritmo 
+    que debe implementar es el siguiente: 
+    Utilizando un número K aleatorio, se recorre K clientes, el K-ésimo cliente será eliminado de la cola con un premio 
+    de consolación de $50 TA. Este proceso se repite las veces que sea necesario, en cada vuelta completa el premio de 
+    consolación se incrementa en $50, hasta que queda solo el cliente ganador.
+        
+        Se pide que su programa tenga las siguientes opciones:
+        1) Agregar cliente a la lista.
+        2) Hacer sorteo
 
-
+    § La opción hacer sorteo debe mostrar el orden en que se van eliminando los clientes de la lista.
+    § Puede utilizar y modificar todas las funciones vistas en clase.
+    § Si se terminan los clientes antes de completar K, debe continuar el conteo con el primer cliente.
+    § No se pide que utilice listas dobles ni circulares.
+    § Los clientes serán ingresados por el usuario.
+    § El valor de K es un número aleatorio entre 1 y 5
+    § El valor de K puede variar en cada sorteo.
+    § Una vez que inicia el sorteo no puede agregar clientes.
+    § La cantidad de clientes es ilimitada
+    § Lenguaje C o Java.
+    § Debe utilizar una cola dinámica.
 
 */
 
