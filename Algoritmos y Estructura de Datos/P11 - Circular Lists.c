@@ -1,6 +1,6 @@
 /*
     Algoritmos y Estructura de Datos
-    Práctica 10. Pilas Dinamicas
+    Práctica 11. Listas Circulares
     Alumno: Gómez Cárdenas Emmanuel Alberto
     Docente: M.I Palacios Guerreros Alma Leticia
     Fecha de Entrega: 14 de diciembre a las 13:00
