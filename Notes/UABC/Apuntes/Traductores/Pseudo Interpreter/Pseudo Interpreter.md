@@ -1,3 +1,0 @@
-[[Elements]]
-
-[[Gramática de Busqueda]]
