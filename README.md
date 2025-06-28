@@ -29,10 +29,6 @@ Projects highlight my practical skills in implementing what I've learned. They o
 
 Lab work exhibits my hands-on experience with various tools, technologies, and methodologies. It demonstrates my ability to conduct experiments, gather data, and draw conclusions in a controlled environment.
 
-### Reports and Presentations
-
-In some cases, I've included reports and presentations that I created for seminars, workshops, or other academic events. These documents showcase my ability to communicate complex ideas effectively.
-
 ## Technologies and Skills
 
 Throughout my academic journey, I've had the opportunity to work with a wide range of technologies and tools, including but not limited to:
