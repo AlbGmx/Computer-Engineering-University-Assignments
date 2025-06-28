@@ -6,12 +6,7 @@ Welcome to my repository containing all the work, projects, assignments, and acc
 
 ## Overview
 
-This repository is organized chronologically to reflect my academic progress, with each semester or academic year having its dedicated section. Inside each section, you will find a variety of materials that demonstrate my academic pursuits.
-
-## Repository Structure
-
-- TBD
-
+This repository is organized by subjects to easily display, each learned subject. Inside each section, you will find a variety of materials that demonstrate my academic pursuits.
 
 ## Contents
 
@@ -29,24 +24,25 @@ Projects highlight my practical skills in implementing what I've learned. They o
 
 Lab work exhibits my hands-on experience with various tools, technologies, and methodologies. It demonstrates my ability to conduct experiments, gather data, and draw conclusions in a controlled environment.
 
-### Reports and Presentations
-
-In some cases, I've included reports and presentations that I created for seminars, workshops, or other academic events. These documents showcase my ability to communicate complex ideas effectively.
-
 ## Technologies and Skills
 
 Throughout my academic journey, I've had the opportunity to work with a wide range of technologies and tools, including but not limited to:
 
-- Programming Languages: Assembly, Java, Python, C++, C, Netlogp, etc.
+- Programming Languages: x86 Assembly, Java, Python, C++, C, Netlogo, etc.
 - Tools: Visual Studio Code, Netlogo, CMake, Word, Powerpoint, etc.
 - Version Control: Git, Github.
 - Data Analysis: Excel, MATLAB
 - Web Development: HTML, CSS, JavaScript
 
+## _Disclaimer_ 
+
+Some of the subjects folders are empty, as I took the classes before my Github account
+
 ## Contact
 
-I am excited about the work I've done / still doing during my university years, and I'm always open to discussing my projects and experiences. Please feel free to contact me at [Gomez.emmanuel@uabc.edu.mx](mailto:gomez.emmanuel@uabc.com.mx) if you have any questions or collaborations.
+I am excited about the work I've done on my university years, and I'm always open to discussing my projects and experiences. Please feel free to contact me at [emmanuel.alberto.gc@gmail.com](mailto:emmanuel.alberto.gc@gmail.com) if you have any questions or collaborations.
 
 Thank you for visiting my repository and taking the time to explore my academic journey!
 
 *Emmanuel Alberto Gomez Cardenas*
+
