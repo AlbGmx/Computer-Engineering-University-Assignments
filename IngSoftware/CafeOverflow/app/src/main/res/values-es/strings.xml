@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CafeOverflow</string>
+
+    <string name="mensaje_del_dia">¡Mensaje del dia!</string>
+    <string name="mensaje_del_dia_1">¡Creer es la mitad de la batalla!</string>
+    <string name="iniciar_sesion">Iniciar sesion</string>
+    <string name="invitado">Invitado</string>
+
+    <string name="hola">¡Hola!</string>
+    <string name="iniciar_sesion_2">Inicie secion para continuar</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="olvido_contrasena">¿Olvido su contraseña?</string>
+    <string name="click_aqui">Click aqui</string>
+</resources>
