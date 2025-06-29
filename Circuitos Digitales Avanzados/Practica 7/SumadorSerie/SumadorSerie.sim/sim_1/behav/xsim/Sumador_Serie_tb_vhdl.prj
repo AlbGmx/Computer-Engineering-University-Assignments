@@ -1,0 +1,9 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../SumadorSerie.srcs/sources_1/new/FlipFlopD.vhd" \
+"../../../../../RegistroDesplazamiento/RegistroDesplazamiento.srcs/sources_1/new/RegistroDesplazamiento.vhd" \
+"../../../../SumadorSerie.srcs/sources_1/new/SumadorSerie.vhd" \
+"../../../../SumadorSerie.srcs/sources_1/new/Sumador_Serie_tb.vhd" \
+
+# Do not sort compile order
+nosort

@@ -1,0 +1,1 @@
+-wto "dc35e77b9ac04c6099db666daea7a05f" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "RegistroDesplazamiento_tb_behav" "xil_defaultlib.RegistroDesplazamiento_tb" -log "elaborate.log" 
