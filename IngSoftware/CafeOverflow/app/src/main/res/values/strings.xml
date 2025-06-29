@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">CafeOverflow</string>
+
+    <string name="mensaje_del_dia">Message of the day!</string>
+    <string name="mensaje_del_dia_1">Believing is half the battle!</string>
+    <string name="iniciar_sesion">Login</string>
+    <string name="registrarte">Register</string>
+    <string name="email">Email</string>
+    <string name="invitado">Guest</string>
+
+    <string name="hola">Hello!</string>
+    <string name="iniciar_sesion_2">Sign in to continue</string>
+    <string name="usuario">Username</string>
+    <string name="contrasena">Password</string>
+    <string name="olvido_contrasena">Forgot password?</string>
+    <string name="click_aqui">Click here</string>
+</resources>
