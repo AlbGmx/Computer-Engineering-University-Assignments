@@ -1,0 +1,138 @@
+<html>
+<h1>Lenguajes de Programacion</h1>
+
+Un lenguaje de programacion es un lenguaje formal, es decir, un lenguaje con reglas gramaticales bien definidas; que le proporciona a una persona, en este caso el programador, la capacidad de escribir una serie de instrucciones o secuencias ordenadas de ordenes en forma de algoritmos con el fin de controlar el comportamiento fisico y/o logico de una computadora, de manera que se puedan obtener diversas clases de datos o ejecutar determinadas tareas.
+<br>Dicho de otra forma, el lenguaje de programacion es la forma que tenemos para comunicarnos con la computadora. Es un lenguaje que ambos entendemos, y gracias a esto, se pueden crear programas, aplicaciones, como con las que cuenta en un telefono.
+<br><br>Dentro de ellos, existe gran variedad, cada uno con sus caracteristicas, como por ejemplo:
+<ul>
+<li>Java</li>
+<li>C</li>
+<li>Python</li>
+<li>C++</li>
+<li>C#</li>
+<li>Y muchos mas.</li>
+</ul>
+Cada uno de ellos tiene su forma de escribir, sus palabras claves, su sintaxis, funciones, etc.
+</html>
+
+|<html>
+<h1>Variables</h1>
+En programación, las variables son espacios reservados en la memoria que, como su nombre indica, pueden cambiar de contenido a lo largo de la ejecución de un programa.
+<br>Una variable corresponde a un área reservada en la memoria principal del ordenador.
+<br>Para que nuestro código sea más entendible y claro, el identificador de la variable debe ser mnemotécnico, es decir que debe reflejar el uso dentro del programa de la misma.
+<br>Estas pueden tener diferentes tipos de datos, dependiendo lo que se quiera almacenar, ya sea numeros, un estos, letaras, etc.
+<ul>
+<li>Dato Booleano. Sirve para representar valores de logica binaria. Puede tener solamente dos estados, verdadero o falso.</li>
+<li>Dato Entero. Este tipo de dato nos sirve para guardar numeros que son enteros, que no cuenta con numero decimal.</li>
+<li>Dato Caracter. Un caracter es un sumbolo que repreenta cada caracter de un lenguaje natural. Con este tipo de dato podemos almacenar uno de ellos.</li>
+<li>Dato Cadena de Caracteres. Con este tipo podemos almacenar varios caracteres, una secuencia de ellos, y asi poder tener palabras.
+</html>
+
+|<html>
+<h1>Funciones</h1>
+Las funciones son un elemento muy utilizado en la programacion. Empaquetan y aislan del resto del programa, una parte de codigo que realiza alguna tarea especifica.
+<br>Son por tanto un conjunto de instrucciones que ejecutan una tarea determinada y que hemos encapsulado en un formato estándar para que nos sea muy sencillo de manipular y reutilizar.
+<br><br>Con ellas podemos reutilizar codigo, y crear programas mas complejos sin escribir tanto.
+</html>
+
+|<html>
+<h1>Instruccion if/else</h1>
+La estructura condicional <b>if/else</b> nos permite realizar tomas de decisiones sobre ciertas condiciones, ya sea dependiendo de los datos que introduzca el usuario, si se produjo algun error, o alguna otra cosa.
+<br><b>if/else</b> que traducido a español es "si ... si no", es deicr, <b>Si</b> se cumple la condicion has esto, <b>Si no</b> has esto otro.
+<br><br>Ejemplo de codigo
+<br>if (condicion) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;instrucciones_si_verdadero;
+<br>} else {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;instrucciones_si_falso;
+<br>}
+<br><br>Esto nos permite crear programas que reacciones de diferente manera dependiendo de los datos ingresados.
+<br><br>
+</html>
+
+|<html>
+<h1>Instruccion while y do/while</h1>
+<b>while</b> y <b>do/while</b> son dos instrucciones de tipo bucle, las cuales correran el codigo repetidamentes mientras una condicion se evalue a verdadero. El bucle dejara de correr hasta que la condicion se evalue como falsa.
+<br>La diferenteica entre <b>while</b>, y <b>do/while</b> es que, <b>while</b> confirmara la condicion antes de correr el programa, por lo cual puede ser que se corra 0 veces, y <b>do/while</b> correra el programa y luego comprobara la condicion, por lo tanto siempre se correra 1 vez.
+<br><br>Ejemplo de codigo while
+<br>while (condicion) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;instrucciones_si_verdadero;
+<br>}
+<br><br>Ejemplo codigo do/while
+<br>do {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;instrucciones_si_verdadero;
+<br>}while (condicion);
+<br><br>Con este bucle se podria crear un programa que prenda el calentador hasta que la condicion, que la temperatura sea menor que 60 grados, sea falsa.
+</html>
+
+|<html>
+<h1>Instruccion for</h1>
+<b>for</b> es una instruccion de tipo bucle, la cual sirve para correr el bloque de codigo reiretadamente controladas por un contador que detendra el codigo. El contador tendra el control de cuantas veces correra el codigo antes de ser parado
+<br>Se cuenta con la inicializacion, que es de que numero comenzara el contador (normalmente i = 0;), la condicion que es la cual, al evaluar falso terminara (i<10), y por ultimo la razon de incremento, cuanto valor se incrementara cada vez que da una vuelta (i + 1).
+<br><br>Ejemplo de codigo
+<br>for (inicializacion; condicion; incremento) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;codigo_a_ejecutar;
+<br>}
+<br><br>Con este buble se puede crear un programa facilemnte que imprima los numeros en un rango dado. Con esto podriamos imprimir los numero de 0 - 100,000 usando solamente dos lineas de codigo.
+</html>
+
+|<html>
+<h1>Programacion Orientada a Objetos</h1>
+La Programacion Orientada a Objetos (POO) es un paradigma de programacion que usa objetos para crear aplicaciones.
+<br>Esta basada en tres pilares fundamentales:
+<ul>
+<li>Herencia</li>
+<li>Poliformismo</li>
+<li>Encapsulamiento</li>
+</ul>
+<br>Entre sus ventajas tenemos
+<ul>
+<li>Fomenta la reutilización y ampliación del código.</li>
+<li>Permite crear sistemas más complejos.</li>
+<li>La programación se asemeja al mundo real.</li>
+<li>Agiliza el desarrollo de software.</li>
+<li>Facilita el trabajo en equipo.</li>
+</html>
+
+|<html>
+<h1>Herencia</h1>
+La herencia es uno de los conceptos más cruciales en la POO. La herencia consiste en que una clase puede heredar las variables y los métodos de otra clase (la clase que hereda es llamada superclase o clase padre).
+<br>Esto significa que una subclase, aparte de los atributos y métodos propios, tiene incorporados los atributos y métodos heredados de la superclase. De esta manera se crea una jerarquía de herencia.
+</html>
+
+|<html>
+<h1>Poliformismo</h1>
+El polimorfismo es la habilidad de una función, método, variable u objeto de poseer varias formas distintas. Podríamos decir que un mismo identificador comparte varios significados diferentes.
+<br><br>El propósito del polimorfismo es implementar un estilo de programación llamado envío de mensajes en el que los objetos interactúan entre ellos mediante estos mensajes, que no son más que llamadas a distintas funciones.
+<br><br>Java tiene 4 grandes formas de poliformismo
+<ul>
+<li>Polimorfismo de asignación</li>
+<li>Polimorfismo puro</li>
+<li>Sobrecarga</li>
+<li>Polimorfismo de inclusión</li>
+</html>
+
+
+|<html>
+<h1>Encapsulameinto</h1>
+En encapsulamiento es un principio del lenguaje Java cuya filosofía es hacer que los atributos de las clases se puedan editar sólo a través de métodos. De manera general, se hace teniendo las propiedades como privadas y métodos que la controlan públicos.
+<br>Comúnmente, se crean un grupo de métodos llamados getters (se encargan de obtener el valor de la propiedad) y setters (se encargan de setearla).
+<br><br>Mantener las clases con el principio de encapsulamiento nos permite controlar el cambio de valor que pueda producirse en ellas añadiendo validaciones.
+<br>De cualquier manera, es una convención dentro de la programación orientada a objetos aunque no se esté realizando una operación adicional al cambio de valor.
+</html>
+
+|<html>
+<h1>Clases</h1>
+La clase es un modelo o prototipo que define las variables y métodos comunes a todos los objetos de cierta clase. También se puede decir que una clase es una plantilla genérica para un conjunto de objetos de similares características.
+<br>Por otro lado, una instancia de una clase es otra forma de llamar a un objeto. En realidad no existe diferencia entre un objeto y una instancia. Sólo que el objeto es un término más general, pero los objetos y las instancias son ambas representación de una clase.
+</html>
+
+|<html>
+<h1>Metodos</h1>
+Un método es una abstracción de una operación que puede hacer o realizarse con un objeto.
+<br>Una clase puede declarar cualquier número de métodos que lleven a cabo operaciones de lo más variado con los objetos.
+</html>
+
+|<html>
+<h1>Objetos</h1>
+El objeto no es mas que una instancia de una clase, por lo cual un objeto se creara haciendo una instancia, para esto utilizamos la instrucción new acompañado del nombre de la clase al cual queremos instanciar, el nombre del objeto es depende de cada programador y se la puede asignar según nuestra comodidad.
+</html>

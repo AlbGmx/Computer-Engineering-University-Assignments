@@ -1,0 +1,82 @@
+<html>
+<h1>¿Qué es una matriz?</h1>
+Una matriz es un arreglo bidimensional de números consistente en cantidades abstractas que pueden sumarse y multiplicarse entre sí.
+<br>Es una disposición de valores numéricos y/o variables (representadas por letras), en columnas y filas, de forma rectangular.
+<br>Las dimensiones de una matriz nos dicen su tamaño (denominados como el número de renglones y columnas de la matriz, en ese orden).
+<br><h1>Elementos de la matriz.</h1>
+Un elemento de la matriz es simplemente una entrada de la matriz. Cada elemento en una matriz se identifica al nombrar el renglón y la columna en los cuales aparece.
+<br>Una matriz de 3 renglones por 4 columnas (Matriz de 3x4) puede verse asi:
+<br>[3, 2, 4, 32]
+<br>[4, 1, 2, 43]
+<br>[6, 4, 6, 99]
+<br>Su elemento M<sub>2 4</sub> seria 43
+<br>Y su elemento M<sub>3 4</sub> seria 99</html>
+|<html>
+<h1>Operaciones con renglones de matrices</h1>
+Se llama operación elemental realizada en una matriz a cualquiera de las transformaciones siguientes: 
+<br><b>Intercambio de renglones 1 y 3 (R<sub>1</sub>&harr R<sub>3</sub>)</b>
+<br>Todos los valores del renglon 1 son cambiados por los valores del renglon 3 y viceversa
+<br>  [1, 2, 3]  -->  [7, 8, 9]<br>
+      [4, 5, 6]  -->  [4, 5, 6]<br>
+      [7, 8, 9]  -->  [1, 2, 3]
+<br><br><b>El renglon 1 se multiplica 2 veces por si mismo y se guardan los valores en el renglon 2 (2 * R<sub>1</sub>&#8594; R<sub>1</sub>)</b>
+<br>  [1, 2, 3]  -->  [1, 2, 3]<br>
+      [4, 5, 6]  -->  [2, 4, 6]<br>
+      [7, 8, 9]  -->  [7, 8, 9]
+<br><br><b>El renglon 2 se convierte en la suma de los renglones 1 y 3 (R<sub>1</sub> + R<sub>3</sub> &#8594; R<sub>2</sub>)</b>
+<br>  [1, 2, 3]  -->  [1, &nbsp;&nbsp;2, &nbsp;&nbsp;3]<br>
+      [4, 5, 6]  -->  [8, 10, 12]<br>
+      [7, 8, 9]  -->  [7, &nbsp;&nbsp;8, &nbsp;&nbsp;9]
+</html>
+|<html><h1>Suma y Resta de Matrices</h1>La suma de matrices es una operación lineal que consiste en unificar los elementos de dos o más matrices que coincidan en posición dentro de sus respectivas matrices y que estas tengan el mismo orden
+<br><br>Para poder sumar o restar matrices, éstas deben tener <b><font color=#0000ff>el mismo número de filas y de columnas</font></b>. 
+Es decir, si una matriz es de orden 3x2 y otra de 3x3, no se pueden sumar ni restar.<br>
+<br><b>Matriz A</b> =&nbsp;[1, 2, 3] &nbsp; <b>Matriz B</b> = [7, 8, 9]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4, 5, 6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4, 5, 6]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[7, 8, 9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1, 2, 3]
+<br><br><b>Matriz A + Matriz B</b> = [8, 10, 12]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [8, 10, 12]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [8, 10, 12]
+<br><br><b>Matriz A - Matriz B</b> = [-6, -6, -6]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [ 0,&nbsp; 0,&nbsp; 0]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [ 6,&nbsp; 6,&nbsp; 6]
+</html>
+|<html><h1>Multiplicacion de Matriz por Escalar</h1>Cuando multiplicamos una matriz por un escalar (es decir, un solo número) simplemente multiplicamos todos los términos de la matriz por ese escalar. 
+<br><br><b>Matriz A</b> =&nbsp;[1, 2, 3] &nbsp; <b>Matriz B</b> = [7, 8, 9]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4, 5, 6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4, 5, 6]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[7, 8, 9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1, 2, 3]
+<br><br><b>3 * Matriz A</b> = [&nbsp;&nbsp;3,&nbsp;&nbsp;6, &nbsp;&nbsp;9]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[12, 15, 18]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[21, 24, 27]
+<br><br><b>7 * Matriz B</b> = [49, 54, 63]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[28, 35, 42]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;&nbsp;7, 14, 21]
+|<html>
+<h1>Determinante de una Matriz</h1>
+Llamamos determinante de la Matriz A (det A) al número obtenido al sumar todos los diferentes productos de n elementos que se pueden formar con todos los elementos de dicha matriz, de modo que en cada producto figuren un elemento de cada distinta fila y uno de cada distinta columna, a cada producto se le asigna el signo (+) si la permutación de los subíndices de filas es del mismo orden que la permutación de los subíndices de columnas, y signo (-) si son de distinto orden.
+<br><b>Para una matriz de 2x2, su determinante se calcula:</b> 
+<br><b>detA</b> = &#124 a<sub>11</sub>, a<sub>12</sub> &#124 &#8594; a<sub>11</sub> * a<sub>22</sub> + (- a<sub>12</sub>*  a<sub>21</sub>)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#124; a<sub>21</sub>, a<sub>22</sub> &#124;
+<br><br>En el caso de una matriz 3x3 hay que considerar que todas las permutaciones de (123) son seis por lo que si determinante sera:
+<br><b>detB</b> = &#124 a<sub>11</sub>, a<sub>12</sub>, a<sub>13</sub> &#124
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#124; a<sub>21</sub>, a<sub>22</sub>, a<sub>23</sub> &#124;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#124; a<sub>31</sub>, a<sub>32</sub>, a<sub>33</sub> &#124;
+<br><b>detB</b> = (a<sub>11</sub>*a<sub>22</sub>*a<sub>33</sub>) -  (a<sub>12</sub>*a<sub>21</sub>*a<sub>33</sub>) +  (a<sub>12</sub>*a<sub>23</sub>*a<sub>31</sub>) - (a<sub>11</sub>*a<sub>23</sub>*a<sub>32</sub>) + (a<sub>13</sub>*a<sub>21</sub>*a<sub>32</sub>) - (a<sub>13</sub> * a<sub>22</sub> * a<sub>31</sub>)
+</html>
+|<html>
+<h1>Inversa de una Matriz</h1>
+Para que una matriz sea invertible primero se tiene que comprobar esta matriz sea cuadrada y que su determinante sea no nulo
+<br><br>Calcular la matriz inversa en matrices 2x2 puede sere muy sencillo. Se hace de la siguiente manera.
+<br><b>A<sup>-1</sup></b> = [a, b] = 1/det(A) * [d, -b] = 1/(ad-bc) * [d, -b]</b>
+<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [c, d]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-c, a]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-c, a]
+<br>Siempre y cuando ad - bc (determinante de A) no sea cero
+<br><br>En el caso de matrices de órdenes superiores se utiliza la siguiente fórmula:
+<br><b>A<sup>-1</sup></b> = adj(A)/det(A)
+<br><br>El problema con esta fórmula es que cuando la matriz tiene mas de tres filas  se vuelve una implementación muy ineficiente
+ya que conduce a grandes, largos o tediosos cálculos. Gracias a esto se han creado métodos alternativos que son bastante mas eficientes.
+<br><br>Un método alternativo es el método de eliminación de Gauss-Jordan, el cual puede usarse para determinar si x matriz es invertible y, obviamente, encntrar su determinada
+</html>
+|Si estas viendo esto, es porque has encontrado un bug :D o has abierto el archivo c:
+|Si estas viendo esto, es porque has encontrado un bug :D o has abierto el archivo c:
+|Si estas viendo esto, es porque has encontrado un bug :D o has abierto el archivo c:
+|Si estas viendo esto, es porque has encontrado un bug :D o has abierto el archivo c:
