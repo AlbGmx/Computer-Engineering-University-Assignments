@@ -1,0 +1,9 @@
+Es un methodo de la clase String.;true;toLowerCase.png;toLowerCase();false;repaint.png;rapint();false;read.png;read();false;write.png;write();
+Es la accion de tomar metodos y paramtros de una clase a otra.;false;clase.png;Clase;false;metodos.png;Metodos;true;herencia.png;Herencia;false;package.png;Paquetes;
+Conjunto de objetos que comparten una estructura en comun.;false;metodos.png;Metodos;true;clase.png;Clases;false;herencia.png;Herencia;false;objetos.png;Objetos;
+Metodo que recarga los componentes en pantalla.;false;read.png;read();true;repaint.png;repaint();false;write.png;write();false;hashCode.png;hashCode();
+Estructura de control que permite realizar decisiones.;true;ifelse.png;if/else;false;dowhile.png;do/while;false;for.png;for;false;switchcase.png;switch case;
+Estrucutra de control que permite repetir codigo cierto numero de veces.;false;dowhile.png;do/while;true;for.png;for;false;ifelse.png;if/else;false;switchcase.png;switch case;
+Conjunto de instrucciones definidas dentro de una clase.;false;clase.png;Clase;false;objetos.png;Objetos;false;herencia.png;Herencia;true;metodos.png;Metodos;
+Nombre que se le da a los datos guardados.;true;variable.png;Variable;false;package.png;Paquete;false;clase.png;Clase;false;objetos.png;Objetos;
+Metodo que regresa el string con los caracteres en mayuscula.;false;toLowerCase.png;toLowerCase();false;repaint.png;repaint();true;toUpperCase.png;toUpperCase;false;write.png;write();

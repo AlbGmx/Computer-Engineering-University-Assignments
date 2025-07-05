@@ -1,0 +1,139 @@
+import java.util.Scanner;
+
+public class HelloWorld {
+
+    public static void main(String[] args) {
+
+        // Creates a reader instance which takes
+        // input from standard input - keyboard
+        Scanner reader = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+
+        // nextInt() reads the next integer from the keyboard
+        int number = reader.nextInt();
+
+        // println() prints the following line to the output screen
+        System.out.println("You entered: " + number);
+    }
+}
+
+|public class AddTwoIntegers {
+
+    public static void main(String[] args) {
+        
+        int first = 10;
+        int second = 20;
+
+        System.out.println("Enter two numbers: " + first + " " + second);
+        int sum = first + second;
+
+        System.out.println("The sum is: " + sum);
+    }
+}
+
+|public class AsciiValue {
+
+    public static void main(String[] args) {
+
+        char ch = 'a';
+        int ascii = ch;
+        // You can also cast char to int
+        int castAscii = (int) ch;
+
+        System.out.println("The ASCII value of " + ch + " is: " + ascii);
+        System.out.println("The ASCII value of " + ch + " is: " + castAscii);
+    }
+}
+
+|public class LeapYear {
+
+    public static void main(String[] args) {
+
+        int year = 1900;
+        boolean leap = false;
+
+        if(year % 4 == 0)
+        {
+            if( year % 100 == 0)
+            {
+                // year is divisible by 400, hence the year is a leap year
+                if ( year % 400 == 0)
+                    leap = true;
+                else
+                    leap = false;
+            }
+            else
+                leap = true;
+        }
+        else
+            leap = false;
+
+        if(leap)
+            System.out.println(year + " is a leap year.");
+        else
+            System.out.println(year + " is not a leap year.");
+    }
+}
+
+|public class Factorial {
+
+    public static void main(String[] args) {
+
+        int num = 10;
+        long factorial = 1;
+        for(int i = 1; i <= num; ++i)
+        {
+            // factorial = factorial * i;
+            factorial *= i;
+        }
+        System.out.printf("Factorial of %d = %d", num, factorial);
+    }
+}
+
+|import java.util.Scanner;
+
+public class Calculator {
+
+    public static void main(String[] args) {
+
+        Scanner reader = new Scanner(System.in);
+        System.out.print("Enter two numbers: ");
+
+        // nextDouble() reads the next double from the keyboard
+        double first = reader.nextDouble();
+        double second = reader.nextDouble();
+
+        System.out.print("Enter an operator (+, -, *, /): ");
+        char operator = reader.next().charAt(0);
+
+        double result;
+
+        switch(operator)
+        {
+            case '+':
+                result = first + second;
+                break;
+
+            case '-':
+                result = first - second;
+                break;
+
+            case '*':
+                result = first * second;
+                break;
+
+            case '/':
+                result = first / second;
+                break;
+
+            // operator doesn't match any case constant (+, -, *, /)
+            default:
+                System.out.printf("Error! operator is not correct");
+                return;
+        }
+
+        System.out.printf("%.1f %c %.1f = %.1f", first, operator, second, result);
+    }
+}
+
+|
