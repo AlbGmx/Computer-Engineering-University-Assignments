@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Alberto/Contador/Contador.srcs/sources_1/new/ContadorModuloM.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ContadorModuloM'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Alberto/Contador/Contador.srcs/sources_1/new/ContadorModuloM_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ContadorModuloM_tb'
