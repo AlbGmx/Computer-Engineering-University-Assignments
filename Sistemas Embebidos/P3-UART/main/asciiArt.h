@@ -1,0 +1,21 @@
+#ifndef ASCIIART
+#define ASCIIART
+
+#define ASCII_FONT_HEIGHT 5
+#define ASCII_FONT_WIDTH 7
+#define DESIRED_LETTERS_PER_LINE 20
+#define DESIRED_LINES 10
+#define CONSOLE_WIDTH (DESIRED_LETTERS_PER_LINE * ASCII_FONT_WIDTH) //
+#define CONSOLE_HEIGHT (DESIRED_LINES * (ASCII_FONT_HEIGHT * 2)) // Added extra height for the description
+#define TWO_SPACES 2
+#define ASCII_NUMBERS_START_INDEX 26
+#define ASCII_NUMBERS_END_INDEX 35
+#define ASCII_SPACE_INDEX 36
+#define ASCII_EXCLAMATION_INDEX 37
+#define ASCII_DOT_INDEX 38
+#define ASCII_PLUS_INDEX 39
+#define ASCII_MINUS_INDEX 40
+
+extern const char *asciiFont[];
+
+#endif
